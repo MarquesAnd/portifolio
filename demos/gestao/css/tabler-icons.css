@@ -1,0 +1,63 @@
+/*!
+ * Tabler Icons 3.31.0 by tabler - https://tabler.io
+ * License - https://github.com/tabler/tabler-icons/blob/master/LICENSE
+ */
+@font-face {
+  font-family: "tabler-icons";
+  font-style: normal;
+  font-weight: 400;
+  src: url("./fonts/tabler-icons-subset.woff") format("woff");
+}
+.ti {
+  font-family: "tabler-icons" !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.ti-arrow-down:before { content: "\ea16"; }
+.ti-arrow-left:before { content: "\ea19"; }
+.ti-arrow-right:before { content: "\ea1f"; }
+.ti-arrow-up:before { content: "\ea25"; }
+.ti-book:before { content: "\ea39"; }
+.ti-calendar-event:before { content: "\ea52"; }
+.ti-chart-bar:before { content: "\ea59"; }
+.ti-checklist:before { content: "\f074"; }
+.ti-clock:before { content: "\ea70"; }
+.ti-door:before { content: "\ef4e"; }
+.ti-download:before { content: "\ea96"; }
+.ti-edit:before { content: "\ea98"; }
+.ti-external-link:before { content: "\ea99"; }
+.ti-eye:before { content: "\ea9a"; }
+.ti-file:before { content: "\eaa4"; }
+.ti-file-export:before { content: "\ede9"; }
+.ti-file-text:before { content: "\eaa2"; }
+.ti-focus-2:before { content: "\ebd3"; }
+.ti-folder:before { content: "\eaad"; }
+.ti-history:before { content: "\ebea"; }
+.ti-info-circle:before { content: "\eac5"; }
+.ti-layout-dashboard:before { content: "\f02c"; }
+.ti-layout-grid:before { content: "\edba"; }
+.ti-layout-sidebar-left-collapse:before { content: "\f004"; }
+.ti-login-2:before { content: "\fc76"; }
+.ti-logout:before { content: "\eba8"; }
+.ti-maximize:before { content: "\eaea"; }
+.ti-message-circle:before { content: "\eaed"; }
+.ti-minus:before { content: "\eaf2"; }
+.ti-notebook:before { content: "\eb96"; }
+.ti-pencil:before { content: "\eb04"; }
+.ti-plus:before { content: "\eb0b"; }
+.ti-settings:before { content: "\eb20"; }
+.ti-sitemap:before { content: "\eb9d"; }
+.ti-spy:before { content: "\f227"; }
+.ti-trash:before { content: "\eb41"; }
+.ti-user-circle:before { content: "\ef68"; }
+.ti-user-plus:before { content: "\eb4b"; }
+.ti-users:before { content: "\ebf2"; }
+.ti-x:before { content: "\eb55"; }

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="" data-tema="gestao"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <title>CORTEX aba</title>
+  
+  
+  <link rel="icon" type="image/svg+xml" href="icones/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="icones/favicon-32.png">
+  <link rel="shortcut icon" href="icones/favicon.ico">
+  <link rel="apple-touch-icon" href="icones/apple-touch-icon.png">
+  
+  <meta name="theme-color" content="#0A1428">
+  
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Caveat:wght@600&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/components.css">
+  <link rel="stylesheet" href="styles/tema-aurora.css">
+  <link rel="stylesheet" href="styles/documentos.css">
+  <link rel="stylesheet" href="styles/transicoes.css">
+  <link rel="stylesheet" href="styles/cores.css">
+</head>
+<body>
+
+  <div class="app-shell" id="shell">
+
+    <aside class="sidebar">
+      <div class="sidebar-topo">
+        <a class="marca" href="#">
+          <span class="simbolo" aria-hidden="true">
+            <svg width="19" height="19" viewBox="0 0 32 32" fill="currentColor" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+              <line x1="16" y1="16" x2="9" y2="9"></line><line x1="16" y1="16" x2="23" y2="9"></line>
+              <line x1="16" y1="16" x2="9" y2="23"></line><line x1="16" y1="16" x2="23" y2="23"></line>
+              <line x1="16" y1="16" x2="16" y2="7"></line><line x1="16" y1="16" x2="16" y2="25"></line>
+              <circle cx="16" cy="16" r="2.8" stroke="none"></circle>
+              <circle cx="9" cy="9" r="1.6" stroke="none"></circle><circle cx="23" cy="9" r="1.6" stroke="none"></circle>
+              <circle cx="9" cy="23" r="1.6" stroke="none"></circle><circle cx="23" cy="23" r="1.6" stroke="none"></circle>
+              <circle cx="16" cy="7" r="1.6" stroke="none"></circle><circle cx="16" cy="25" r="1.6" stroke="none"></circle>
+            </svg>
+          </span>
+          <span class="nome"><span data-pt="CORTEX " data-en="CORTEX ">CORTEX </span><span class="mao" data-pt="aba" data-en="aba">aba</span></span>
+        </a>
+        <div class="acoes">
+          <button type="button" class="botao-icone so-expandida" id="botao-modo" onclick="alternarModo()" title="Alternar modo claro/escuro" data-pt="☾" data-en="☾">☾</button>
+          <button type="button" class="botao-icone" onclick="alternarSidebar()" title="Recolher/expandir menu" data-pt="☰" data-en="☰">☰</button>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav com-pilula" id="sidebar-nav" aria-label="Menu principal"><div class="nav-pilula" aria-hidden="true" style="opacity: 1; top: 389px; height: 36px;"></div><div class="nav-grupo-titulo" data-pt="ASSISTENCIAL" data-en="CLINICAL">CLINICAL</div><a class="nav-item" data-modulo="inicio" href="#inicio" title="Inicio" style="view-transition-name: nav-inicio;"><span class="icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5"></path><path d="M5 9.5V21h14V9.5"></path></svg></span><span data-pt="Inicio" data-en="Home">Home</span><span class="nav-conta" data-pt="6" data-en="6">6</span></a><a class="nav-item" data-modulo="pacientes" href="#pacientes" title="Pacientes" style="view-transition-name: nav-pacientes;"><span class="icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.5-9-9c-1.2-2.8.6-6 3.7-6C8.6 5 10.5 6.4 12 8c1.5-1.6 3.4-3 5.3-3 3.1 0 4.9 3.2 3.7 6-2 4.5-9 9-9 9z"></path></svg></span><span data-pt="Pacientes" data-en="Patients">Patients</span></a><a class="nav-item" data-modulo="agenda" href="#agenda" title="Agenda" style="view-transition-name: nav-agenda;"><span class="icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="16" rx="2.5"></rect><line x1="3.5" y1="10" x2="20.5" y2="10"></line><line x1="8" y1="3" x2="8" y2="7"></line><line x1="16" y1="3" x2="16" y2="7"></line></svg></span><span data-pt="Agenda" data-en="Schedule">Schedule</span></a><a class="nav-item" data-modulo="avaliacoes" href="#avaliacoes" title="Avaliacoes" style="view-transition-name: nav-avaliacoes;"><span class="icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l1-4L16.5 4.5a2.1 2.1 0 0 1 3 3L8 19l-4 1z"></path></svg></span><span data-pt="Avaliacoes" data-en="Assessments">Assessments</span></a><a class="nav-item" data-modulo="programas" href="#programas" title="Programas" style="view-transition-name: nav-programas;"><span class="icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5z"></path><path d="M4 20.5V5.5"></path><line x1="9" y1="8" x2="15" y2="8"></line></svg></span><span data-pt="Programas" data-en="Programs">Programs</span></a><a class="nav-item" data-modulo="mensais" href="#mensais" title="Relatorios mensais" style="view-transition-name: nav-mensais;"><span class="icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h9l4 4v14H6z"></path><path d="M14.5 3v4.5H19"></path><rect x="8.5" y="11" width="7" height="6.5" rx="1"></rect><line x1="8.5" y1="13.5" x2="15.5" y2="13.5"></line></svg></span><span data-pt="Relatorios mensais" data-en="Monthly reports">Monthly reports</span></a><div class="nav-grupo-titulo" data-pt="GESTAO" data-en="MANAGEMENT">MANAGEMENT</div><a class="nav-item" data-modulo="coordenacao" href="#coordenacao" title="Coordenacao" style="view-transition-name: nav-coordenacao;"><span class="icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7" r="3.5"></circle><path d="M4 21v-1a5 5 0 0 1 5-5h6a5 5 0 0 1 5 5v1"></path><path d="M12 10.5v4"></path></svg></span><span data-pt="Coordenacao" data-en="Coordination">Coordination</span></a><a class="nav-item" data-modulo="presenca" href="#presenca" title="Lista de Presenca" style="view-transition-name: nav-presenca;"><span class="icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="3"></rect><path d="M8.5 12.5l2.5 2.5 5-5.5"></path></svg></span><span data-pt="Lista de Presenca" data-en="Attendance List">Attendance List</span></a><a class="nav-item ativa" data-modulo="faltas" href="#faltas" title="Gestao de Faltas" style="view-transition-name: nav-faltas;"><span class="icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4 2.8 19.5h18.4z"></path><line x1="12" y1="10" x2="12" y2="14"></line><circle cx="12" cy="16.8" r=".4"></circle></svg></span><span data-pt="Gestao de Faltas" data-en="Absence Management">Absence Management</span></a><a class="nav-item" data-modulo="termos" href="#termos" title="Termos digitais" style="view-transition-name: nav-termos;"><span class="icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h9l4 4v14H6z"></path><path d="M15 3v4h4M9 12h6M9 16h4"></path></svg></span><span data-pt="Termos digitais" data-en="Digital consents">Digital consents</span></a><a class="nav-item" data-modulo="chat" href="#chat" title="Chat" style="view-transition-name: nav-chat;"><span class="icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 0 1-12.4 7.5L3 21l2-5.6A8.5 8.5 0 1 1 21 11.5z"></path></svg></span><span data-pt="Chat" data-en="Chat">Chat</span><span class="nav-badge" title="0 mensagens nao lidas no chat" hidden="" data-pt="0" data-en="0">0</span></a><a class="nav-item" data-modulo="admin" href="#admin" title="Usuarios e Acessos" style="view-transition-name: nav-admin;"><span class="icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="8.5" cy="12" r="4"></circle><path d="M12.5 12H21M18 12v3M15.5 12v2"></path></svg></span><span data-pt="Usuarios e Acessos" data-en="Users &amp; Access">Users &amp; Access</span></a><a class="nav-item" data-modulo="eventos" href="#eventos" title="Supervisao e ATAs" style="view-transition-name: nav-eventos;"><span class="icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"></circle><path d="M3.5 19c.6-3 2.8-4.5 5.5-4.5S13.9 16 14.5 19"></path><path d="M16 8.5l1.5 1.5L20.5 7"></path></svg></span><span data-pt="Supervisao e ATAs" data-en="Supervision &amp; Minutes">Supervision &amp; Minutes</span></a><a class="nav-item" data-modulo="guias" href="#guias" title="Guias" style="view-transition-name: nav-guias;"><span class="icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h9l4 4v14H6z"></path><path d="M14.5 3v4.5H19"></path><path d="M9 14l2 2 4-4.5"></path></svg></span><span data-pt="Guias" data-en="Authorizations">Authorizations</span></a></nav>
+
+      <div class="sidebar-rodape">
+        <div class="cartao-usuario">
+          <div class="avatar" id="avatar" title="Meu perfil: dados pessoais e foto" data-pt="PA" data-en="PA" style="cursor: pointer;">PA</div>
+          <div class="quem" id="usuario-cartao" title="Meu perfil: dados pessoais e foto" style="cursor: pointer;">
+            <div class="usuario-nome" id="usuario-nome" data-pt="Paula Mendes Arantes" data-en="Paula Mendes Arantes">Paula Mendes Arantes</div>
+            <div class="usuario-perfil" id="usuario-perfil" data-pt="Coordenador ABA" data-en="ABA Coordinator">ABA Coordinator</div>
+          </div>
+          <button type="button" class="botao-icone so-expandida" title="Sair" data-pt="➲" data-en="➲">➲</button>
+        </div>
+      </div>
+    </aside>
+
+    <main class="app-main" id="pagina"><div class="pagina-cabecalho nao-imprime">  <div><h2 data-pt="Gestao de Faltas" data-en="Absence Management">Absence Management</h2>  <p class="sub" data-pt="Sequencias de faltas consecutivas e panorama do mes." data-en="Consecutive absence streaks and monthly overview.">Consecutive absence streaks and monthly overview.</p></div>  <div style="display:flex; gap:8px; align-items:center">    <input type="text" id="ft-mes" value="October 2026" style="padding: 8px 12px; border: 1.5px solid var(--line); border-radius: 12px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-optical-sizing: inherit; font-size-adjust: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; font-language-override: inherit; font-size: 13px; background: var(--surface); color: var(--ink); width: 170px;" readonly="" data-pt-val="outubro de 2026" data-en-val="October 2026">    <button class="btn btn-primario" data-pt="🖨 Imprimir" data-en="🖨 Print">🖨 Print</button>  </div><div class="toggle-visao escopo-toggle" title="Ver so a minha equipe ou tudo"><button type="button" class="" data-pt="Minha equipe" data-en="My team">My team</button><button type="button" class="ativo" data-pt="Geral" data-en="All">All</button></div></div><div id="ft-corpo"><div class="cartao" style="border-color:var(--st-bad)"><h3><span data-pt="Faltas consecutivas " data-en="Consecutive absences ">Consecutive absences </span><span class="selo selo-bad" data-pt="3 paciente(s)" data-en="3 patient(s)">3 patient(s)</span></h3><div class="linha-doc"><div><b data-pt="Alice Moreira Reis" data-en="Alice Moreira Reis">Alice Moreira Reis</b><small data-pt="Patricia Moreira · (34) 9 9815-4431" data-en="Patricia Moreira · (34) 9 9815-4431">Patricia Moreira · (34) 9 9815-4431</small></div><div class="pac-selos"><span class="selo selo-bad" data-pt="4 seguidas" data-en="4 in a row">4 in a row</span><button class="btn-chip nao-imprime" data-pt="💬 WhatsApp" data-en="💬 WhatsApp">💬 WhatsApp</button><button class="btn-chip nao-imprime" data-pt="Prontuario" data-en="Record">Record</button></div></div><div class="linha-doc"><div><b data-pt="Noah Freitas Lima" data-en="Noah Freitas Lima">Noah Freitas Lima</b><small data-pt="Renata Freitas · (34) 9 9822-4480" data-en="Renata Freitas · (34) 9 9822-4480">Renata Freitas · (34) 9 9822-4480</small></div><div class="pac-selos"><span class="selo selo-bad" data-pt="2 seguidas" data-en="2 in a row">2 in a row</span><button class="btn-chip nao-imprime" data-pt="💬 WhatsApp" data-en="💬 WhatsApp">💬 WhatsApp</button><button class="btn-chip nao-imprime" data-pt="Prontuario" data-en="Record">Record</button></div></div><div class="linha-doc"><div><b data-pt="Isis Campos Nogueira" data-en="Isis Campos Nogueira">Isis Campos Nogueira</b><small data-pt="Fernanda Campos · (34) 9 9825-4501" data-en="Fernanda Campos · (34) 9 9825-4501">Fernanda Campos · (34) 9 9825-4501</small></div><div class="pac-selos"><span class="selo selo-bad" data-pt="2 seguidas" data-en="2 in a row">2 in a row</span><button class="btn-chip nao-imprime" data-pt="💬 WhatsApp" data-en="💬 WhatsApp">💬 WhatsApp</button><button class="btn-chip nao-imprime" data-pt="Prontuario" data-en="Record">Record</button></div></div></div><div class="cartao folha-presenca"><div class="folha-titulo">  <div><b data-pt="PANORAMA DE FALTAS · OUTUBRO DE 2026" data-en="ABSENCE OVERVIEW · OCTOBER 2026">ABSENCE OVERVIEW · OCTOBER 2026</b>  <small data-pt="Sessoes fechadas do mes (concluidas + faltas); canceladas a parte." data-en="Closed sessions this month (completed + absences); cancellations listed separately.">Closed sessions this month (completed + absences); cancellations listed separately.</small></div>  <span class="folha-marca" data-pt="CORTEX aba · Equilibrium Terapia Infantil" data-en="CORTEX aba · Equilibrium Children's Therapy">CORTEX aba · Equilibrium Children's Therapy</span></div><table class="tabela-presenca"><thead><tr><th data-pt="Paciente" data-en="Patient">Patient</th><th class="centro" data-pt="Sessoes" data-en="Sessions">Sessions</th><th class="centro" data-pt="Faltas" data-en="Absences">Absences</th><th class="centro" data-pt="% Faltas" data-en="% Absences">% Absences</th><th class="centro" data-pt="Canceladas" data-en="Cancelled">Cancelled</th><th class="centro" data-pt="Seq. atual" data-en="Current streak">Current streak</th></tr></thead><tbody><tr><td data-pt="Alice Moreira Reis" data-en="Alice Moreira Reis">Alice Moreira Reis</td><td class="centro" data-pt="13" data-en="13">13</td><td class="centro" data-pt="5" data-en="5">5</td><td class="centro"><b style="color:var(--st-bad)" data-pt="38%" data-en="38%">38%</b></td><td class="centro" data-pt="0" data-en="0">0</td><td class="centro"><span class="selo selo-bad" data-pt="4" data-en="4">4</span></td></tr><tr><td data-pt="Noah Freitas Lima" data-en="Noah Freitas Lima">Noah Freitas Lima</td><td class="centro" data-pt="10" data-en="10">10</td><td class="centro" data-pt="3" data-en="3">3</td><td class="centro"><b style="color:var(--st-bad)" data-pt="30%" data-en="30%">30%</b></td><td class="centro" data-pt="0" data-en="0">0</td><td class="centro"><span class="selo selo-bad" data-pt="2" data-en="2">2</span></td></tr><tr><td data-pt="Aurora Batista Leal" data-en="Aurora Batista Leal">Aurora Batista Leal</td><td class="centro" data-pt="9" data-en="9">9</td><td class="centro" data-pt="2" data-en="2">2</td><td class="centro"><b style="color:var(--st-warn)" data-pt="22%" data-en="22%">22%</b></td><td class="centro" data-pt="0" data-en="0">0</td><td class="centro" data-pt="—" data-en="—">—</td></tr><tr><td data-pt="Bento Cardoso Melo" data-en="Bento Cardoso Melo">Bento Cardoso Melo</td><td class="centro" data-pt="10" data-en="10">10</td><td class="centro" data-pt="2" data-en="2">2</td><td class="centro"><b style="color:var(--st-warn)" data-pt="20%" data-en="20%">20%</b></td><td class="centro" data-pt="0" data-en="0">0</td><td class="centro" data-pt="—" data-en="—">—</td></tr><tr><td data-pt="Isis Campos Nogueira" data-en="Isis Campos Nogueira">Isis Campos Nogueira</td><td class="centro" data-pt="11" data-en="11">11</td><td class="centro" data-pt="2" data-en="2">2</td><td class="centro"><b style="color:var(--st-warn)" data-pt="18%" data-en="18%">18%</b></td><td class="centro" data-pt="1" data-en="1">1</td><td class="centro"><span class="selo selo-bad" data-pt="2" data-en="2">2</span></td></tr><tr><td data-pt="Arthur Viana Rocha" data-en="Arthur Viana Rocha">Arthur Viana Rocha</td><td class="centro" data-pt="9" data-en="9">9</td><td class="centro" data-pt="1" data-en="1">1</td><td class="centro"><b style="color:inherit" data-pt="11%" data-en="11%">11%</b></td><td class="centro" data-pt="1" data-en="1">1</td><td class="centro" data-pt="—" data-en="—">—</td></tr><tr><td data-pt="Cecilia Ramos Dias" data-en="Cecilia Ramos Dias">Cecilia Ramos Dias</td><td class="centro" data-pt="11" data-en="11">11</td><td class="centro" data-pt="1" data-en="1">1</td><td class="centro"><b style="color:inherit" data-pt="9%" data-en="9%">9%</b></td><td class="centro" data-pt="0" data-en="0">0</td><td class="centro" data-pt="—" data-en="—">—</td></tr><tr><td data-pt="Gael Martins Souza" data-en="Gael Martins Souza">Gael Martins Souza</td><td class="centro" data-pt="8" data-en="8">8</td><td class="centro" data-pt="1" data-en="1">1</td><td class="centro"><b style="color:inherit" data-pt="13%" data-en="13%">13%</b></td><td class="centro" data-pt="1" data-en="1">1</td><td class="centro" data-pt="1" data-en="1">1</td></tr><tr><td data-pt="Helena Duarte Lima" data-en="Helena Duarte Lima">Helena Duarte Lima</td><td class="centro" data-pt="14" data-en="14">14</td><td class="centro" data-pt="1" data-en="1">1</td><td class="centro"><b style="color:inherit" data-pt="7%" data-en="7%">7%</b></td><td class="centro" data-pt="0" data-en="0">0</td><td class="centro" data-pt="—" data-en="—">—</td></tr><tr><td data-pt="Davi Lopes Vieira" data-en="Davi Lopes Vieira">Davi Lopes Vieira</td><td class="centro" data-pt="13" data-en="13">13</td><td class="centro" data-pt="0" data-en="0">0</td><td class="centro"><b style="color:inherit" data-pt="0%" data-en="0%">0%</b></td><td class="centro" data-pt="0" data-en="0">0</td><td class="centro" data-pt="—" data-en="—">—</td></tr><tr><td data-pt="Laura Pires Monteiro" data-en="Laura Pires Monteiro">Laura Pires Monteiro</td><td class="centro" data-pt="11" data-en="11">11</td><td class="centro" data-pt="0" data-en="0">0</td><td class="centro"><b style="color:inherit" data-pt="0%" data-en="0%">0%</b></td><td class="centro" data-pt="1" data-en="1">1</td><td class="centro" data-pt="—" data-en="—">—</td></tr><tr><td data-pt="Livia Teixeira Gomes" data-en="Livia Teixeira Gomes">Livia Teixeira Gomes</td><td class="centro" data-pt="10" data-en="10">10</td><td class="centro" data-pt="0" data-en="0">0</td><td class="centro"><b style="color:inherit" data-pt="0%" data-en="0%">0%</b></td><td class="centro" data-pt="0" data-en="0">0</td><td class="centro" data-pt="—" data-en="—">—</td></tr><tr><td data-pt="Miguel Barros Pinto" data-en="Miguel Barros Pinto">Miguel Barros Pinto</td><td class="centro" data-pt="1" data-en="1">1</td><td class="centro" data-pt="0" data-en="0">0</td><td class="centro"><b style="color:inherit" data-pt="0%" data-en="0%">0%</b></td><td class="centro" data-pt="0" data-en="0">0</td><td class="centro" data-pt="—" data-en="—">—</td></tr><tr><td data-pt="Theo Almeida Santos" data-en="Theo Almeida Santos">Theo Almeida Santos</td><td class="centro" data-pt="15" data-en="15">15</td><td class="centro" data-pt="0" data-en="0">0</td><td class="centro"><b style="color:inherit" data-pt="0%" data-en="0%">0%</b></td><td class="centro" data-pt="0" data-en="0">0</td><td class="centro" data-pt="—" data-en="—">—</td></tr></tbody></table></div></div></main>
+
+  </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+<header class="cab-celular" id="cab-celular"><div class="cab-cel-marca"><span class="simbolo" aria-hidden="true">
+            <svg width="19" height="19" viewBox="0 0 32 32" fill="currentColor" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+              <line x1="16" y1="16" x2="9" y2="9"></line><line x1="16" y1="16" x2="23" y2="9"></line>
+              <line x1="16" y1="16" x2="9" y2="23"></line><line x1="16" y1="16" x2="23" y2="23"></line>
+              <line x1="16" y1="16" x2="16" y2="7"></line><line x1="16" y1="16" x2="16" y2="25"></line>
+              <circle cx="16" cy="16" r="2.8" stroke="none"></circle>
+              <circle cx="9" cy="9" r="1.6" stroke="none"></circle><circle cx="23" cy="9" r="1.6" stroke="none"></circle>
+              <circle cx="9" cy="23" r="1.6" stroke="none"></circle><circle cx="23" cy="23" r="1.6" stroke="none"></circle>
+              <circle cx="16" cy="7" r="1.6" stroke="none"></circle><circle cx="16" cy="25" r="1.6" stroke="none"></circle>
+            </svg>
+          </span><b><span data-pt="CORTEX " data-en="CORTEX ">CORTEX </span><span class="mao" data-pt="aba" data-en="aba">aba</span></b></div><div class="cab-cel-tit" id="cab-cel-tit" data-pt="Gestao de Faltas" data-en="Absence Management">Absence Management</div><button type="button" id="avisos-cel" class="avisos-cel" title="Avisos e pendencias"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 16V11a6 6 0 0 1 12 0v5l1.5 2h-15z"></path><path d="M10 20a2 2 0 0 0 4 0"></path></svg><span class="avisos-badge" id="avisos-badge-cel" data-pt="1" data-en="1">1</span></button><button class="cab-cel-avatar" title="Meu perfil" data-pt="PA" data-en="PA">PA</button></header><nav class="barra-celular" id="barra-celular"><button type="button" data-cel="inicio" class=""><span class="icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5"></path><path d="M5 9.5V21h14V9.5"></path></svg></span><span data-pt="Inicio" data-en="Home">Home</span><span class="cel-conta" data-pt="1" data-en="1">1</span></button><button type="button" data-cel="agenda"><span class="icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="16" rx="2.5"></rect><line x1="3.5" y1="10" x2="20.5" y2="10"></line><line x1="8" y1="3" x2="8" y2="7"></line><line x1="16" y1="3" x2="16" y2="7"></line></svg></span><span data-pt="Agenda" data-en="Schedule">Schedule</span></button><button type="button" data-cel="pacientes"><span class="icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.5-9-9c-1.2-2.8.6-6 3.7-6C8.6 5 10.5 6.4 12 8c1.5-1.6 3.4-3 5.3-3 3.1 0 4.9 3.2 3.7 6-2 4.5-9 9-9 9z"></path></svg></span><span data-pt="Criancas" data-en="Children">Children</span></button><button type="button" data-cel="aplicar"><span class="icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M10 8.5v7l5.5-3.5z"></path></svg></span><span data-pt="Aplicar" data-en="Apply">Apply</span></button><button type="button" data-cel="mais"><span class="icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="7" x2="20" y2="7"></line><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="17" x2="20" y2="17"></line></svg></span><span data-pt="Mais" data-en="More">More</span><span class="cel-conta cel-conta-chat" title="0 mensagens nao lidas no chat" hidden="" data-pt="0" data-en="0">0</span></button></nav><button type="button" id="avisos-fab" class="avisos-fab" title="Avisos e pendencias (arraste para mudar de lugar)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 16V11a6 6 0 0 1 12 0v5l1.5 2h-15z"></path><path d="M10 20a2 2 0 0 0 4 0"></path></svg><span class="avisos-badge" id="avisos-badge" data-pt="6" data-en="6">6</span></button><script src="../i18n.js"></script>
+<script>
+// Demo-only interactivity (static snapshot: no network, no login)
+function alternarSidebar() {
+  var s = document.getElementById('shell'); if (!s) return;
+  s.classList.toggle('recolhida');
+  var pil = document.querySelector('.nav-pilula'), at = document.querySelector('.sidebar-nav .nav-item.ativa');
+  if (pil && at) { var mover = function () { pil.style.top = at.offsetTop + 'px'; pil.style.height = at.offsetHeight + 'px'; }; mover(); setTimeout(mover, 350); }
+}
+function demoTxt(el, pt, en) { if (!el) return; el.setAttribute('data-pt', pt); el.setAttribute('data-en', en); el.textContent = (window.DEMO_LANG === 'pt') ? pt : en; }
+function alternarModo() {
+  var r = document.documentElement, esc = r.getAttribute('data-modo') !== 'escuro';
+  if (esc) r.setAttribute('data-modo', 'escuro'); else r.removeAttribute('data-modo');
+  var b = document.getElementById('botao-modo');
+  if (b) { var t = esc ? '☀' : '☾'; b.textContent = t; b.setAttribute('data-pt', t); b.setAttribute('data-en', t); }
+}
+document.addEventListener('demo-lang', function (e) {
+  document.querySelectorAll('[data-en-val]').forEach(function (el) { el.value = el.getAttribute('data-' + e.detail + '-val'); });
+});
+// Trial grid: clicking a prompt level marks it for that trial and updates the footer
+(function () {
+  var linhas = document.querySelectorAll('.ficha-linha');
+  if (!linhas.length) return;
+  function recontar() {
+    var n = linhas.length, c = 0, p = 0;
+    linhas.forEach(function (l) { var a = l.querySelector('.niv-btn.ativo'); if (a) { p++; if (a.classList.contains('correto')) c++; } });
+    var pct = Math.round(c * 100 / n), rod = document.querySelector('.ficha-rodape');
+    if (!rod) return;
+    demoTxt(rod.querySelector('.fr-indep b'), pct + '%', pct + '%');
+    var bar = rod.querySelector('.fr-barra'); if (bar) bar.style.width = pct + '%';
+    var sp = rod.querySelectorAll('.fr-meio > span');
+    demoTxt(sp[0], c + '/' + n + ' corretos', c + '/' + n + ' correct');
+    demoTxt(sp[1], p + ' de ' + n + ' preenchidas', p + ' of ' + n + ' filled in');
+    var passo = document.querySelector('.fp-passo.ativo small'); demoTxt(passo, p + '/' + n, p + '/' + n);
+  }
+  linhas.forEach(function (l) {
+    l.querySelectorAll('.niv-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var on = btn.classList.contains('ativo');
+        l.querySelectorAll('.niv-btn').forEach(function (x) { x.classList.remove('ativo'); });
+        if (!on) btn.classList.add('ativo');
+        recontar();
+      });
+    });
+  });
+})();
+// dark-mode legibility for completed trial rows (the app's light tint has no dark variant)
+(function () { var st = document.createElement('style'); st.textContent = '[data-modo="escuro"] .ficha-linha:has(.niv-btn.correto.ativo){background:rgba(22,163,74,.10);border-color:rgba(22,163,74,.45)}'; document.head.appendChild(st); })();
+
+</script>
+</body></html>

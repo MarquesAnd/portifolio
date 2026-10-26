@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=1280" />
+<title>CORTEX Gestão</title>
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/tabler-icons.css" />
+<link rel="stylesheet" href="css/estilo.css" />
+<style>
+html,body{overflow:hidden}
+.casca-app{height:100vh;overflow:hidden}
+.conteudo-app{overflow:hidden}
+.sb{scrollbar-width:thin}
+</style>
+<script src="../i18n.js"></script>
+</head>
+<body>
+<div id="raiz">
+<div class="casca-app" style="min-height:100vh;background:var(--fundo);display:flex;gap:14px;padding:14px;align-items:stretch">
+<aside class="sb">
+<div class="logo-area" style="display:flex;align-items:center;gap:9px;padding:2px 8px 10px;min-height:34px">
+<svg class="logo-marca" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M3 12h18M5.6 5.6l12.8 12.8M18.4 5.6L5.6 18.4" stroke="#1068B0" stroke-width="2.6" stroke-linecap="round" fill="none"/></svg>
+<span class="rotulo" style="font-weight:700;font-size:15.5px"><span data-pt="CORTEX" data-en="CORTEX">CORTEX</span> <span style="color:var(--marca-escuro)" data-pt="Gestão" data-en="Gestão">Gestão</span></span></div>
+<div class="controles-sb" style="display:flex;gap:6px;padding:0 6px 10px;flex-wrap:wrap"><button class="btn-fantasma" aria-label="Minimizar menu"><i class="ti ti-layout-sidebar-left-collapse" style="font-size:16px;" aria-hidden="true"></i></button><button class="btn-fantasma" aria-label="Fechar menu"><i class="ti ti-x" style="font-size:16px;" aria-hidden="true"></i></button></div>
+<div class="item-menu" role="button" tabindex="0"><span class="sb-ico" style="background:var(--tint);color:var(--marca-texto)"><i class="ti ti-layout-dashboard" style="font-size:13.5px;" aria-hidden="true"></i></span><span class="rotulo" data-pt="Painel" data-en="Dashboard">Dashboard</span></div>
+<div class="item-menu" role="button" tabindex="0"><span class="sb-ico" style="background:var(--tint);color:var(--marca-texto)"><i class="ti ti-message-circle" style="font-size:13.5px;" aria-hidden="true"></i><b class="sb-badge-ico" data-pt="3" data-en="3">3</b></span><span class="rotulo" data-pt="Mensagens" data-en="Messages">Messages</span><b class="sb-badge" data-pt="3" data-en="3">3</b></div>
+<div class="sb-grupo"><span data-pt="Dia a dia" data-en="Day to day">Day to day</span><s></s></div>
+<div class="item-menu" role="button" tabindex="0"><span class="sb-ico" style="background:var(--tint);color:var(--marca-texto)"><i class="ti ti-folder" style="font-size:13.5px;" aria-hidden="true"></i></span><span class="rotulo" data-pt="Arquivos" data-en="Files">Files</span></div>
+<div class="item-menu" role="button" tabindex="0"><span class="sb-ico" style="background:var(--ambar-bg);color:var(--ambar)"><i class="ti ti-file-text" style="font-size:13.5px;" aria-hidden="true"></i></span><span class="rotulo" data-pt="Modelos" data-en="Templates">Templates</span></div>
+<div class="item-menu on" role="button" tabindex="0"><span class="sb-ico"><i class="ti ti-door" style="font-size:13.5px;" aria-hidden="true"></i></span><span class="rotulo" data-pt="Salas" data-en="Rooms">Rooms</span></div>
+<div class="item-menu" role="button" tabindex="0"><span class="sb-ico" style="background:#F3E8FF;color:#7C3AED"><i class="ti ti-checklist" style="font-size:13.5px;" aria-hidden="true"></i><b class="sb-badge-ico" data-pt="1" data-en="1">1</b></span><span class="rotulo" data-pt="Demandas" data-en="Requests">Requests</span><b class="sb-badge" data-pt="1" data-en="1">1</b></div>
+<div class="sb-grupo"><span data-pt="Pessoas" data-en="People">People</span><s></s></div>
+<div class="item-menu" role="button" tabindex="0"><span class="sb-ico" style="background:var(--roxo-bg);color:var(--roxo)"><i class="ti ti-users" style="font-size:13.5px;" aria-hidden="true"></i></span><span class="rotulo" data-pt="RH e equipe" data-en="HR &amp; team">HR &amp; team</span></div>
+<div class="item-menu" role="button" tabindex="0"><span class="sb-ico" style="background:#E6F4F8;color:#0E7490"><i class="ti ti-sitemap" style="font-size:13.5px;" aria-hidden="true"></i></span><span class="rotulo" data-pt="Organograma" data-en="Org chart">Org chart</span></div>
+<div class="sb-grupo"><span data-pt="Gestão" data-en="Management">Management</span><s></s></div>
+<div class="item-menu" role="button" tabindex="0"><span class="sb-ico" style="background:#E0F5F1;color:#0F766E"><i class="ti ti-layout-grid" style="font-size:13.5px;" aria-hidden="true"></i></span><span class="rotulo" data-pt="Projetos" data-en="Projects">Projects</span></div>
+<div class="item-menu" role="button" tabindex="0"><span class="sb-ico" style="background:#FCF0E4;color:#B45309"><i class="ti ti-notebook" style="font-size:13.5px;" aria-hidden="true"></i></span><span class="rotulo" data-pt="Reuniões" data-en="Meetings">Meetings</span></div>
+<div class="item-menu" role="button" tabindex="0"><span class="sb-ico" style="background:#F1EBFD;color:#6D28D9"><i class="ti ti-checklist" style="font-size:13.5px;" aria-hidden="true"></i></span><span class="rotulo" data-pt="Planos 5W2H" data-en="5W2H plans">5W2H plans</span></div>
+<div class="item-menu" role="button" tabindex="0"><span class="sb-ico" style="background:#FCE8EC;color:#E11D48"><i class="ti ti-calendar-event" style="font-size:13.5px;" aria-hidden="true"></i></span><span class="rotulo" data-pt="Calendário" data-en="Calendar">Calendar</span></div>
+<div class="item-menu" role="button" tabindex="0"><span class="sb-ico" style="background:var(--rosa-bg);color:var(--rosa)"><i class="ti ti-book" style="font-size:13.5px;" aria-hidden="true"></i></span><span class="rotulo" data-pt="PEE" data-en="PEE">PEE</span></div>
+<div class="item-menu" role="button" tabindex="0"><span class="sb-ico" style="background:var(--verde-bg);color:var(--verde)"><i class="ti ti-chart-bar" style="font-size:13.5px;" aria-hidden="true"></i></span><span class="rotulo" data-pt="Relatórios" data-en="Reports">Reports</span></div>
+<div class="sb-grupo"><span data-pt="Sistemas" data-en="Systems">Systems</span><s></s></div>
+<div class="item-menu" role="button" tabindex="0"><span class="sb-ico" style="background:var(--azul-bg);color:var(--azul)"><i class="ti ti-external-link" style="font-size:13.5px;" aria-hidden="true"></i></span><span class="rotulo" data-pt="Outros CORTEX" data-en="Other CORTEX apps">Other CORTEX apps</span></div>
+<div class="sb-grupo"><span data-pt="Controle" data-en="Control">Control</span><s></s></div>
+<div class="item-menu" role="button" tabindex="0"><span class="sb-ico" style="background:#E6EBF1;color:var(--sec)"><i class="ti ti-history" style="font-size:13.5px;" aria-hidden="true"></i></span><span class="rotulo" data-pt="Auditoria" data-en="Audit log">Audit log</span></div>
+<div class="item-menu" role="button" tabindex="0"><span class="sb-ico" style="background:#E0F2FE;color:#0369A1"><i class="ti ti-info-circle" style="font-size:13.5px;" aria-hidden="true"></i></span><span class="rotulo" data-pt="Instruções" data-en="Instructions">Instructions</span></div>
+<div style="flex:1;min-height:12px"></div>
+<div class="item-menu" role="button" tabindex="0"><span class="sb-ico" style="background:var(--tint);color:var(--marca-texto)"><i class="ti ti-user-circle" style="font-size:13.5px;" aria-hidden="true"></i></span><span class="rotulo" data-pt="Minha conta" data-en="My account">My account</span></div>
+<div class="item-menu" role="button" tabindex="0"><span class="sb-ico" style="background:#ECF1F6;color:var(--sec)"><i class="ti ti-settings" style="font-size:13.5px;" aria-hidden="true"></i></span><span class="rotulo" data-pt="Configurações" data-en="Settings">Settings</span></div>
+<div class="user-card"><div style="width:32px;height:32px;border-radius:50%;background:var(--grad);color:#fff;font-weight:700;font-size:12px;display:flex;align-items:center;justify-content:center;flex:none;box-shadow:0 2px 8px rgba(16,104,176,.28);overflow:hidden;cursor:pointer"><span data-pt="MA" data-en="MA">MA</span></div><div class="rotulo" style="flex:1;min-width:0"><div style="display:block;font-size:12.5px;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" data-pt="Marina Albuquerque" data-en="Marina Albuquerque">Marina Albuquerque</div><div style="font-size:11px;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap" data-pt="Direção" data-en="Management">Management</div></div><button class="btn-fantasma" aria-label="Ver como outro perfil" style="width:28px;height:28px;flex:none"><i class="ti ti-spy" style="font-size:15px;" aria-hidden="true"></i></button><button class="btn-fantasma" aria-label="Sair" style="width:28px;height:28px;flex:none"><i class="ti ti-logout" style="font-size:15px;" aria-hidden="true"></i></button></div>
+<div class="rotulo" style="text-align:center;font-size:10px;color:var(--muted);opacity:.65;padding:5px 0 1px" data-pt="v82" data-en="v82">v82</div>
+</aside>
+<main class="conteudo-app" style="flex:1;min-width:0;padding:6px 6px 20px">
+<div style="margin-bottom:18px"><div style="font-size:20px;font-weight:700" data-pt="Boa tarde, Marina" data-en="Good afternoon, Marina">Good afternoon, Marina</div><div style="font-size:12.5px;color:var(--muted);margin-top:2px" data-pt="Quarta-feira, 14 de outubro de 2026 · perfil Direção" data-en="Wednesday, October 14, 2026 · Management profile">Wednesday, October 14, 2026 · Management profile</div></div>
+<div style="display:flex;align-items:center;gap:9px;margin:0 0 14px"><div style="width:30px;height:30px;border-radius:9px;background:var(--teal-bg);color:var(--teal);display:flex;align-items:center;justify-content:center"><i class="ti ti-door" style="font-size:16px;" aria-hidden="true"></i></div><span style="font-size:16px;font-weight:700" data-pt="Salas" data-en="Rooms">Rooms</span></div>
+<div>
+<div id="modal-celula" class="org-modal-fundo" style="display:none"><div class="org-modal anim-pop"></div></div>
+<div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;flex-wrap:wrap">
+<span class="chip" style="cursor:pointer;background:var(--tint);color:var(--marca-texto);border:1px solid var(--tint-borda)" data-pt="Grade da semana" data-en="Weekly grid">Weekly grid</span>
+<span class="chip" style="cursor:pointer;background:var(--branco);color:var(--sec);border:1px solid var(--linha)" data-pt="Salas" data-en="Rooms">Rooms</span>
+<span style="width:6px"></span>
+<span class="chip" style="cursor:pointer;background:var(--branco);color:var(--sec);border:1px solid var(--linha)" data-pt="EQ1" data-en="EQ1">EQ1</span>
+<span class="chip" style="cursor:pointer;background:var(--teal-bg);color:var(--teal);border:1px solid var(--teal-bg)" data-pt="EQ2" data-en="EQ2">EQ2</span>
+<span class="chip" style="cursor:pointer;background:var(--branco);color:var(--sec);border:1px solid var(--linha)" data-pt="2º andar" data-en="2nd floor">2nd floor</span>
+<span class="chip" style="cursor:pointer;background:var(--tint);color:var(--marca-texto);border:1px solid var(--tint-borda)" data-pt="1º andar" data-en="1st floor">1st floor</span>
+<span class="chip" style="cursor:pointer;background:var(--branco);color:var(--sec);border:1px solid var(--linha)" data-pt="Térreo" data-en="Ground floor">Ground floor</span>
+<span style="flex:1"></span>
+<span style="font-size:12px;color:var(--muted)"><span data-pt="6 sala(s) · " data-en="6 room(s) · ">6 room(s) · </span><b style="color:var(--verde)" data-pt="28" data-en="28">28</b><span data-pt=" períodos livres" data-en=" free periods"> free periods</span></span>
+<span style="font-size:11px;color:var(--muted)" data-pt="P1 7h · P2 12h · P3 16h" data-en="P1 7am · P2 12pm · P3 4pm">P1 7am · P2 12pm · P3 4pm</span>
+</div><div>
+<div class="card-fl" style="padding:8px 12px;margin-bottom:10px;display:flex;flex-wrap:wrap;gap:9px;align-items:center">
+<span style="display:inline-flex;align-items:center;gap:5px;font-size:11px;color:var(--sec);font-weight:600"><span class="gs-pill" style="background:#E3CBF2" data-pt="BE" data-en="BE">BE</span><span data-pt="Beatriz" data-en="Beatriz">Beatriz</span></span>
+<span style="display:inline-flex;align-items:center;gap:5px;font-size:11px;color:var(--sec);font-weight:600"><span class="gs-pill" style="background:#F6D9B0" data-pt="GA" data-en="GA">GA</span><span data-pt="Gabriel" data-en="Gabriel">Gabriel</span></span>
+<span style="display:inline-flex;align-items:center;gap:5px;font-size:11px;color:var(--sec);font-weight:600"><span class="gs-pill" style="background:#C5D2F4" data-pt="IS" data-en="IS">IS</span><span data-pt="Isadora" data-en="Isadora">Isadora</span></span>
+<span style="display:inline-flex;align-items:center;gap:5px;font-size:11px;color:var(--sec);font-weight:600"><span class="gs-pill" style="background:#BFD9F2" data-pt="LI" data-en="LI">LI</span><span data-pt="Lívia" data-en="Lívia">Lívia</span></span>
+<span style="display:inline-flex;align-items:center;gap:5px;font-size:11px;color:var(--sec);font-weight:600"><span class="gs-pill" style="background:#F9C6C6" data-pt="NI" data-en="NI">NI</span><span data-pt="Nina" data-en="Nina">Nina</span></span>
+<span style="display:inline-flex;align-items:center;gap:5px;font-size:11px;color:var(--sec);font-weight:600"><span class="gs-pill" style="background:#BFE9E4" data-pt="OT" data-en="OT">OT</span><span data-pt="Otávio" data-en="Otávio">Otávio</span></span>
+<span style="display:inline-flex;align-items:center;gap:5px;font-size:11px;color:var(--sec);font-weight:600"><span class="gs-pill" style="background:#F2C9DF" data-pt="RE" data-en="RE">RE</span><span data-pt="Renata" data-en="Renata">Renata</span></span>
+<span style="display:inline-flex;align-items:center;gap:5px;font-size:11px;color:var(--sec);font-weight:600"><span class="gs-pill" style="background:#C9EFD4" data-pt="TI" data-en="TI">TI</span><span data-pt="Tiago" data-en="Tiago">Tiago</span></span>
+<span style="display:inline-flex;align-items:center;gap:5px;font-size:11px;color:var(--sec);font-weight:600"><span class="gs-pill" style="background:#D6E3B8" data-pt="VA" data-en="VA">VA</span><span data-pt="Valéria" data-en="Valéria">Valéria</span></span>
+<span style="display:inline-flex;align-items:center;gap:5px;font-size:11px;color:var(--muted)"><span class="gs-pill gs-x" data-pt="✕" data-en="✕">✕</span><span data-pt="indisponível" data-en="unavailable">unavailable</span></span></div>
+<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px">
+<div class="card-fl" style="padding:11px 12px"><div style="display:flex;align-items:center;gap:9px;margin-bottom:8px"><span class="gs-badge" style="background:#1068B0;color:#fff;font-size:14px" data-pt="11" data-en="11">11</span><div style="min-width:0"><div style="font-size:12px;font-weight:700;text-transform:uppercase;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" data-pt="Fonoaudiologia" data-en="Speech therapy">Speech therapy</div><div style="font-size:10.5px;color:var(--muted)" data-pt="EQ2 · 1º andar" data-en="EQ2 · 1st floor">EQ2 · 1st floor</div></div></div>
+<table class="gs pode"><thead><tr><th></th><th data-pt="Seg" data-en="Mon">Mon</th><th data-pt="Ter" data-en="Tue">Tue</th><th data-pt="Qua" data-en="Wed">Wed</th><th data-pt="Qui" data-en="Thu">Thu</th><th data-pt="Sex" data-en="Fri">Fri</th><th data-pt="Sáb" data-en="Sat">Sat</th></tr></thead><tbody>
+<tr><td class="rot" data-pt="P1" data-en="P1">P1</td>
+<td class="gs-cel" data-s="0" data-d="0" data-p="1"><span class="gs-pill" style="background:#BFD9F2" data-pt="LI" data-en="LI">LI</span></td>
+<td class="gs-cel" data-s="0" data-d="1" data-p="1"><span class="gs-pill" style="background:#BFD9F2" data-pt="LI" data-en="LI">LI</span></td>
+<td class="gs-cel" data-s="0" data-d="2" data-p="1"><span class="gs-pill" style="background:#C5D2F4" data-pt="IS" data-en="IS">IS</span></td>
+<td class="gs-cel" data-s="0" data-d="3" data-p="1"><span class="gs-pill" style="background:#BFD9F2" data-pt="LI" data-en="LI">LI</span></td>
+<td class="gs-cel" data-s="0" data-d="4" data-p="1"><span class="gs-pill" style="background:#C5D2F4" data-pt="IS" data-en="IS">IS</span></td>
+<td class="gs-cel" data-s="0" data-d="5" data-p="1"><span class="gs-pill" style="background:#BFD9F2" data-pt="LI" data-en="LI">LI</span></td>
+</tr>
+<tr><td class="rot" data-pt="P2" data-en="P2">P2</td>
+<td class="gs-cel" data-s="0" data-d="0" data-p="2"><span class="gs-pill" style="background:#C5D2F4" data-pt="IS" data-en="IS">IS</span></td>
+<td class="gs-cel" data-s="0" data-d="1" data-p="2"><span class="gs-pill" style="background:#BFD9F2" data-pt="LI" data-en="LI">LI</span></td>
+<td class="gs-cel" data-s="0" data-d="2" data-p="2"><span class="gs-pill" style="background:#C5D2F4" data-pt="IS" data-en="IS">IS</span></td>
+<td class="gs-cel livre" data-s="0" data-d="3" data-p="2"></td>
+<td class="gs-cel" data-s="0" data-d="4" data-p="2"><span class="gs-pill" style="background:#BFD9F2" data-pt="LI" data-en="LI">LI</span><span class="gs-pill" style="background:#C5D2F4" data-pt="IS" data-en="IS">IS</span></td>
+<td class="gs-cel" data-s="0" data-d="5" data-p="2"><span class="gs-pill gs-x" data-pt="✕" data-en="✕">✕</span></td>
+</tr>
+<tr><td class="rot" data-pt="P3" data-en="P3">P3</td>
+<td class="gs-cel" data-s="0" data-d="0" data-p="3"><span class="gs-pill" style="background:#BFD9F2" data-pt="LI" data-en="LI">LI</span></td>
+<td class="gs-cel livre" data-s="0" data-d="1" data-p="3"></td>
+<td class="gs-cel" data-s="0" data-d="2" data-p="3"><span class="gs-pill" style="background:#BFD9F2" data-pt="LI" data-en="LI">LI</span></td>
+<td class="gs-cel" data-s="0" data-d="3" data-p="3"><span class="gs-pill" style="background:#C5D2F4" data-pt="IS" data-en="IS">IS</span></td>
+<td class="gs-cel livre" data-s="0" data-d="4" data-p="3"></td>
+<td class="gs-cel" data-s="0" data-d="5" data-p="3"><span class="gs-pill gs-x" data-pt="✕" data-en="✕">✕</span></td>
+</tr>
+</tbody></table></div>
+<div class="card-fl" style="padding:11px 12px"><div style="display:flex;align-items:center;gap:9px;margin-bottom:8px"><span class="gs-badge" style="background:#0F766E;color:#fff;font-size:14px" data-pt="12" data-en="12">12</span><div style="min-width:0"><div style="font-size:12px;font-weight:700;text-transform:uppercase;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" data-pt="Terapia ocupacional" data-en="Occupational therapy">Occupational therapy</div><div style="font-size:10.5px;color:var(--muted)" data-pt="EQ2 · 1º andar" data-en="EQ2 · 1st floor">EQ2 · 1st floor</div></div></div>
+<table class="gs pode"><thead><tr><th></th><th data-pt="Seg" data-en="Mon">Mon</th><th data-pt="Ter" data-en="Tue">Tue</th><th data-pt="Qua" data-en="Wed">Wed</th><th data-pt="Qui" data-en="Thu">Thu</th><th data-pt="Sex" data-en="Fri">Fri</th><th data-pt="Sáb" data-en="Sat">Sat</th></tr></thead><tbody>
+<tr><td class="rot" data-pt="P1" data-en="P1">P1</td>
+<td class="gs-cel" data-s="1" data-d="0" data-p="1"><span class="gs-pill" style="background:#C9EFD4" data-pt="TI" data-en="TI">TI</span></td>
+<td class="gs-cel" data-s="1" data-d="1" data-p="1"><span class="gs-pill" style="background:#E3CBF2" data-pt="BE" data-en="BE">BE</span></td>
+<td class="gs-cel" data-s="1" data-d="2" data-p="1"><span class="gs-pill" style="background:#C9EFD4" data-pt="TI" data-en="TI">TI</span></td>
+<td class="gs-cel" data-s="1" data-d="3" data-p="1"><span class="gs-pill" style="background:#E3CBF2" data-pt="BE" data-en="BE">BE</span></td>
+<td class="gs-cel" data-s="1" data-d="4" data-p="1"><span class="gs-pill" style="background:#C9EFD4" data-pt="TI" data-en="TI">TI</span></td>
+<td class="gs-cel livre" data-s="1" data-d="5" data-p="1"></td>
+</tr>
+<tr><td class="rot" data-pt="P2" data-en="P2">P2</td>
+<td class="gs-cel" data-s="1" data-d="0" data-p="2"><span class="gs-pill" style="background:#E3CBF2" data-pt="BE" data-en="BE">BE</span></td>
+<td class="gs-cel" data-s="1" data-d="1" data-p="2"><span class="gs-pill" style="background:#C9EFD4" data-pt="TI" data-en="TI">TI</span></td>
+<td class="gs-cel livre" data-s="1" data-d="2" data-p="2"></td>
+<td class="gs-cel" data-s="1" data-d="3" data-p="2"><span class="gs-pill" style="background:#C9EFD4" data-pt="TI" data-en="TI">TI</span></td>
+<td class="gs-cel" data-s="1" data-d="4" data-p="2"><span class="gs-pill" style="background:#E3CBF2" data-pt="BE" data-en="BE">BE</span></td>
+<td class="gs-cel" data-s="1" data-d="5" data-p="2"><span class="gs-pill gs-x" data-pt="✕" data-en="✕">✕</span></td>
+</tr>
+<tr><td class="rot" data-pt="P3" data-en="P3">P3</td>
+<td class="gs-cel" data-s="1" data-d="0" data-p="3"><span class="gs-pill" style="background:#C9EFD4" data-pt="TI" data-en="TI">TI</span><span class="gs-pill" style="background:#E3CBF2" data-pt="BE" data-en="BE">BE</span></td>
+<td class="gs-cel" data-s="1" data-d="1" data-p="3"><span class="gs-pill" style="background:#C9EFD4" data-pt="TI" data-en="TI">TI</span></td>
+<td class="gs-cel" data-s="1" data-d="2" data-p="3"><span class="gs-pill" style="background:#E3CBF2" data-pt="BE" data-en="BE">BE</span></td>
+<td class="gs-cel livre" data-s="1" data-d="3" data-p="3"></td>
+<td class="gs-cel" data-s="1" data-d="4" data-p="3"><span class="gs-pill" style="background:#C9EFD4" data-pt="TI" data-en="TI">TI</span></td>
+<td class="gs-cel" data-s="1" data-d="5" data-p="3"><span class="gs-pill gs-x" data-pt="✕" data-en="✕">✕</span></td>
+</tr>
+</tbody></table></div>
+<div class="card-fl" style="padding:11px 12px"><div style="display:flex;align-items:center;gap:9px;margin-bottom:8px"><span class="gs-badge" style="background:#B45309;color:#fff;font-size:14px" data-pt="13" data-en="13">13</span><div style="min-width:0"><div style="font-size:12px;font-weight:700;text-transform:uppercase;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" data-pt="Psicomotricidade" data-en="Psychomotor therapy">Psychomotor therapy</div><div style="font-size:10.5px;color:var(--muted)" data-pt="EQ2 · 1º andar" data-en="EQ2 · 1st floor">EQ2 · 1st floor</div></div></div>
+<table class="gs pode"><thead><tr><th></th><th data-pt="Seg" data-en="Mon">Mon</th><th data-pt="Ter" data-en="Tue">Tue</th><th data-pt="Qua" data-en="Wed">Wed</th><th data-pt="Qui" data-en="Thu">Thu</th><th data-pt="Sex" data-en="Fri">Fri</th><th data-pt="Sáb" data-en="Sat">Sat</th></tr></thead><tbody>
+<tr><td class="rot" data-pt="P1" data-en="P1">P1</td>
+<td class="gs-cel" data-s="2" data-d="0" data-p="1"><span class="gs-pill" style="background:#F6D9B0" data-pt="GA" data-en="GA">GA</span></td>
+<td class="gs-cel livre" data-s="2" data-d="1" data-p="1"></td>
+<td class="gs-cel" data-s="2" data-d="2" data-p="1"><span class="gs-pill" style="background:#F6D9B0" data-pt="GA" data-en="GA">GA</span></td>
+<td class="gs-cel" data-s="2" data-d="3" data-p="1"><span class="gs-pill" style="background:#F6D9B0" data-pt="GA" data-en="GA">GA</span></td>
+<td class="gs-cel livre" data-s="2" data-d="4" data-p="1"></td>
+<td class="gs-cel" data-s="2" data-d="5" data-p="1"><span class="gs-pill" style="background:#F6D9B0" data-pt="GA" data-en="GA">GA</span></td>
+</tr>
+<tr><td class="rot" data-pt="P2" data-en="P2">P2</td>
+<td class="gs-cel" data-s="2" data-d="0" data-p="2"><span class="gs-pill" style="background:#F6D9B0" data-pt="GA" data-en="GA">GA</span></td>
+<td class="gs-cel" data-s="2" data-d="1" data-p="2"><span class="gs-pill" style="background:#F6D9B0" data-pt="GA" data-en="GA">GA</span></td>
+<td class="gs-cel livre" data-s="2" data-d="2" data-p="2"></td>
+<td class="gs-cel" data-s="2" data-d="3" data-p="2"><span class="gs-pill" style="background:#F6D9B0" data-pt="GA" data-en="GA">GA</span></td>
+<td class="gs-cel" data-s="2" data-d="4" data-p="2"><span class="gs-pill" style="background:#F6D9B0" data-pt="GA" data-en="GA">GA</span></td>
+<td class="gs-cel" data-s="2" data-d="5" data-p="2"><span class="gs-pill gs-x" data-pt="✕" data-en="✕">✕</span></td>
+</tr>
+<tr><td class="rot" data-pt="P3" data-en="P3">P3</td>
+<td class="gs-cel livre" data-s="2" data-d="0" data-p="3"></td>
+<td class="gs-cel" data-s="2" data-d="1" data-p="3"><span class="gs-pill" style="background:#F6D9B0" data-pt="GA" data-en="GA">GA</span></td>
+<td class="gs-cel" data-s="2" data-d="2" data-p="3"><span class="gs-pill" style="background:#F6D9B0" data-pt="GA" data-en="GA">GA</span></td>
+<td class="gs-cel livre" data-s="2" data-d="3" data-p="3"></td>
+<td class="gs-cel" data-s="2" data-d="4" data-p="3"><span class="gs-pill" style="background:#F6D9B0" data-pt="GA" data-en="GA">GA</span></td>
+<td class="gs-cel" data-s="2" data-d="5" data-p="3"><span class="gs-pill gs-x" data-pt="✕" data-en="✕">✕</span></td>
+</tr>
+</tbody></table></div>
+<div class="card-fl" style="padding:11px 12px"><div style="display:flex;align-items:center;gap:9px;margin-bottom:8px"><span class="gs-badge" style="background:#6D28D9;color:#fff;font-size:14px" data-pt="14" data-en="14">14</span><div style="min-width:0"><div style="font-size:12px;font-weight:700;text-transform:uppercase;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" data-pt="ABA" data-en="ABA">ABA</div><div style="font-size:10.5px;color:var(--muted)" data-pt="EQ2 · 1º andar" data-en="EQ2 · 1st floor">EQ2 · 1st floor</div></div></div>
+<table class="gs pode"><thead><tr><th></th><th data-pt="Seg" data-en="Mon">Mon</th><th data-pt="Ter" data-en="Tue">Tue</th><th data-pt="Qua" data-en="Wed">Wed</th><th data-pt="Qui" data-en="Thu">Thu</th><th data-pt="Sex" data-en="Fri">Fri</th><th data-pt="Sáb" data-en="Sat">Sat</th></tr></thead><tbody>
+<tr><td class="rot" data-pt="P1" data-en="P1">P1</td>
+<td class="gs-cel" data-s="3" data-d="0" data-p="1"><span class="gs-pill" style="background:#F9C6C6" data-pt="NI" data-en="NI">NI</span><span class="gs-pill" style="background:#BFE9E4" data-pt="OT" data-en="OT">OT</span></td>
+<td class="gs-cel" data-s="3" data-d="1" data-p="1"><span class="gs-pill" style="background:#F9C6C6" data-pt="NI" data-en="NI">NI</span></td>
+<td class="gs-cel" data-s="3" data-d="2" data-p="1"><span class="gs-pill" style="background:#F9C6C6" data-pt="NI" data-en="NI">NI</span><span class="gs-pill" style="background:#BFE9E4" data-pt="OT" data-en="OT">OT</span></td>
+<td class="gs-cel" data-s="3" data-d="3" data-p="1"><span class="gs-pill" style="background:#BFE9E4" data-pt="OT" data-en="OT">OT</span></td>
+<td class="gs-cel" data-s="3" data-d="4" data-p="1"><span class="gs-pill" style="background:#F9C6C6" data-pt="NI" data-en="NI">NI</span></td>
+<td class="gs-cel" data-s="3" data-d="5" data-p="1"><span class="gs-pill" style="background:#BFE9E4" data-pt="OT" data-en="OT">OT</span></td>
+</tr>
+<tr><td class="rot" data-pt="P2" data-en="P2">P2</td>
+<td class="gs-cel" data-s="3" data-d="0" data-p="2"><span class="gs-pill" style="background:#BFE9E4" data-pt="OT" data-en="OT">OT</span></td>
+<td class="gs-cel" data-s="3" data-d="1" data-p="2"><span class="gs-pill" style="background:#F9C6C6" data-pt="NI" data-en="NI">NI</span><span class="gs-pill" style="background:#BFE9E4" data-pt="OT" data-en="OT">OT</span></td>
+<td class="gs-cel" data-s="3" data-d="2" data-p="2"><span class="gs-pill" style="background:#BFE9E4" data-pt="OT" data-en="OT">OT</span></td>
+<td class="gs-cel" data-s="3" data-d="3" data-p="2"><span class="gs-pill" style="background:#F9C6C6" data-pt="NI" data-en="NI">NI</span></td>
+<td class="gs-cel" data-s="3" data-d="4" data-p="2"><span class="gs-pill" style="background:#F9C6C6" data-pt="NI" data-en="NI">NI</span><span class="gs-pill" style="background:#BFE9E4" data-pt="OT" data-en="OT">OT</span></td>
+<td class="gs-cel" data-s="3" data-d="5" data-p="2"><span class="gs-pill gs-x" data-pt="✕" data-en="✕">✕</span></td>
+</tr>
+<tr><td class="rot" data-pt="P3" data-en="P3">P3</td>
+<td class="gs-cel" data-s="3" data-d="0" data-p="3"><span class="gs-pill" style="background:#F9C6C6" data-pt="NI" data-en="NI">NI</span></td>
+<td class="gs-cel" data-s="3" data-d="1" data-p="3"><span class="gs-pill" style="background:#BFE9E4" data-pt="OT" data-en="OT">OT</span></td>
+<td class="gs-cel livre" data-s="3" data-d="2" data-p="3"></td>
+<td class="gs-cel" data-s="3" data-d="3" data-p="3"><span class="gs-pill" style="background:#F9C6C6" data-pt="NI" data-en="NI">NI</span><span class="gs-pill" style="background:#BFE9E4" data-pt="OT" data-en="OT">OT</span></td>
+<td class="gs-cel" data-s="3" data-d="4" data-p="3"><span class="gs-pill" style="background:#BFE9E4" data-pt="OT" data-en="OT">OT</span></td>
+<td class="gs-cel" data-s="3" data-d="5" data-p="3"><span class="gs-pill gs-x" data-pt="✕" data-en="✕">✕</span></td>
+</tr>
+</tbody></table></div>
+<div class="card-fl" style="padding:11px 12px"><div style="display:flex;align-items:center;gap:9px;margin-bottom:8px"><span class="gs-badge" style="background:#BE185D;color:#fff;font-size:14px" data-pt="15" data-en="15">15</span><div style="min-width:0"><div style="font-size:12px;font-weight:700;text-transform:uppercase;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" data-pt="Psicopedagogia" data-en="Educational psychology">Educational psychology</div><div style="font-size:10.5px;color:var(--muted)" data-pt="EQ2 · 1º andar" data-en="EQ2 · 1st floor">EQ2 · 1st floor</div></div></div>
+<table class="gs pode"><thead><tr><th></th><th data-pt="Seg" data-en="Mon">Mon</th><th data-pt="Ter" data-en="Tue">Tue</th><th data-pt="Qua" data-en="Wed">Wed</th><th data-pt="Qui" data-en="Thu">Thu</th><th data-pt="Sex" data-en="Fri">Fri</th><th data-pt="Sáb" data-en="Sat">Sat</th></tr></thead><tbody>
+<tr><td class="rot" data-pt="P1" data-en="P1">P1</td>
+<td class="gs-cel livre" data-s="4" data-d="0" data-p="1"></td>
+<td class="gs-cel" data-s="4" data-d="1" data-p="1"><span class="gs-pill" style="background:#F2C9DF" data-pt="RE" data-en="RE">RE</span></td>
+<td class="gs-cel livre" data-s="4" data-d="2" data-p="1"></td>
+<td class="gs-cel" data-s="4" data-d="3" data-p="1"><span class="gs-pill" style="background:#F2C9DF" data-pt="RE" data-en="RE">RE</span></td>
+<td class="gs-cel livre" data-s="4" data-d="4" data-p="1"></td>
+<td class="gs-cel livre" data-s="4" data-d="5" data-p="1"></td>
+</tr>
+<tr><td class="rot" data-pt="P2" data-en="P2">P2</td>
+<td class="gs-cel" data-s="4" data-d="0" data-p="2"><span class="gs-pill" style="background:#F2C9DF" data-pt="RE" data-en="RE">RE</span></td>
+<td class="gs-cel" data-s="4" data-d="1" data-p="2"><span class="gs-pill" style="background:#F2C9DF" data-pt="RE" data-en="RE">RE</span></td>
+<td class="gs-cel" data-s="4" data-d="2" data-p="2"><span class="gs-pill" style="background:#F2C9DF" data-pt="RE" data-en="RE">RE</span></td>
+<td class="gs-cel livre" data-s="4" data-d="3" data-p="2"></td>
+<td class="gs-cel" data-s="4" data-d="4" data-p="2"><span class="gs-pill" style="background:#F2C9DF" data-pt="RE" data-en="RE">RE</span></td>
+<td class="gs-cel" data-s="4" data-d="5" data-p="2"><span class="gs-pill gs-x" data-pt="✕" data-en="✕">✕</span></td>
+</tr>
+<tr><td class="rot" data-pt="P3" data-en="P3">P3</td>
+<td class="gs-cel" data-s="4" data-d="0" data-p="3"><span class="gs-pill" style="background:#F2C9DF" data-pt="RE" data-en="RE">RE</span></td>
+<td class="gs-cel livre" data-s="4" data-d="1" data-p="3"></td>
+<td class="gs-cel" data-s="4" data-d="2" data-p="3"><span class="gs-pill" style="background:#F2C9DF" data-pt="RE" data-en="RE">RE</span></td>
+<td class="gs-cel" data-s="4" data-d="3" data-p="3"><span class="gs-pill" style="background:#F2C9DF" data-pt="RE" data-en="RE">RE</span></td>
+<td class="gs-cel livre" data-s="4" data-d="4" data-p="3"></td>
+<td class="gs-cel" data-s="4" data-d="5" data-p="3"><span class="gs-pill gs-x" data-pt="✕" data-en="✕">✕</span></td>
+</tr>
+</tbody></table></div>
+<div class="card-fl" style="padding:11px 12px"><div style="display:flex;align-items:center;gap:9px;margin-bottom:8px"><span class="gs-badge" style="background:var(--tint);color:var(--marca-texto);font-size:14px" data-pt="16" data-en="16">16</span><div style="min-width:0"><div style="font-size:12px;font-weight:700;text-transform:uppercase;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" data-pt="Musicoterapia" data-en="Music therapy">Music therapy</div><div style="font-size:10.5px;color:var(--muted)" data-pt="EQ2 · 1º andar" data-en="EQ2 · 1st floor">EQ2 · 1st floor</div></div></div>
+<table class="gs pode"><thead><tr><th></th><th data-pt="Seg" data-en="Mon">Mon</th><th data-pt="Ter" data-en="Tue">Tue</th><th data-pt="Qua" data-en="Wed">Wed</th><th data-pt="Qui" data-en="Thu">Thu</th><th data-pt="Sex" data-en="Fri">Fri</th><th data-pt="Sáb" data-en="Sat">Sat</th></tr></thead><tbody>
+<tr><td class="rot" data-pt="P1" data-en="P1">P1</td>
+<td class="gs-cel" data-s="5" data-d="0" data-p="1"><span class="gs-pill" style="background:#D6E3B8" data-pt="VA" data-en="VA">VA</span></td>
+<td class="gs-cel livre" data-s="5" data-d="1" data-p="1"></td>
+<td class="gs-cel livre" data-s="5" data-d="2" data-p="1"></td>
+<td class="gs-cel" data-s="5" data-d="3" data-p="1"><span class="gs-pill" style="background:#D6E3B8" data-pt="VA" data-en="VA">VA</span></td>
+<td class="gs-cel livre" data-s="5" data-d="4" data-p="1"></td>
+<td class="gs-cel" data-s="5" data-d="5" data-p="1"><span class="gs-pill" style="background:#D6E3B8" data-pt="VA" data-en="VA">VA</span></td>
+</tr>
+<tr><td class="rot" data-pt="P2" data-en="P2">P2</td>
+<td class="gs-cel livre" data-s="5" data-d="0" data-p="2"></td>
+<td class="gs-cel" data-s="5" data-d="1" data-p="2"><span class="gs-pill" style="background:#D6E3B8" data-pt="VA" data-en="VA">VA</span></td>
+<td class="gs-cel livre" data-s="5" data-d="2" data-p="2"></td>
+<td class="gs-cel livre" data-s="5" data-d="3" data-p="2"></td>
+<td class="gs-cel" data-s="5" data-d="4" data-p="2"><span class="gs-pill" style="background:#D6E3B8" data-pt="VA" data-en="VA">VA</span></td>
+<td class="gs-cel" data-s="5" data-d="5" data-p="2"><span class="gs-pill gs-x" data-pt="✕" data-en="✕">✕</span></td>
+</tr>
+<tr><td class="rot" data-pt="P3" data-en="P3">P3</td>
+<td class="gs-cel" data-s="5" data-d="0" data-p="3"><span class="gs-pill" style="background:#D6E3B8" data-pt="VA" data-en="VA">VA</span></td>
+<td class="gs-cel livre" data-s="5" data-d="1" data-p="3"></td>
+<td class="gs-cel" data-s="5" data-d="2" data-p="3"><span class="gs-pill" style="background:#D6E3B8" data-pt="VA" data-en="VA">VA</span></td>
+<td class="gs-cel livre" data-s="5" data-d="3" data-p="3"></td>
+<td class="gs-cel livre" data-s="5" data-d="4" data-p="3"></td>
+<td class="gs-cel" data-s="5" data-d="5" data-p="3"><span class="gs-pill gs-x" data-pt="✕" data-en="✕">✕</span></td>
+</tr>
+</tbody></table></div>
+</div></div></div>
+</main>
+</div>
+</div>
+
+<script>
+document.addEventListener('demo-lang',function(e){
+  var l=e.detail;
+  document.querySelectorAll('[data-en-val]').forEach(function(el){el.value=el.getAttribute('data-'+l+'-val');});
+});
+</script>
+
+<script>
+(function(){
+  var PROF = {"LI": ["Lívia Antunes", "Fonoaudióloga", "Speech therapist"], "TI": ["Tiago Rezende", "Terapeuta ocupacional", "Occupational therapist"], "BE": ["Beatriz Lacerda", "Terapeuta ocupacional", "Occupational therapist"], "GA": ["Gabriel Toledo", "Psicomotricista", "Psychomotor therapist"], "NI": ["Nina Carvalho", "Analista ABA", "ABA therapist"], "OT": ["Otávio Lins", "Aplicador ABA", "ABA technician"], "RE": ["Renata Duarte", "Psicopedagoga", "Educational psychologist"], "VA": ["Valéria Moura", "Musicoterapeuta", "Music therapist"], "IS": ["Isadora Freitas", "Fonoaudióloga", "Speech therapist"]}, SALAS = [{"numero": "11", "cor": "#1068B0", "grade": [[["LI"], ["LI"], ["IS"], ["LI"], ["IS"], ["LI"]], [["IS"], ["LI"], ["IS"], [], ["LI", "IS"], ["X"]], [["LI"], [], ["LI"], ["IS"], [], ["X"]]]}, {"numero": "12", "cor": "#0F766E", "grade": [[["TI"], ["BE"], ["TI"], ["BE"], ["TI"], []], [["BE"], ["TI"], [], ["TI"], ["BE"], ["X"]], [["TI", "BE"], ["TI"], ["BE"], [], ["TI"], ["X"]]]}, {"numero": "13", "cor": "#B45309", "grade": [[["GA"], [], ["GA"], ["GA"], [], ["GA"]], [["GA"], ["GA"], [], ["GA"], ["GA"], ["X"]], [[], ["GA"], ["GA"], [], ["GA"], ["X"]]]}, {"numero": "14", "cor": "#6D28D9", "grade": [[["NI", "OT"], ["NI"], ["NI", "OT"], ["OT"], ["NI"], ["OT"]], [["OT"], ["NI", "OT"], ["OT"], ["NI"], ["NI", "OT"], ["X"]], [["NI"], ["OT"], [], ["NI", "OT"], ["OT"], ["X"]]]}, {"numero": "15", "cor": "#BE185D", "grade": [[[], ["RE"], [], ["RE"], [], []], [["RE"], ["RE"], ["RE"], [], ["RE"], ["X"]], [["RE"], [], ["RE"], ["RE"], [], ["X"]]]}, {"numero": "16", "cor": null, "grade": [[["VA"], [], [], ["VA"], [], ["VA"]], [[], ["VA"], [], [], ["VA"], ["X"]], [["VA"], [], ["VA"], [], [], ["X"]]]}];
+  var DIAS = [['Seg','Mon'],['Ter','Tue'],['Qua','Wed'],['Qui','Thu'],['Sex','Fri'],['Sáb','Sat']];
+  var HORA = {1:'7h', 2:'12h', 3:'16h'};
+  function L(pt, en){ return window.DEMO_LANG === 'pt' ? pt : en; }
+  var fundo = document.getElementById('modal-celula');
+  fundo.addEventListener('click', function(e){ if (e.target === fundo || e.target.closest('[data-fechar]')) fundo.style.display = 'none'; });
+  document.querySelectorAll('.gs-cel').forEach(function(td){
+    td.addEventListener('click', function(){
+      var s = SALAS[td.getAttribute('data-s')], d = +td.getAttribute('data-d'), p = +td.getAttribute('data-p');
+      var ocs = s.grade[p - 1][d];
+      var corpo = ocs.length ? ocs.map(function(k){
+        var nome = k === 'X' ? L('Indisponível','Unavailable') : PROF[k][0];
+        var sub = k === 'X' ? L('Sala reservada para manutenção','Room reserved for maintenance') : L(PROF[k][1], PROF[k][2]);
+        var ini = k === 'X' ? '✕' : nome.split(' ').map(function(w){return w[0];}).slice(0,2).join('').toUpperCase();
+        return '<div style="display:flex;align-items:center;gap:9px;padding:7px 4px;border-bottom:1px solid var(--linha-suave)">' +
+          '<span style="width:26px;height:26px;border-radius:50%;background:var(--grad);color:#fff;font-weight:700;font-size:9px;display:flex;align-items:center;justify-content:center;flex:none">' + ini + '</span>' +
+          '<span style="flex:1;min-width:0"><span style="display:block;font-size:12px;font-weight:700;text-transform:uppercase">' + nome + '</span>' +
+          '<span style="display:block;font-size:10.5px;color:var(--muted)">' + sub + '</span></span>' +
+          '<i class="ti ti-trash" style="font-size:14px;cursor:pointer;color:var(--vermelho);flex:none"></i></div>';
+      }).join('') : '<div style="font-size:12.5px;color:var(--muted);margin-bottom:10px">' + L('Período livre.','Free period.') + '</div>';
+      var badge = '<span class="gs-badge" style="background:' + (s.cor || 'var(--tint)') + ';color:' + (s.cor ? '#fff' : 'var(--marca-texto)') + ';font-size:14px">' + s.numero + '</span>';
+      fundo.querySelector('.org-modal').innerHTML =
+        '<div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">' + badge +
+        '<div style="font-size:13.5px;font-weight:800">' + L(DIAS[d][0], DIAS[d][1]) + ' · P' + p +
+        ' <span style="font-weight:500;color:var(--muted);font-size:12px">(' + HORA[p] + ')</span></div>' +
+        '<i class="ti ti-x" data-fechar style="margin-left:auto;cursor:pointer;color:var(--muted);font-size:17px"></i></div>' + corpo +
+        '<div style="margin-top:12px;display:flex;flex-direction:column;gap:8px">' +
+        '<div><label style="display:block;font-size:10.5px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.6px;margin-bottom:4px">' + L('Horário (opcional)','Time (optional)') + '</label>' +
+        '<input class="campo" style="width:100%;padding:8px 10px;font-size:12.5px" placeholder="' + L('ex.: 7h-13h ou início 8h30','e.g. 7am-1pm or starts 8:30') + '"></div>' +
+        '<div><button class="btn-primaria" style="padding:8px 15px;font-size:12.5px">' + L('Colocar na célula','Add to cell') + '</button></div></div>';
+      fundo.style.display = 'flex';
+    });
+  });
+})();
+</script>
+</body>
+</html>

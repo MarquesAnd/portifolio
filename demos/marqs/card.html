@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MARQS FINANCE · Card</title>
+<meta name="theme-color" content="#080B0F">
+<link rel="icon" href="icon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="marqs.css">
+<style>/* demo: static snapshot */ #app{display:block} html,body{overflow-x:hidden}</style>
+</head>
+<body>
+<div id="app" style="min-height:100vh">
+<div style="min-height:100vh;display:flex;background:radial-gradient(900px 480px at 78% -8%,rgba(61,220,151,.07),transparent 62%),#080B0F">
+  <aside>
+    <div style="display:flex;align-items:center;gap:11px;padding:0 8px">
+      <div style="width:36px;height:36px;border-radius:11px;background:#0E151C;border:1px solid rgba(255,255,255,.08);display:grid;place-items:center;flex:none"><svg width="22" height="22" viewBox="0 0 32 32"><path d="M6 23V11.5l5 6.5 5-9.5 5 9.5 5-12" fill="none" stroke="#3DDC97" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="sora" style="font-weight:700;letter-spacing:.12em;font-size:11.5px"><span data-en="MARQS" data-pt="MARQS">MARQS</span><span style="color:#3DDC97" data-en=" FINANCE" data-pt=" FINANCE"> FINANCE</span></div>
+    </div>
+    <nav id="sideNav" style="display:flex;flex-direction:column;gap:4px"><button class="navb " onclick="location.href='dashboard.html'+location.hash">
+    <span style="width:20px;display:grid;place-items:center;flex:none;font-size:15px" data-en="◫" data-pt="◫">◫</span><span style="flex:1" data-en="Home" data-pt="Início">Home</span>
+    </button><button class="navb ">
+    <span style="width:20px;display:grid;place-items:center;flex:none;font-size:15px" data-en="⇄" data-pt="⇄">⇄</span><span style="flex:1" data-en="Bills" data-pt="Contas">Bills</span>
+    <span class="mono" style="font-size:10.5px;font-weight:700;padding:2px 7px;border-radius:999px;background:rgba(255,107,107,.16);color:#FF8F8F" data-en="1" data-pt="1">1</span></button><button class="navb ">
+    <span style="width:20px;display:grid;place-items:center;flex:none;font-size:15px" data-en="↓" data-pt="↓">↓</span><span style="flex:1" data-en="Income" data-pt="Entradas">Income</span>
+    </button><button class="navb on" onclick="location.href='card.html'+location.hash">
+    <span style="width:20px;display:grid;place-items:center;flex:none;font-size:15px" data-en="▭" data-pt="▭">▭</span><span style="flex:1" data-en="Card" data-pt="Cartão">Card</span>
+    </button><button class="navb " onclick="location.href='analysis.html'+location.hash">
+    <span style="width:20px;display:grid;place-items:center;flex:none;font-size:15px" data-en="◔" data-pt="◔">◔</span><span style="flex:1" data-en="Analysis" data-pt="Análise">Analysis</span>
+    </button><button class="navb " onclick="location.href='goals.html'+location.hash">
+    <span style="width:20px;display:grid;place-items:center;flex:none;font-size:15px" data-en="◎" data-pt="◎">◎</span><span style="flex:1" data-en="Goals" data-pt="Metas">Goals</span>
+    </button><button class="navb ">
+    <span style="width:20px;display:grid;place-items:center;flex:none;font-size:15px" data-en="⚙" data-pt="⚙">⚙</span><span style="flex:1" data-en="Settings" data-pt="Ajustes">Settings</span>
+    </button></nav>
+    <div style="margin-top:auto;display:flex;flex-direction:column;gap:10px">
+      <div style="padding:14px;border-radius:16px;background:linear-gradient(160deg,rgba(61,220,151,.10),rgba(167,139,250,.07));border:1px solid rgba(255,255,255,.07)">
+        <div class="lbl" style="margin-bottom:6px" data-en="Projected surplus" data-pt="Sobra prevista">Projected surplus</div>
+        <div class="mono" id="sbSaldo" style="font-weight:700;font-size:20px;color:#3DDC97" data-v="R$ 5.437,10" data-en="R$ 5.437,10" data-pt="R$ 5.437,10">R$ 5.437,10</div>
+        <div class="sub" id="sbMes" style="margin-top:4px" data-en="October 2026" data-pt="Outubro 2026">October 2026</div>
+      </div>
+      <button style="display:flex;align-items:center;gap:11px;padding:9px 11px;border:1px solid rgba(255,255,255,.07);border-radius:14px;background:transparent;cursor:pointer;transition:all .18s">
+        <span id="sbAv" style="width:30px;height:30px;border-radius:9px;background:#3DDC97;color:#06231A;font-weight:700;font-size:12.5px;display:grid;place-items:center;flex:none" data-en="AR" data-pt="AR">AR</span>
+        <span style="flex:1;text-align:left;overflow:hidden">
+          <span id="sbNome" class="ell" style="display:block;font-size:13px;font-weight:600" data-en="Ana Ribeiro" data-pt="Ana Ribeiro">Ana Ribeiro</span>
+          <span id="sbMail" class="ell" style="display:block;font-size:11px;color:#6F8090" data-en="ana@exemplo.com" data-pt="ana@exemplo.com">ana@exemplo.com</span>
+        </span>
+      </button>
+    </div>
+  </aside>
+  <main>
+    <header class="top">
+      <div style="display:flex;align-items:center;gap:2px;padding:4px;border-radius:13px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07)">
+        <button style="width:30px;height:30px;border:0;border-radius:9px;background:transparent;color:#B6C4D2;cursor:pointer;font-size:15px" data-en="‹" data-pt="‹">‹</button>
+        <div id="mesLbl" class="sora" style="min-width:112px;text-align:center;font-weight:600;font-size:13.5px" data-en="October 2026" data-pt="Outubro 2026">October 2026</div>
+        <button style="width:30px;height:30px;border:0;border-radius:9px;background:transparent;color:#B6C4D2;cursor:pointer;font-size:15px" data-en="›" data-pt="›">›</button>
+      </div>
+      <div class="seg" id="escSeg"><button class="on" data-en="All" data-pt="Tudo">All</button><button data-en="Mine" data-pt="Meu">Mine</button><button data-en="Bruno" data-pt="Bruno">Bruno</button><button data-en="Joint" data-pt="Conjunto">Joint</button></div>
+      <div style="flex:1;min-width:8px"></div>
+      <button class="icbtn" id="eyeBtn" title="Hide values" onclick="togglePriv()" data-en="👁" data-pt="👁">👁</button>
+      <button class="btn hidem"><span style="font-size:16px;line-height:1" data-en="+" data-pt="+">+</span><span data-en="New entry" data-pt="Novo lançamento">New entry</span></button>
+    </header>
+    <div class="content" id="main">
+<div class="seg"><button class="onp" data-en="Nubank" data-pt="Nubank">Nubank</button><button data-en="Inter" data-pt="Inter">Inter</button></div>
+  <div class="gridc">
+    <div style="animation:rise .45s both;min-width:0">
+      <div id="cardVisual">
+  <div style="position:relative;border-radius:24px;padding:24px;background:linear-gradient(145deg,#2B1B54,#120F2A 60%,#0C1520);border:1px solid rgba(255,255,255,.1);overflow:hidden;box-shadow:0 26px 60px -30px rgba(139,92,246,.7);transition:transform .3s">
+    <div style="position:absolute;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(167,139,250,.35),transparent 65%);top:-90px;right:-60px"></div>
+    <div style="position:relative;display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:38px">
+      <div><div style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.55)" data-en="credit card" data-pt="cartão de crédito">credit card</div>
+      <div class="sora" style="font-weight:600;font-size:19px;margin-top:5px" data-en="Nubank" data-pt="Nubank">Nubank</div></div>
+      <div style="display:flex;align-items:center"><span style="width:26px;height:26px;border-radius:50%;background:rgba(255,255,255,.22)"></span><span style="width:26px;height:26px;border-radius:50%;background:rgba(255,255,255,.4);margin-left:-14px"></span></div></div>
+    <div class="mono" style="position:relative;font-size:15px;letter-spacing:.16em;color:rgba(255,255,255,.75);margin-bottom:20px" data-en="•••• •••• •••• ••••" data-pt="•••• •••• •••• ••••">•••• •••• •••• ••••</div>
+    <div style="position:relative;display:flex;justify-content:space-between;align-items:flex-end;gap:14px">
+      <div><div style="font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.5)" data-en="available limit" data-pt="limite disponível">available limit</div>
+      <div class="mono" style="font-weight:700;font-size:22px;margin-top:4px" data-v="R$ 6.527,70" data-en="R$ 6.527,70" data-pt="R$ 6.527,70">R$ 6.527,70</div></div>
+      <div style="text-align:right"><div style="font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.5)" data-en="of" data-pt="de">of</div>
+      <div class="mono" style="font-size:14px;margin-top:4px;color:rgba(255,255,255,.8)" data-v="R$ 12.000,00" data-en="R$ 12.000,00" data-pt="R$ 12.000,00">R$ 12.000,00</div></div></div>
+    <div style="position:relative;margin-top:16px;height:7px;border-radius:99px;background:rgba(255,255,255,.14);overflow:hidden">
+      <div style="height:100%;border-radius:99px;transform-origin:left;animation:grow .9s both;width:45.60%;background:#A78BFA"></div></div>
+    <div style="position:relative;margin-top:9px;display:flex;justify-content:space-between;font-size:11.5px;color:rgba(255,255,255,.6)">
+      <span data-en="46% used" data-pt="46% comprometido">46% used</span><span data-en="closes on the 25th · due on the 5th" data-pt="fecha dia 25 · vence dia 5">closes on the 25th · due on the 5th</span></div></div></div>
+      <button class="btn violet" style="width:100%;margin-top:14px"><span data-en="+ Add card purchase" data-pt="+ Lançar compra no cartão">+ Add card purchase</span></button>
+      <div style="display:flex;gap:9px;margin-top:10px">
+        <button class="btn ghost sm" style="flex:1" data-en="Edit card" data-pt="Editar cartão">Edit card</button>
+        <button class="btn ghost sm" style="flex:1" data-en="+ New card" data-pt="+ Novo cartão">+ New card</button></div>
+      <p class="sub" style="line-height:1.6;margin:14px 2px 0" data-en="Installment purchases land on future bills automatically. The bill is the only payment of the month — no installment turns into a loose bill." data-pt="Compra parcelada entra sozinha nas faturas futuras. A fatura é a única conta a pagar do mês — nenhuma parcela vira conta solta.">Installment purchases land on future bills automatically. The bill is the only payment of the month — no installment turns into a loose bill.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:14px;animation:rise .55s both;min-width:0">
+      <div class="pcard" style="animation:none" id="favBox">
+  <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:18px;gap:12px;flex-wrap:wrap">
+    <div><h3 class="h3" data-en="October bill" data-pt="Fatura de Outubro">October bill</h3>
+    <p class="sub" style="margin:0" data-en="11 entries · due Nov 05" data-pt="11 lançamentos · vence 05/11">11 entries · due Nov 05</p></div>
+    <div class="mono" style="font-weight:700;font-size:22px;color:#A78BFA" data-v="R$ 3.284,57" data-en="R$ 3.284,57" data-pt="R$ 3.284,57">R$ 3.284,57</div></div>
+  <div style="display:flex;flex-direction:column;gap:7px;max-height:330px;overflow:auto">
+    <div class="rowi" style="padding:11px 13px;border-radius:14px">
+      <span style="width:34px;height:34px;border-radius:11px;background:rgba(167,139,250,.14);color:#C4B0FF;display:grid;place-items:center;font-size:14px;flex:none" data-en="▭" data-pt="▭">▭</span>
+      <span style="flex:1;min-width:0"><span class="ell" style="display:block;font-size:13.5px;font-weight:600" data-en="Atacadão do Bairro" data-pt="Atacadão do Bairro">Atacadão do Bairro</span>
+      <span class="sub" style="display:block;margin-top:2px" data-en="Joint · Groceries" data-pt="Conjunto · Mercado">Joint · Groceries</span></span>
+      <span class="mono" style="font-size:13.5px;font-weight:600;flex:none" data-v="R$ 1.213,28" data-en="R$ 1.213,28" data-pt="R$ 1.213,28">R$ 1.213,28</span></div><div class="rowi" style="padding:11px 13px;border-radius:14px">
+      <span style="width:34px;height:34px;border-radius:11px;background:rgba(167,139,250,.14);color:#C4B0FF;display:grid;place-items:center;font-size:14px;flex:none" data-en="▭" data-pt="▭">▭</span>
+      <span style="flex:1;min-width:0"><span class="ell" style="display:block;font-size:13.5px;font-weight:600" data-en="Pão Dourado supermarket" data-pt="Supermercado Pão Dourado">Pão Dourado supermarket</span>
+      <span class="sub" style="display:block;margin-top:2px" data-en="Ana · Groceries" data-pt="Ana · Mercado">Ana · Groceries</span></span>
+      <span class="mono" style="font-size:13.5px;font-weight:600;flex:none" data-v="R$ 612,48" data-en="R$ 612,48" data-pt="R$ 612,48">R$ 612,48</span></div><div class="rowi" style="padding:11px 13px;border-radius:14px">
+      <span style="width:34px;height:34px;border-radius:11px;background:rgba(167,139,250,.14);color:#C4B0FF;display:grid;place-items:center;font-size:14px;flex:none" data-en="▭" data-pt="▭">▭</span>
+      <span style="flex:1;min-width:0"><span class="ell" style="display:block;font-size:13.5px;font-weight:600" data-en="Running shoes (2/4)" data-pt="Tênis de corrida (2/4)">Running shoes (2/4)</span>
+      <span class="sub" style="display:block;margin-top:2px" data-en="Bruno · Leisure" data-pt="Bruno · Lazer">Bruno · Leisure</span></span>
+      <span class="mono" style="font-size:13.5px;font-weight:600;flex:none" data-v="R$ 324,75" data-en="R$ 324,75" data-pt="R$ 324,75">R$ 324,75</span></div><div class="rowi" style="padding:11px 13px;border-radius:14px">
+      <span style="width:34px;height:34px;border-radius:11px;background:rgba(167,139,250,.14);color:#C4B0FF;display:grid;place-items:center;font-size:14px;flex:none" data-en="▭" data-pt="▭">▭</span>
+      <span style="flex:1;min-width:0"><span class="ell" style="display:block;font-size:13.5px;font-weight:600" data-en="Gas station" data-pt="Posto de combustível">Gas station</span>
+      <span class="sub" style="display:block;margin-top:2px" data-en="Bruno · Transport" data-pt="Bruno · Transporte">Bruno · Transport</span></span>
+      <span class="mono" style="font-size:13.5px;font-weight:600;flex:none" data-v="R$ 280,00" data-en="R$ 280,00" data-pt="R$ 280,00">R$ 280,00</span></div><div class="rowi" style="padding:11px 13px;border-radius:14px">
+      <span style="width:34px;height:34px;border-radius:11px;background:rgba(167,139,250,.14);color:#C4B0FF;display:grid;place-items:center;font-size:14px;flex:none" data-en="▭" data-pt="▭">▭</span>
+      <span style="flex:1;min-width:0"><span class="ell" style="display:block;font-size:13.5px;font-weight:600" data-en="Sabor da Serra restaurant" data-pt="Restaurante Sabor da Serra">Sabor da Serra restaurant</span>
+      <span class="sub" style="display:block;margin-top:2px" data-en="Joint · Leisure" data-pt="Conjunto · Lazer">Joint · Leisure</span></span>
+      <span class="mono" style="font-size:13.5px;font-weight:600;flex:none" data-v="R$ 238,70" data-en="R$ 238,70" data-pt="R$ 238,70">R$ 238,70</span></div><div class="rowi" style="padding:11px 13px;border-radius:14px">
+      <span style="width:34px;height:34px;border-radius:11px;background:rgba(167,139,250,.14);color:#C4B0FF;display:grid;place-items:center;font-size:14px;flex:none" data-en="▭" data-pt="▭">▭</span>
+      <span style="flex:1;min-width:0"><span class="ell" style="display:block;font-size:13.5px;font-weight:600" data-en="Fresh produce market" data-pt="Hortifruti Bom Preço">Fresh produce market</span>
+      <span class="sub" style="display:block;margin-top:2px" data-en="Joint · Groceries" data-pt="Conjunto · Mercado">Joint · Groceries</span></span>
+      <span class="mono" style="font-size:13.5px;font-weight:600;flex:none" data-v="R$ 189,44" data-en="R$ 189,44" data-pt="R$ 189,44">R$ 189,44</span></div><div class="rowi" style="padding:11px 13px;border-radius:14px">
+      <span style="width:34px;height:34px;border-radius:11px;background:rgba(167,139,250,.14);color:#C4B0FF;display:grid;place-items:center;font-size:14px;flex:none" data-en="▭" data-pt="▭">▭</span>
+      <span style="flex:1;min-width:0"><span class="ell" style="display:block;font-size:13.5px;font-weight:600" data-en="Vida pharmacy" data-pt="Farmácia Vida">Vida pharmacy</span>
+      <span class="sub" style="display:block;margin-top:2px" data-en="Ana · Health" data-pt="Ana · Saúde">Ana · Health</span></span>
+      <span class="mono" style="font-size:13.5px;font-weight:600;flex:none" data-v="R$ 146,32" data-en="R$ 146,32" data-pt="R$ 146,32">R$ 146,32</span></div><div class="rowi" style="padding:11px 13px;border-radius:14px">
+      <span style="width:34px;height:34px;border-radius:11px;background:rgba(167,139,250,.14);color:#C4B0FF;display:grid;place-items:center;font-size:14px;flex:none" data-en="▭" data-pt="▭">▭</span>
+      <span style="flex:1;min-width:0"><span class="ell" style="display:block;font-size:13.5px;font-weight:600" data-en="Ride-hailing" data-pt="App de transporte">Ride-hailing</span>
+      <span class="sub" style="display:block;margin-top:2px" data-en="Ana · Transport" data-pt="Ana · Transporte">Ana · Transport</span></span>
+      <span class="mono" style="font-size:13.5px;font-weight:600;flex:none" data-v="R$ 96,80" data-en="R$ 96,80" data-pt="R$ 96,80">R$ 96,80</span></div><div class="rowi" style="padding:11px 13px;border-radius:14px">
+      <span style="width:34px;height:34px;border-radius:11px;background:rgba(167,139,250,.14);color:#C4B0FF;display:grid;place-items:center;font-size:14px;flex:none" data-en="▭" data-pt="▭">▭</span>
+      <span style="flex:1;min-width:0"><span class="ell" style="display:block;font-size:13.5px;font-weight:600" data-en="Movie theater" data-pt="Cinema">Movie theater</span>
+      <span class="sub" style="display:block;margin-top:2px" data-en="Joint · Leisure" data-pt="Conjunto · Lazer">Joint · Leisure</span></span>
+      <span class="mono" style="font-size:13.5px;font-weight:600;flex:none" data-v="R$ 92,00" data-en="R$ 92,00" data-pt="R$ 92,00">R$ 92,00</span></div><div class="rowi" style="padding:11px 13px;border-radius:14px">
+      <span style="width:34px;height:34px;border-radius:11px;background:rgba(167,139,250,.14);color:#C4B0FF;display:grid;place-items:center;font-size:14px;flex:none" data-en="▭" data-pt="▭">▭</span>
+      <span style="flex:1;min-width:0"><span class="ell" style="display:block;font-size:13.5px;font-weight:600" data-en="Video streaming" data-pt="Streaming de filmes">Video streaming</span>
+      <span class="sub" style="display:block;margin-top:2px" data-en="Joint · Subscriptions · recurring" data-pt="Conjunto · Assinaturas · recorrente">Joint · Subscriptions · recurring</span></span>
+      <span class="mono" style="font-size:13.5px;font-weight:600;flex:none" data-v="R$ 55,90" data-en="R$ 55,90" data-pt="R$ 55,90">R$ 55,90</span></div><div class="rowi" style="padding:11px 13px;border-radius:14px">
+      <span style="width:34px;height:34px;border-radius:11px;background:rgba(167,139,250,.14);color:#C4B0FF;display:grid;place-items:center;font-size:14px;flex:none" data-en="▭" data-pt="▭">▭</span>
+      <span style="flex:1;min-width:0"><span class="ell" style="display:block;font-size:13.5px;font-weight:600" data-en="Music streaming" data-pt="Streaming de música">Music streaming</span>
+      <span class="sub" style="display:block;margin-top:2px" data-en="Joint · Subscriptions · recurring" data-pt="Conjunto · Assinaturas · recorrente">Joint · Subscriptions · recurring</span></span>
+      <span class="mono" style="font-size:13.5px;font-weight:600;flex:none" data-v="R$ 34,90" data-en="R$ 34,90" data-pt="R$ 34,90">R$ 34,90</span></div></div>
+    <div class="grid2" style="margin-top:16px"><div class="field"><label data-en="Pay from account" data-pt="Pagar com a conta">Pay from account</label><select id="pfC"><option value="1" data-en="Joint checking" data-pt="Conta conjunta">Joint checking</option></select></div>
+    <div class="field"><label data-en="Payment date" data-pt="Data do pagamento">Payment date</label><input id="pfD" value="26/10/2026" class="mono" readonly></div></div>
+    <button class="btn violet" style="width:100%"><span data-en="Pay bill · " data-pt="Pagar fatura · ">Pay bill · </span><span data-v="R$ 3.284,57" data-en="R$ 3.284,57" data-pt="R$ 3.284,57">R$ 3.284,57</span></button>
+    <p class="sub" style="text-align:center;margin:10px 0 0" data-en="Settles the items, frees up the limit and posts a single cash outflow." data-pt="Quita os itens, libera o limite e lança uma única saída no caixa.">Settles the items, frees up the limit and posts a single cash outflow.</p></div>
+      <div class="pcard" style="animation:none" id="fwdBox"><h3 class="h3" data-en="Already committed ahead" data-pt="Já comprometido à frente">Already committed ahead</h3>
+  <p class="sub" style="margin:0 0 16px" data-en="Installments that will land on upcoming bills" data-pt="Parcelas que vão cair nas próximas faturas">Installments that will land on upcoming bills</p>
+  <div style="display:flex;flex-direction:column;gap:10px">
+  <div style="display:flex;align-items:center;gap:12px">
+    <span style="width:64px;font-size:12.5px;color:#B6C4D2;flex:none" data-en="nov/26" data-pt="nov/26">nov/26</span>
+    <span style="flex:1;height:9px;border-radius:99px;background:rgba(255,255,255,.06);overflow:hidden">
+      <span style="display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,#A78BFA,rgba(167,139,250,.4));width:100.00%;transform-origin:left;animation:grow .8s both"></span></span>
+    <span class="mono" style="font-size:12.5px;min-width:82px;text-align:right;flex:none" data-v="R$ 912,40" data-en="R$ 912,40" data-pt="R$ 912,40">R$ 912,40</span></div><div style="display:flex;align-items:center;gap:12px">
+    <span style="width:64px;font-size:12.5px;color:#B6C4D2;flex:none" data-en="dec/26" data-pt="dez/26">dec/26</span>
+    <span style="flex:1;height:9px;border-radius:99px;background:rgba(255,255,255,.06);overflow:hidden">
+      <span style="display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,#A78BFA,rgba(167,139,250,.4));width:67.77%;transform-origin:left;animation:grow .8s both"></span></span>
+    <span class="mono" style="font-size:12.5px;min-width:82px;text-align:right;flex:none" data-v="R$ 618,33" data-en="R$ 618,33" data-pt="R$ 618,33">R$ 618,33</span></div><div style="display:flex;align-items:center;gap:12px">
+    <span style="width:64px;font-size:12.5px;color:#B6C4D2;flex:none" data-en="jan/27" data-pt="jan/27">jan/27</span>
+    <span style="flex:1;height:9px;border-radius:99px;background:rgba(255,255,255,.06);overflow:hidden">
+      <span style="display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,#A78BFA,rgba(167,139,250,.4));width:42.53%;transform-origin:left;animation:grow .8s both"></span></span>
+    <span class="mono" style="font-size:12.5px;min-width:82px;text-align:right;flex:none" data-v="R$ 388,00" data-en="R$ 388,00" data-pt="R$ 388,00">R$ 388,00</span></div><div style="display:flex;align-items:center;gap:12px">
+    <span style="width:64px;font-size:12.5px;color:#B6C4D2;flex:none" data-en="feb/27" data-pt="fev/27">feb/27</span>
+    <span style="flex:1;height:9px;border-radius:99px;background:rgba(255,255,255,.06);overflow:hidden">
+      <span style="display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,#A78BFA,rgba(167,139,250,.4));width:18.52%;transform-origin:left;animation:grow .8s both"></span></span>
+    <span class="mono" style="font-size:12.5px;min-width:82px;text-align:right;flex:none" data-v="R$ 169,00" data-en="R$ 169,00" data-pt="R$ 169,00">R$ 169,00</span></div><div style="display:flex;align-items:center;gap:12px">
+    <span style="width:64px;font-size:12.5px;color:#B6C4D2;flex:none" data-en="mar/27" data-pt="mar/27">mar/27</span>
+    <span style="flex:1;height:9px;border-radius:99px;background:rgba(255,255,255,.06);overflow:hidden">
+      <span style="display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,#A78BFA,rgba(167,139,250,.4));width:10.96%;transform-origin:left;animation:grow .8s both"></span></span>
+    <span class="mono" style="font-size:12.5px;min-width:82px;text-align:right;flex:none" data-v="R$ 100,00" data-en="R$ 100,00" data-pt="R$ 100,00">R$ 100,00</span></div></div></div>
+    </div>
+  </div>
+    </div>
+  </main>
+</div>
+</div>
+
+<script src="../i18n.js"></script>
+<script>
+var PRIV=false;
+function togglePriv(){PRIV=!PRIV;
+  document.querySelectorAll('[data-v]').forEach(function(el){var s=PRIV?'R$ ••••':el.getAttribute('data-v');
+    el.setAttribute('data-en',s);el.setAttribute('data-pt',s);el.textContent=s;});
+  var e=document.getElementById('eyeBtn'),g=PRIV?'🙈':'👁';e.setAttribute('data-en',g);e.setAttribute('data-pt',g);e.textContent=g;}
+</script>
+</body>
+</html>

@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Dashboard — CORTEX</title>
+    
+    
+    
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/confirm_modal.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    
+    
+    
+    
+    
+    <meta name="theme-color" content="#141F3C">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="CORTEX">
+    
+<link rel="stylesheet" href="css/cortex-v2.css" data-cortex-v2-css="1"><link rel="stylesheet" href="css/notificacoes.css" data-cortex-notif-css="1"><link rel="stylesheet" href="css/chat_badge.css" data-cortex-chat-css="1"><style>html,body{overflow-x:hidden!important}</style></head>
+<body>
+    <div class="app-shell">
+        <div id="sidebar-container">
+            <aside class="sidebar  " id="cortex-sidebar">
+                <div class="sidebar-brand">
+                    <svg class="sidebar-brand-icon" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+        <g stroke="currentColor" fill="currentColor" stroke-linecap="round">
+            <line x1="16" y1="16" x2="9" y2="9" stroke-width="1"></line>
+            <line x1="16" y1="16" x2="23" y2="9" stroke-width="1"></line>
+            <line x1="16" y1="16" x2="9" y2="23" stroke-width="1"></line>
+            <line x1="16" y1="16" x2="23" y2="23" stroke-width="1"></line>
+            <line x1="16" y1="16" x2="16" y2="7" stroke-width="1"></line>
+            <line x1="16" y1="16" x2="16" y2="25" stroke-width="1"></line>
+            <circle cx="16" cy="16" r="2.8"></circle>
+            <circle cx="9" cy="9" r="1.6"></circle>
+            <circle cx="23" cy="9" r="1.6"></circle>
+            <circle cx="9" cy="23" r="1.6"></circle>
+            <circle cx="23" cy="23" r="1.6"></circle>
+            <circle cx="16" cy="7" r="1.4"></circle>
+            <circle cx="16" cy="25" r="1.4"></circle>
+        </g>
+    </svg>
+                    <span class="sidebar-brand-text sidebar-text" data-pt="CORTEX" data-en="CORTEX">CORTEX</span>
+                    <div class="sidebar-actions">
+                        <button class="sidebar-toggle" id="sidebar-toggle-btn">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                        </button>
+                        <button class="sidebar-close" id="sidebar-close-btn">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                        </button>
+                    </div>
+                </div>
+
+                <nav class="sidebar-nav">
+                    
+                <a href="dashboard.html" class="nav-item active" title="Dashboard" data-nav="dashboard" style="--nav-accent: var(--accent-blue)">
+                    <svg class="nav-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"></rect><rect x="14" y="3" width="7" height="7" rx="1.5"></rect><rect x="3" y="14" width="7" height="7" rx="1.5"></rect><rect x="14" y="14" width="7" height="7" rx="1.5"></rect></svg>
+                    <span class="sidebar-text" data-pt="Dashboard" data-en="Dashboard">Dashboard</span>
+                    
+                </a>
+            
+                <a href="pacientes.html" class="nav-item " title="Patients" data-nav="pacientes" style="--nav-accent: var(--accent-purple)">
+                    <svg class="nav-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                    <span class="sidebar-text" data-pt="Pacientes" data-en="Patients">Patients</span>
+                    
+                </a>
+            
+                <a href="#" class="nav-item " title="Agenda" data-nav="agenda" style="--nav-accent: var(--accent-cyan)">
+                    <svg class="nav-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2.5"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                    <span class="sidebar-text" data-pt="Agenda" data-en="Agenda">Agenda</span>
+                    
+                </a>
+            
+                <a href="#" class="nav-item " title="Messages" data-nav="mensagens" style="--nav-accent: var(--accent-blue-2)">
+                    <svg class="nav-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                    <span class="sidebar-text" data-pt="Mensagens" data-en="Messages">Messages</span>
+                    <span class="sidebar-badge" id="chat-nav-badge" data-pt="2" data-en="2">2</span>
+                </a>
+            
+                <a href="#" class="nav-item " title="Charts" data-nav="graficos" style="--nav-accent: var(--accent-amber)">
+                    <svg class="nav-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+                    <span class="sidebar-text" data-pt="Gráficos" data-en="Charts">Charts</span>
+                    
+                </a>
+            
+                <a href="#" class="nav-item " title="Inventory" data-nav="estoque" style="--nav-accent: var(--accent-green)">
+                    <svg class="nav-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                    <span class="sidebar-text" data-pt="Estoque" data-en="Inventory">Inventory</span>
+                    
+                </a>
+            
+                <a href="#" class="nav-item " title="Screenings" data-nav="triagens" style="--nav-accent: var(--accent-amber)">
+                    <svg class="nav-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><line x1="20" y1="8" x2="20" y2="14"></line><line x1="23" y1="11" x2="17" y2="11"></line></svg>
+                    <span class="sidebar-text" data-pt="Triagens" data-en="Screenings">Screenings</span>
+                    
+                </a>
+            
+                <a href="#" class="nav-item " title="Reports" data-nav="relatorios" style="--nav-accent: var(--accent-pink)">
+                    <svg class="nav-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+                    <span class="sidebar-text" data-pt="Relatórios" data-en="Reports">Reports</span>
+                    
+                </a>
+            
+                <a href="#" class="nav-item " title="Audit" data-nav="auditoria" style="--nav-accent: var(--accent-green)">
+                    <svg class="nav-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="M9 12l2 2 4-4"></path></svg>
+                    <span class="sidebar-text" data-pt="Auditoria" data-en="Audit">Audit</span>
+                    
+                </a>
+            
+                <a href="#" class="nav-item " title="Report Tools" data-nav="ferramentas-laudo" style="--nav-accent: var(--accent-purple-2)">
+                    <svg class="nav-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"></rect><path d="M3 9h18M9 21V9"></path></svg>
+                    <span class="sidebar-text" data-pt="Ferramentas de Laudo" data-en="Report Tools">Report Tools</span>
+                    
+                </a>
+            
+                <a href="#" class="nav-item " title="Instruments" data-nav="instrumentos" style="--nav-accent: var(--accent-cyan)">
+                    <svg class="nav-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0H5a2 2 0 0 1-2-2v-4m6 6h10a2 2 0 0 0 2-2v-4M3 9h18M3 15h18"></path></svg>
+                    <span class="sidebar-text" data-pt="Instrumentos" data-en="Instruments">Instruments</span>
+                    
+                </a>
+            
+                <a href="#" class="nav-item " title="Settings" data-nav="configuracoes" style="--nav-accent: var(--accent-blue-2)">
+                    <svg class="nav-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+                    <span class="sidebar-text" data-pt="Configurações" data-en="Settings">Settings</span>
+                    <span class="sidebar-badge" id="cfg-externos-badge" data-pt="1" data-en="1">1</span>
+                </a>
+            
+                </nav>
+
+                <div class="sidebar-user">
+                    <div class="sidebar-user-avatar" data-pt="LC" data-en="LC">LC</div>
+                    <div class="sidebar-user-info">
+                        <div class="sidebar-user-name" data-pt="Lívia Andrade Costa" data-en="Lívia Andrade Costa">Lívia Andrade Costa</div>
+                        <div class="sidebar-user-perfil" data-pt="Admin Clínico" data-en="Clinical Admin">Clinical Admin</div>
+                    </div>
+                    <button class="sidebar-user-logout" id="sidebar-logout-btn">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+                    </button>
+                </div>
+            </aside>
+        </div>
+
+        <main class="app-main">
+            <div class="page-header">
+                <div class="page-title">
+                    <h1 id="dash-titulo" data-pt="Bom dia, Lívia!" data-en="Good morning, Lívia!">Good morning, Lívia!</h1>
+                    <p id="dash-subtitulo" data-pt="Segunda-feira, 26 de outubro de 2026" data-en="Monday, October 26, 2026">Monday, October 26, 2026</p>
+                </div>
+                <div class="page-actions">
+                    <a href="#" class="btn btn-primary" data-pt="+ Novo paciente" data-en="+ New patient">+ New patient</a>
+                </div>
+            </div>
+
+            <div id="dash-conteudo">
+            
+            <div class="dash-cards">
+                <a href="#" class="dash-card dash-card-azul">
+                    <div class="dash-card-icone" data-pt="👥" data-en="👥">👥</div>
+                    <div class="dash-card-info">
+                        <div class="dash-card-num" data-pt="48" data-en="48">48</div>
+                        <div class="dash-card-label" data-pt="Pacientes ativos" data-en="Active patients">Active patients</div>
+                    </div>
+                </a>
+
+                <a href="#" class="dash-card dash-card-roxo">
+                    <div class="dash-card-icone" data-pt="📅" data-en="📅">📅</div>
+                    <div class="dash-card-info">
+                        <div class="dash-card-num" data-pt="6" data-en="6">6</div>
+                        <div class="dash-card-label" data-pt="Sessões hoje" data-en="Sessions today">Sessions today</div>
+                    </div>
+                </a>
+
+                <div class="dash-card dash-card-laranja">
+                    <div class="dash-card-icone" data-pt="⏳" data-en="⏳">⏳</div>
+                    <div class="dash-card-info">
+                        <div class="dash-card-num" data-pt="14" data-en="14">14</div>
+                        <div class="dash-card-label" data-pt="Aplicações pendentes" data-en="Pending administrations">Pending administrations</div>
+                    </div>
+                </div>
+
+                <div class="dash-card dash-card-verde">
+                    <div class="dash-card-icone" data-pt="📄" data-en="📄">📄</div>
+                    <div class="dash-card-info">
+                        <div class="dash-card-num" data-pt="9" data-en="9">9</div>
+                        <div class="dash-card-label" data-pt="Laudos este mês" data-en="Reports this month">Reports this month</div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="dash-grid">
+                <div class="dash-col-principal">
+                    
+            <div class="dash-bloco">
+                <div class="dash-bloco-header">
+                    <h3 data-pt="📅 Próximas sessões" data-en="📅 Upcoming sessions">📅 Upcoming sessions</h3>
+                    <a href="#" class="dash-link" data-pt="Ver agenda →" data-en="View schedule →">View schedule →</a>
+                </div>
+                <div class="dash-sessoes-lista">
+                    
+            <a href="#" class="dash-sessao-item">
+                <div class="dash-sessao-data">
+                    <div class="dash-sessao-dia" data-pt="Hoje" data-en="Today">Today</div>
+                    <div class="dash-sessao-hora" data-pt="11:00" data-en="11:00">11:00</div>
+                </div>
+                <div class="dash-sessao-info">
+                    <div class="dash-sessao-paciente" data-pt="Fernanda Oliveira Cunha" data-en="Fernanda Oliveira Cunha">Fernanda Oliveira Cunha</div>
+                    <div class="dash-sessao-meta" data-pt="Avaliação · Camila Rocha" data-en="Assessment · Camila Rocha">Assessment · Camila Rocha</div>
+                </div>
+            </a>
+        
+            <a href="#" class="dash-sessao-item">
+                <div class="dash-sessao-data">
+                    <div class="dash-sessao-dia" data-pt="Hoje" data-en="Today">Today</div>
+                    <div class="dash-sessao-hora" data-pt="14:00" data-en="14:00">14:00</div>
+                </div>
+                <div class="dash-sessao-info">
+                    <div class="dash-sessao-paciente" data-pt="Ana Beatriz Moreira" data-en="Ana Beatriz Moreira">Ana Beatriz Moreira</div>
+                    <div class="dash-sessao-meta" data-pt="Aplicação de teste · Rafael Lima" data-en="Test administration · Rafael Lima">Test administration · Rafael Lima</div>
+                </div>
+            </a>
+        
+            <a href="#" class="dash-sessao-item">
+                <div class="dash-sessao-data">
+                    <div class="dash-sessao-dia" data-pt="Hoje" data-en="Today">Today</div>
+                    <div class="dash-sessao-hora" data-pt="16:30" data-en="16:30">16:30</div>
+                </div>
+                <div class="dash-sessao-info">
+                    <div class="dash-sessao-paciente" data-pt="Eduardo Martins Reis" data-en="Eduardo Martins Reis">Eduardo Martins Reis</div>
+                    <div class="dash-sessao-meta" data-pt="Devolutiva · Lívia Andrade Costa" data-en="Feedback session · Lívia Andrade Costa">Feedback session · Lívia Andrade Costa</div>
+                </div>
+            </a>
+        
+            <a href="#" class="dash-sessao-item">
+                <div class="dash-sessao-data">
+                    <div class="dash-sessao-dia" data-pt="Amanhã" data-en="Tomorrow">Tomorrow</div>
+                    <div class="dash-sessao-hora" data-pt="08:30" data-en="08:30">08:30</div>
+                </div>
+                <div class="dash-sessao-info">
+                    <div class="dash-sessao-paciente" data-pt="Gabriel Antunes Vieira" data-en="Gabriel Antunes Vieira">Gabriel Antunes Vieira</div>
+                    <div class="dash-sessao-meta" data-pt="Avaliação · Rafael Lima" data-en="Assessment · Rafael Lima">Assessment · Rafael Lima</div>
+                </div>
+            </a>
+        
+            <a href="#" class="dash-sessao-item">
+                <div class="dash-sessao-data">
+                    <div class="dash-sessao-dia" data-pt="Amanhã" data-en="Tomorrow">Tomorrow</div>
+                    <div class="dash-sessao-hora" data-pt="10:00" data-en="10:00">10:00</div>
+                </div>
+                <div class="dash-sessao-info">
+                    <div class="dash-sessao-paciente" data-pt="Mateus Ribeiro Gomes" data-en="Mateus Ribeiro Gomes">Mateus Ribeiro Gomes</div>
+                    <div class="dash-sessao-meta" data-pt="Aplicação de teste · Camila Rocha" data-en="Test administration · Camila Rocha">Test administration · Camila Rocha</div>
+                </div>
+            </a>
+        
+            <a href="#" class="dash-sessao-item">
+                <div class="dash-sessao-data">
+                    <div class="dash-sessao-dia" data-pt="qua., 28/10" data-en="Wed, 10/28">Wed, 10/28</div>
+                    <div class="dash-sessao-hora" data-pt="09:00" data-en="09:00">09:00</div>
+                </div>
+                <div class="dash-sessao-info">
+                    <div class="dash-sessao-paciente" data-pt="Larissa Teixeira Campos" data-en="Larissa Teixeira Campos">Larissa Teixeira Campos</div>
+                    <div class="dash-sessao-meta" data-pt="Reavaliação · Lívia Andrade Costa" data-en="Reassessment · Lívia Andrade Costa">Reassessment · Lívia Andrade Costa</div>
+                </div>
+            </a>
+        
+            <a href="#" class="dash-sessao-item">
+                <div class="dash-sessao-data">
+                    <div class="dash-sessao-dia" data-pt="qui., 29/10" data-en="Thu, 10/29">Thu, 10/29</div>
+                    <div class="dash-sessao-hora" data-pt="15:00" data-en="15:00">15:00</div>
+                </div>
+                <div class="dash-sessao-info">
+                    <div class="dash-sessao-paciente" data-pt="Caio Fernandes Lopes" data-en="Caio Fernandes Lopes">Caio Fernandes Lopes</div>
+                    <div class="dash-sessao-meta" data-pt="Orientação · Camila Rocha" data-en="Guidance · Camila Rocha">Guidance · Camila Rocha</div>
+                </div>
+            </a>
+        
+            <a href="#" class="dash-sessao-item">
+                <div class="dash-sessao-data">
+                    <div class="dash-sessao-dia" data-pt="sex., 30/10" data-en="Fri, 10/30">Fri, 10/30</div>
+                    <div class="dash-sessao-hora" data-pt="13:30" data-en="13:30">13:30</div>
+                </div>
+                <div class="dash-sessao-info">
+                    <div class="dash-sessao-paciente" data-pt="Olívia Barros Pinheiro" data-en="Olívia Barros Pinheiro">Olívia Barros Pinheiro</div>
+                    <div class="dash-sessao-meta" data-pt="Devolutiva · Lívia Andrade Costa" data-en="Feedback session · Lívia Andrade Costa">Feedback session · Lívia Andrade Costa</div>
+                </div>
+            </a>
+        
+                </div>
+            </div>
+        
+                    
+            <div class="dash-bloco">
+                <div class="dash-bloco-header">
+                    <h3 data-pt="👥 Pacientes em atendimento" data-en="👥 Patients in care">👥 Patients in care</h3>
+                    <a href="#" class="dash-link" data-pt="Ver todos →" data-en="View all →">View all →</a>
+                </div>
+                <div class="dash-pacientes-grid">
+                    
+            <a href="#" class="dash-paciente-card">
+                <div class="dash-paciente-avatar">
+            <div class="avatar avatar-md avatar-iniciais avatar-iniciais-fem" title="Ana Beatriz Moreira">
+                <span data-pt="AM" data-en="AM">AM</span>
+            </div>
+        </div>
+                <div class="dash-paciente-info">
+                    <div class="dash-paciente-nome" data-pt="Ana Beatriz Moreira" data-en="Ana Beatriz Moreira">Ana Beatriz Moreira</div>
+                    <div class="dash-paciente-meta" data-pt="9 anos e 4 meses · Feminino" data-en="9 years 4 months · Female">9 years 4 months · Female</div>
+                    <span class="badge status-warning" style="font-size: 10px;" data-pt="Em avaliação" data-en="In assessment">In assessment</span>
+                </div>
+            </a>
+        
+            <a href="#" class="dash-paciente-card">
+                <div class="dash-paciente-avatar">
+            <div class="avatar avatar-md avatar-iniciais " title="Bruno Henrique Tavares">
+                <span data-pt="BT" data-en="BT">BT</span>
+            </div>
+        </div>
+                <div class="dash-paciente-info">
+                    <div class="dash-paciente-nome" data-pt="Bruno Henrique Tavares" data-en="Bruno Henrique Tavares">Bruno Henrique Tavares</div>
+                    <div class="dash-paciente-meta" data-pt="27 anos · Masculino" data-en="27 years · Male">27 years · Male</div>
+                    <span class="badge status-info" style="font-size: 10px;" data-pt="Pronto para laudo" data-en="Ready for report">Ready for report</span>
+                </div>
+            </a>
+        
+            <a href="#" class="dash-paciente-card">
+                <div class="dash-paciente-avatar">
+            <div class="avatar avatar-md avatar-iniciais " title="Caio Fernandes Lopes">
+                <span data-pt="CL" data-en="CL">CL</span>
+            </div>
+        </div>
+                <div class="dash-paciente-info">
+                    <div class="dash-paciente-nome" data-pt="Caio Fernandes Lopes" data-en="Caio Fernandes Lopes">Caio Fernandes Lopes</div>
+                    <div class="dash-paciente-meta" data-pt="7 anos e 2 meses · Masculino" data-en="7 years 2 months · Male">7 years 2 months · Male</div>
+                    <span class="badge status-info" style="font-size: 10px;" data-pt="Cadastrado" data-en="Registered">Registered</span>
+                </div>
+            </a>
+        
+            <a href="#" class="dash-paciente-card">
+                <div class="dash-paciente-avatar">
+            <div class="avatar avatar-md avatar-iniciais avatar-iniciais-fem" title="Daniela Castro Mendes">
+                <span data-pt="DM" data-en="DM">DM</span>
+            </div>
+        </div>
+                <div class="dash-paciente-info">
+                    <div class="dash-paciente-nome" data-pt="Daniela Castro Mendes" data-en="Daniela Castro Mendes">Daniela Castro Mendes</div>
+                    <div class="dash-paciente-meta" data-pt="41 anos · Feminino" data-en="41 years · Female">41 years · Female</div>
+                    <span class="badge status-success" style="font-size: 10px;" data-pt="Laudo pronto" data-en="Report ready">Report ready</span>
+                </div>
+            </a>
+        
+            <a href="#" class="dash-paciente-card">
+                <div class="dash-paciente-avatar">
+            <div class="avatar avatar-md avatar-iniciais " title="Eduardo Martins Reis">
+                <span data-pt="ER" data-en="ER">ER</span>
+            </div>
+        </div>
+                <div class="dash-paciente-info">
+                    <div class="dash-paciente-nome" data-pt="Eduardo Martins Reis" data-en="Eduardo Martins Reis">Eduardo Martins Reis</div>
+                    <div class="dash-paciente-meta" data-pt="15 anos e 8 meses · Masculino" data-en="15 years 8 months · Male">15 years 8 months · Male</div>
+                    <span class="badge status-warning" style="font-size: 10px;" data-pt="Devolutiva agendada" data-en="Feedback scheduled">Feedback scheduled</span>
+                </div>
+            </a>
+        
+            <a href="#" class="dash-paciente-card">
+                <div class="dash-paciente-avatar">
+            <div class="avatar avatar-md avatar-iniciais avatar-iniciais-fem" title="Fernanda Oliveira Cunha">
+                <span data-pt="FC" data-en="FC">FC</span>
+            </div>
+        </div>
+                <div class="dash-paciente-info">
+                    <div class="dash-paciente-nome" data-pt="Fernanda Oliveira Cunha" data-en="Fernanda Oliveira Cunha">Fernanda Oliveira Cunha</div>
+                    <div class="dash-paciente-meta" data-pt="33 anos e 1 mês · Feminino" data-en="33 years 1 month · Female">33 years 1 month · Female</div>
+                    <span class="badge status-warning" style="font-size: 10px;" data-pt="Em avaliação" data-en="In assessment">In assessment</span>
+                </div>
+            </a>
+        
+                </div>
+            </div>
+        
+                </div>
+                <div class="dash-col-lateral">
+                    
+            <div class="dash-bloco">
+                
+            <div class="dash-bloco-header">
+                <h3 data-pt="✅ Baterias concluídas" data-en="✅ Completed batteries">✅ Completed batteries</h3>
+                <a href="#" class="dash-link" data-pt="Ver histórico →" data-en="View history →">View history →</a>
+            </div>
+            <div class="dash-bat-lista">
+                
+            <div class="dash-bat-item" data-pid="p02" data-em="2026-10-25T20:05:00.000Z" data-nome="Bruno Henrique Tavares">
+                <a href="#" class="dash-bat-item-link">
+                    <div class="dash-bat-foto dash-bat-foto-placeholder" data-pt="B" data-en="B">B</div>
+                    <div class="dash-bat-info">
+                        <div class="dash-bat-nome" data-pt="Bruno Henrique Tavares" data-en="Bruno Henrique Tavares">Bruno Henrique Tavares</div>
+                        <div class="dash-bat-meta" data-pt="6 testes · 25/10" data-en="6 tests · 10/25">6 tests · 10/25</div>
+                    </div>
+                </a>
+                <button class="dash-bat-visto" data-acao="marcar-visto">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </button>
+            </div>
+        
+            <div class="dash-bat-item" data-pid="p10" data-em="2026-10-24T20:04:00.000Z" data-nome="Larissa Teixeira Campos">
+                <a href="#" class="dash-bat-item-link">
+                    <div class="dash-bat-foto dash-bat-foto-placeholder" data-pt="L" data-en="L">L</div>
+                    <div class="dash-bat-info">
+                        <div class="dash-bat-nome" data-pt="Larissa Teixeira Campos" data-en="Larissa Teixeira Campos">Larissa Teixeira Campos</div>
+                        <div class="dash-bat-meta" data-pt="5 testes · 24/10" data-en="5 tests · 10/24">5 tests · 10/24</div>
+                    </div>
+                </a>
+                <button class="dash-bat-visto" data-acao="marcar-visto">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </button>
+            </div>
+        
+            <div class="dash-bat-item" data-pid="p04" data-em="2026-10-22T20:03:00.000Z" data-nome="Daniela Castro Mendes">
+                <a href="#" class="dash-bat-item-link">
+                    <div class="dash-bat-foto dash-bat-foto-placeholder" data-pt="D" data-en="D">D</div>
+                    <div class="dash-bat-info">
+                        <div class="dash-bat-nome" data-pt="Daniela Castro Mendes" data-en="Daniela Castro Mendes">Daniela Castro Mendes</div>
+                        <div class="dash-bat-meta" data-pt="4 testes · 22/10" data-en="4 tests · 10/22">4 tests · 10/22</div>
+                    </div>
+                </a>
+                <button class="dash-bat-visto" data-acao="marcar-visto">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </button>
+            </div>
+        
+            </div>
+        
+
+                <div class="dash-bloco-header" style="margin-top: 18px;">
+                    <h3 data-pt="👤 Meu perfil" data-en="👤 My profile">👤 My profile</h3>
+                </div>
+                <div class="dash-perfil-mini">
+                    <div class="dash-perfil-nome" data-pt="Lívia Andrade Costa" data-en="Lívia Andrade Costa">Lívia Andrade Costa</div>
+                    <div class="dash-perfil-meta" data-pt="livia.andrade@clinica-demo.com" data-en="livia.andrade@clinica-demo.com">livia.andrade@clinica-demo.com</div>
+                    
+                        <span class="badge status-info" style="margin-top: 6px; font-size: 10px;" data-pt=" Admin Clínico " data-en=" Clinical Admin "> Clinical Admin </span>
+                    
+                </div>
+            </div>
+        
+                </div>
+            </div>
+        </div>
+        </main>
+    </div>
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+<script src="../i18n.js"></script><script>(function(){
+  document.addEventListener('click',function(e){var a=e.target.closest('a[href="#"]');if(a)e.preventDefault();});
+  var t=document.getElementById('sidebar-toggle-btn'),s=document.getElementById('cortex-sidebar');
+  if(t&&s)t.addEventListener('click',function(e){e.preventDefault();s.classList.toggle('collapsed');document.body.classList.toggle('sidebar-rail',s.classList.contains('collapsed'));});
+})();
+</script></body></html>

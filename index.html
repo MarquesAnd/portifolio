@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>André Marques · Developer</title>
+<meta name="description" content="André Marques, developer in training from Brazil. I design and ship complete products with AI, and study Java, full-stack development and Sankhya.">
+<meta property="og:title" content="André Marques · Developer"><meta property="og:description" content="Five real products shipped with AI. Studying Java, full-stack and Sankhya."><meta property="og:image" content="assets/img/andre.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;500;700&family=Figtree:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+</head><body>
+<canvas id="net" aria-hidden="true"></canvas>
+<div class="cursor" id="cursor" aria-hidden="true"></div>
+<div class="scrollbar" aria-hidden="true"><i id="sbar"></i></div>
+
+<header class="nav" id="nav"><a href="#top" class="logo">André<b>.</b></a>
+ <nav class="links"><a href="#about" data-en="About" data-pt="Sobre">About</a><a href="#skills" data-en="Skills" data-pt="Habilidades">Skills</a><a href="#work" data-en="Work" data-pt="Projetos">Work</a><a href="#contact" data-en="Contact" data-pt="Contato">Contact</a></nav>
+ <div class="lang" id="lang" role="group" aria-label="Language"><span class="pill"></span><button data-set="en" aria-pressed="true">EN</button><button data-set="pt" aria-pressed="false">PT</button></div>
+</header>
+
+<main>
+<!-- HERO -->
+<section class="hero" id="top">
+ <div class="hero-in" id="heroIn">
+  <span class="tag"><i></i><span data-en="Developer in training · Open to work" data-pt="Desenvolvedor em formação · Aberto a oportunidades">Developer in training</span></span>
+  <h1 id="h1" data-en="I turn ideas into working software." data-pt="Eu transformo ideias em software que funciona.">I turn ideas into working software.</h1>
+  <div class="rot"><span data-en="I build" data-pt="Eu construo">I build</span> <span class="rot-w" id="rotw"></span></div>
+  <p data-en="I'm André Marques, from Uberlândia, Brazil. I use AI to design and ship complete products: database, security, interfaces and deployment. Five of them already run in production. At the same time I'm studying Java, full-stack development and Sankhya to go deeper as an engineer every month." data-pt="Sou André Marques, de Uberlândia (MG). Uso IA para projetar e entregar produtos completos: banco de dados, segurança, interfaces e publicação. Cinco deles já estão em produção. Ao mesmo tempo estudo Java, desenvolvimento full stack e Sankhya para crescer como desenvolvedor a cada mês.">.</p>
+  <div class="cta"><a class="btn primary mag" href="#work" data-en="See what I've built" data-pt="Ver o que eu construí">See my work</a><a class="btn mag" href="https://github.com/MarquesAnd">GitHub</a><a class="btn mag" href="https://www.linkedin.com/in/andre-marques-335125246/">LinkedIn</a></div>
+ </div>
+ <div class="scroll-cue" aria-hidden="true"><span></span></div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee" aria-hidden="true"><div class="mq-track" id="mq"></div></div>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+ <div class="photo tilt" id="photo"><img src="assets/img/andre.webp" alt="André Marques" width="900" height="900"><span class="glare"></span><div class="badge"><b>5</b><small data-en="products in production" data-pt="produtos em produção">products</small></div></div>
+ <div class="about-txt">
+  <h2 class="t reveal" data-en="About me" data-pt="Sobre mim">About me</h2>
+  <div class="name">André Ananias Marques de Sousa</div>
+  <p class="reveal" data-en="I like building things that work for real people. In the past year I designed and shipped five complete products, using AI as my pair programmer and making every decision about data, security and user experience myself." data-pt="Gosto de construir coisas que funcionam para pessoas de verdade. No último ano projetei e entreguei cinco produtos completos, usando a IA como parceira de programação e tomando eu mesmo todas as decisões de dados, segurança e experiência.">.</p>
+  <p class="reveal" data-en="Now I'm turning that practice into solid engineering foundations. I learn fast, I finish what I start, and I want to build a lot more." data-pt="Agora estou transformando essa prática em base sólida de engenharia. Aprendo rápido, termino o que começo e quero construir muito mais.">.</p>
+  <div class="facts">
+   <div><small data-en="Based in" data-pt="Moro em">Based in</small><b data-en="Uberlândia, MG, Brazil" data-pt="Uberlândia, MG">Uberlândia</b></div>
+   <div><small data-en="Born" data-pt="Nascimento">Born</small><b data-en="March 16, 2001" data-pt="16/03/2001">2001</b></div>
+   <div><small data-en="Studying" data-pt="Cursando">Studying</small><b data-en="Information Systems" data-pt="Sistemas de Informação">Information Systems</b></div>
+   <div><small data-en="Languages" data-pt="Idiomas">Languages</small><b data-en="Portuguese, English (advanced)" data-pt="Português, inglês (avançado)">PT, EN</b></div>
+  </div>
+ </div>
+</section>
+
+<!-- SKILLS -->
+<section class="skills" id="skills">
+ <h2 class="t reveal" data-en="What I can do" data-pt="O que eu sei fazer">What I can do</h2>
+ <p class="lead reveal" data-en="Everything below is something I've already shipped to real users." data-pt="Tudo abaixo é algo que eu já entreguei para usuários reais.">.</p>
+ <div class="cards" id="cards"></div>
+ <div class="learning">
+  <h3 class="reveal" data-en="Studying right now" data-pt="Estudando agora">Studying right now</h3>
+  <div class="learn-row" id="learn"></div>
+ </div>
+</section>
+
+<!-- WORK -->
+<section class="work-intro" id="work">
+ <h2 class="t reveal" data-en="Selected work" data-pt="Projetos">Selected work</h2>
+ <p class="lead reveal" data-en="Five real products. Click any screen to explore the interactive demo." data-pt="Cinco produtos reais. Clique em qualquer tela para explorar a demonstração interativa.">.</p>
+</section>
+<section class="track-wrap" id="trackWrap"><div class="track" id="track"></div></section>
+<div class="hud" id="hud"><div class="progress"><i id="prog"></i></div><span id="ctr">01 / 05</span></div>
+
+<!-- STACK -->
+<section class="arch" id="stack">
+ <h2 class="t reveal" data-en="One backend, five products." data-pt="Um backend, cinco produtos.">One backend, five products.</h2>
+ <p class="lead reveal" data-en="Every app is a front end on top of Supabase. Access rules live in Postgres Row Level Security, not in the browser, so each role only ever receives the rows it is allowed to see." data-pt="Cada app é um front-end sobre o Supabase. As regras de acesso ficam no Postgres, com Row Level Security, e não no navegador: cada perfil só recebe as linhas que pode ver.">.</p>
+ <div class="diagram" id="apps"></div>
+ <div class="wires"><svg viewBox="0 0 1000 80" preserveAspectRatio="none" aria-hidden="true" id="wires"></svg></div>
+ <div class="supa"><b>Supabase</b><div><span>PostgreSQL</span><span>Row Level Security</span><span data-en="Auth & magic links" data-pt="Auth e link mágico">Auth</span><span>Storage</span><span>Edge Functions</span><span data-en="Versioned SQL migrations" data-pt="Migrações SQL versionadas">SQL</span><span data-en="Audit triggers" data-pt="Triggers de auditoria">Audit</span></div></div>
+</section>
+
+<!-- PROCESS -->
+<section class="how" id="process">
+ <h2 class="t reveal" data-en="How I build with AI" data-pt="Como eu construo com IA">How I build with AI</h2>
+ <ol>
+  <li class="reveal"><b data-en="Understand the problem" data-pt="Entender o problema">.</b><span data-en="I talk to the people who will use it and write down every step, form and edge case before any code exists." data-pt="Converso com quem vai usar e registro cada etapa, formulário e exceção antes de existir qualquer código.">.</span></li>
+  <li class="reveal"><b data-en="Design the system" data-pt="Projetar o sistema">.</b><span data-en="Data model, roles, permissions and screens. These decisions are mine, not the AI's." data-pt="Modelo de dados, perfis, permissões e telas. Essas decisões são minhas, não da IA.">.</span></li>
+  <li class="reveal"><b data-en="Direct the agents" data-pt="Dirigir os agentes">.</b><span data-en="AI writes most of the code from my specs. I read, test and reject what doesn't fit, and I learn from every change." data-pt="A IA escreve a maior parte do código a partir das minhas especificações. Eu leio, testo, descarto o que não serve e aprendo com cada mudança.">.</span></li>
+  <li class="reveal"><b data-en="Ship and iterate" data-pt="Entregar e evoluir">.</b><span data-en="Versioned patches and SQL migrations reach real users the same week. Their feedback becomes the next sprint." data-pt="Patches versionados e migrações SQL chegam aos usuários na mesma semana. O retorno deles vira a próxima sprint.">.</span></li>
+ </ol>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+ <h2 id="bye" data-en="Let's build something together." data-pt="Vamos construir algo juntos.">Let's build something together.</h2>
+ <p data-en="Open to junior developer roles, internships and freelance projects, remote or in Uberlândia. I'm happy to walk you through any of these systems live." data-pt="Aberto a vagas de desenvolvedor júnior, estágio e projetos freelance, remoto ou em Uberlândia. Posso apresentar qualquer um destes sistemas ao vivo.">.</p>
+ <div class="cta"><a class="btn primary mag" href="https://www.linkedin.com/in/andre-marques-335125246/" data-en="Message me on LinkedIn" data-pt="Fale comigo no LinkedIn">LinkedIn</a><a class="btn mag" href="https://github.com/MarquesAnd">GitHub</a></div>
+</section>
+</main>
+<footer data-en="© 2026 André Marques · Demo screens use fictional data" data-pt="© 2026 André Marques · As telas de demonstração usam dados fictícios">© 2026 André Marques</footer>
+
+<!-- Interactive demo viewer -->
+<div class="viewer" id="viewer" role="dialog" aria-modal="true" aria-label="Interactive demo" hidden>
+ <div class="viewer-bar"><b id="vTitle"></b><div class="dm-tabs" id="vTabs"></div><button class="close" id="vClose" aria-label="Close">✕</button></div>
+ <div class="viewer-stage" id="vStage"></div>
+</div>
+
+<script src="assets/content.js"></script>
+<script src="demos/manifest.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="assets/site.js"></script>
+</body></html>
