@@ -1,0 +1,1038 @@
+/* ============================================================================
+   CORTEX_APP — Pacientes CSS
+   ESTILO 1 · Gradiente Azul→Verde
+   ============================================================================ */
+
+/* ============================================================================
+   FILTROS DA LISTA
+   ============================================================================ */
+
+.lista-filtros {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 18px;
+    flex-wrap: wrap;
+}
+
+.lista-filtros-busca {
+    flex: 1;
+    min-width: 240px;
+    position: relative;
+}
+
+.lista-filtros-busca input {
+    width: 100%;
+    padding: 9px 14px 9px 38px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    font-size: 13.5px;
+    background: var(--color-surface);
+    transition: all var(--transition-base);
+}
+
+.lista-filtros-busca input:hover {
+    border-color: var(--primary-blue-200);
+}
+
+.lista-filtros-busca input:focus {
+    outline: none;
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 0 4px rgba(30, 64, 175, 0.12);
+}
+
+.lista-filtros-busca::before {
+    content: '';
+    position: absolute;
+    left: 13px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 15px;
+    height: 15px;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%2394A3B8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>');
+    background-size: contain;
+    pointer-events: none;
+}
+
+.lista-filtros select {
+    padding: 9px 32px 9px 14px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    background-color: var(--color-surface);
+    font-size: 13px;
+    cursor: pointer;
+    color: var(--color-text);
+    transition: all var(--transition-base);
+    appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%2394A3B8" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 14px;
+}
+
+.lista-filtros select:hover {
+    border-color: var(--primary-blue-200);
+}
+
+.lista-filtros select:focus {
+    outline: none;
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 0 4px rgba(30, 64, 175, 0.12);
+}
+
+.view-toggle {
+    display: flex;
+    background: var(--slate-100);
+    border-radius: var(--radius-md);
+    padding: 3px;
+    gap: 2px;
+    margin-left: auto;
+}
+
+.view-toggle button {
+    padding: 6px 12px;
+    border-radius: 7px;
+    color: var(--color-text-muted);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12.5px;
+    font-weight: 500;
+    transition: all var(--transition-base);
+}
+
+.view-toggle button:hover:not(.active) {
+    color: var(--primary-blue);
+}
+
+.view-toggle button.active {
+    background: var(--gradient-primary);
+    color: white;
+    box-shadow: 0 2px 6px rgba(30, 64, 175, 0.25);
+    font-weight: 600;
+}
+
+.view-toggle svg {
+    width: 13px;
+    height: 13px;
+}
+
+/* ============================================================================
+   GRID DE CARDS
+   ============================================================================ */
+
+.pacientes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 12px;
+}
+
+.paciente-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: 18px;
+    cursor: pointer;
+    transition: all var(--transition-base);
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    box-shadow: var(--shadow-xs);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Barra colorida lateral que aparece no hover */
+.paciente-card::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 0;
+    background: var(--gradient-primary-vertical);
+    border-radius: var(--radius-lg) 0 0 var(--radius-lg);
+    transition: width var(--transition-base);
+}
+
+.paciente-card:hover {
+    border-color: var(--primary-blue-200);
+    box-shadow: var(--shadow-glow-mixed);
+    transform: translateY(-3px);
+    text-decoration: none;
+    color: inherit;
+}
+
+.paciente-card:hover::before {
+    width: 4px;
+}
+
+.paciente-card-header {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+}
+
+.paciente-card-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.paciente-card-nome {
+    font-family: var(--font-display);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    letter-spacing: -0.01em;
+    transition: color var(--transition-fast);
+}
+
+.paciente-card:hover .paciente-card-nome {
+    color: var(--primary-blue);
+}
+
+.paciente-card-idade {
+    font-size: 12px;
+    color: var(--color-text-muted);
+}
+
+.paciente-card-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-size: 11.5px;
+    color: var(--color-text-muted);
+}
+
+.paciente-card-meta-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.paciente-card-meta-label {
+    font-weight: 500;
+    color: var(--color-text);
+}
+
+.paciente-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 10px;
+    border-top: 1px solid var(--slate-100);
+}
+
+/* ============================================================================
+   TABELA (LISTA COMPACTA)
+   ============================================================================ */
+
+.pacientes-table-wrapper {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-xs);
+}
+
+.pacientes-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.pacientes-table thead {
+    background: var(--gradient-softer);
+}
+
+.pacientes-table th {
+    text-align: left;
+    padding: 12px 16px;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--primary-blue-dark);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.pacientes-table td {
+    padding: 13px 16px;
+    border-bottom: 1px solid var(--color-border);
+    font-size: 13px;
+    vertical-align: middle;
+}
+
+.pacientes-table tbody tr {
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    position: relative;
+}
+
+.pacientes-table tbody tr:hover {
+    background: var(--gradient-softer);
+}
+
+.pacientes-table tbody tr:hover .col-nome {
+    color: var(--primary-blue);
+}
+
+.pacientes-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.pacientes-table .col-nome {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 500;
+    color: var(--color-text);
+    transition: color var(--transition-fast);
+}
+
+/* ============================================================================
+   PASTA DO PACIENTE — CABEÇALHO COM GRADIENTE SUTIL
+   ============================================================================ */
+
+.pasta-cabecalho {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: 24px 28px;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: flex-start;
+    gap: 22px;
+    box-shadow: var(--shadow-md);
+    position: relative;
+    overflow: hidden;
+    transition: all var(--transition-base);
+}
+
+/* Faixa colorida superior decorativa */
+.pasta-cabecalho::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--gradient-primary);
+}
+
+/* Glow decorativo no canto superior direito */
+.pasta-cabecalho::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 280px;
+    height: 280px;
+    background: radial-gradient(circle, rgba(30, 64, 175, 0.06) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.pasta-cabecalho:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-1px);
+}
+
+.pasta-info {
+    flex: 1;
+    min-width: 0;
+    position: relative;
+    z-index: 1;
+}
+
+.pasta-nome {
+    font-family: var(--font-display);
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--color-text);
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.pasta-meta {
+    display: flex;
+    gap: 22px;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+}
+
+.pasta-meta-item {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    font-size: 12.5px;
+}
+
+.pasta-meta-label {
+    color: var(--color-text-soft);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 10.5px;
+}
+
+.pasta-meta-valor {
+    color: var(--color-text);
+    font-weight: 700;
+    font-size: 13px;
+}
+
+.pasta-actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+/* ============================================================================
+   BARRA DE ETAPAS — agora mais viva
+   ============================================================================ */
+
+.pasta-etapas {
+    display: flex;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: 5px;
+    margin-bottom: 14px;
+    gap: 3px;
+    overflow-x: auto;
+    box-shadow: var(--shadow-xs);
+}
+
+.etapa {
+    flex: 1;
+    min-width: 100px;
+    padding: 10px 12px;
+    text-align: center;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: all var(--transition-base);
+    font-size: 12.5px;
+    font-weight: 500;
+    color: var(--color-text-muted);
+    white-space: nowrap;
+    border: none;
+    background: transparent;
+    font-family: inherit;
+    position: relative;
+}
+
+.etapa:hover:not(.ativa) {
+    background: var(--gradient-softer);
+    color: var(--primary-blue);
+    transform: translateY(-1px);
+}
+
+.etapa.ativa {
+    background: var(--gradient-primary);
+    color: white;
+    font-weight: 700;
+    box-shadow: 0 4px 12px rgba(30, 64, 175, 0.3);
+    transform: translateY(-1px);
+}
+
+.etapa.concluida:not(.ativa) {
+    color: var(--primary-green-dark);
+    background: var(--primary-green-50);
+}
+
+.etapa.concluida:not(.ativa):hover {
+    background: var(--primary-green-100);
+}
+
+.etapa.concluida::before {
+    content: '✓ ';
+    font-weight: 800;
+}
+
+.etapa.ativa.concluida::before {
+    color: white;
+}
+
+/* ============================================================================
+   CONTEÚDO DA ETAPA
+   ============================================================================ */
+
+.etapa-content {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    min-height: 280px;
+    box-shadow: var(--shadow-xs);
+    animation: fade-in 0.3s ease-out;
+}
+
+.etapa-content h3 {
+    font-family: var(--font-display);
+    color: var(--color-text);
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    letter-spacing: -0.01em;
+}
+
+.etapa-placeholder {
+    text-align: center;
+    color: var(--color-text-muted);
+    padding: 50px 20px;
+}
+
+.etapa-placeholder-icon {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 16px;
+    background: var(--gradient-soft);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-blue);
+    box-shadow: 0 6px 16px rgba(30, 64, 175, 0.15);
+    transition: all var(--transition-base);
+}
+
+.etapa-placeholder:hover .etapa-placeholder-icon {
+    transform: scale(1.06) rotate(-3deg);
+    box-shadow: 0 10px 22px rgba(30, 64, 175, 0.25);
+}
+
+.etapa-placeholder-icon svg {
+    width: 32px;
+    height: 32px;
+}
+
+.etapa-placeholder h3 {
+    font-size: 16px;
+    margin-bottom: 6px;
+    color: var(--color-text);
+}
+
+.etapa-placeholder p {
+    font-size: 13px;
+    line-height: 1.6;
+    max-width: 420px;
+    margin: 0 auto;
+}
+
+/* ============================================================================
+   CAMPO (Visão Geral)
+   ============================================================================ */
+
+.campo {
+    background: var(--color-surface-alt);
+    border-radius: var(--radius-md);
+    padding: 12px 14px;
+    border: 1px solid var(--color-border);
+    transition: all var(--transition-base);
+    position: relative;
+    overflow: hidden;
+}
+
+.campo::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 0;
+    background: var(--gradient-primary-vertical);
+    transition: width var(--transition-base);
+}
+
+.campo:hover {
+    border-color: var(--primary-blue-200);
+    box-shadow: var(--shadow-sm);
+    transform: translateX(2px);
+}
+
+.campo:hover::before {
+    width: 3px;
+}
+
+.campo-label {
+    font-size: 10.5px;
+    color: var(--color-text-soft);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 4px;
+    font-weight: 600;
+}
+
+.campo-valor {
+    color: var(--color-text);
+    font-size: 13px;
+    font-weight: 500;
+    word-break: break-word;
+}
+
+.campos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 10px;
+}
+
+/* ============================================================================
+   RESPONSIVO
+   ============================================================================ */
+
+@media (max-width: 768px) {
+    .pasta-cabecalho {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 22px 18px;
+    }
+
+    .pasta-meta {
+        justify-content: center;
+    }
+
+    .pasta-cabecalho::after {
+        display: none;
+    }
+}
+/* ============================================================================
+   CORREÇÃO — Dashboard de status (Sprint 2)
+   ============================================================================ */
+
+.correcao-dashboard {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+/* Resumo no topo */
+.correcao-resumo {
+    background: white;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: 18px 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 22px;
+}
+.correcao-resumo-info { flex-shrink: 0; }
+.correcao-resumo-progress {
+    flex: 1;
+    height: 8px;
+    background: #e2e8f0;
+    border-radius: 4px;
+    overflow: hidden;
+    max-width: 320px;
+}
+.correcao-resumo-progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #1a56db, #059669);
+    border-radius: 4px;
+    transition: width .4s ease;
+}
+
+/* Grupos (Corrigidos / Pendentes / Online) */
+.correcao-grupo {
+    background: white;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: 16px 22px;
+}
+.correcao-grupo-titulo {
+    font-size: 14px;
+    font-weight: 700;
+    margin: 0 0 12px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.correcao-grupo-contador {
+    background: #f1f5f9;
+    color: #475569;
+    padding: 2px 10px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+/* Lista de instrumentos */
+.correcao-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.correcao-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 12px 14px;
+    border: 1px solid var(--color-border);
+    border-left-width: 4px;
+    border-radius: var(--radius-md);
+    background: #fafcff;
+    transition: background .15s;
+}
+.correcao-item:hover { background: white; }
+
+.correcao-item-ok     { border-left-color: #059669; }
+.correcao-item-pend   { border-left-color: #d97706; }
+.correcao-item-online { border-left-color: #1d4ed8; }
+
+.correcao-item-info {
+    flex: 1;
+    min-width: 0;
+}
+.correcao-item-sigla {
+    font-size: 13px;
+    font-weight: 800;
+    color: var(--color-text);
+    letter-spacing: .02em;
+}
+.correcao-item-nome {
+    font-size: 13px;
+    color: #475569;
+    margin-top: 1px;
+}
+.correcao-item-meta {
+    font-size: 11px;
+    color: var(--color-text-muted);
+    margin-top: 3px;
+}
+.correcao-item-acoes {
+    flex-shrink: 0;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+@media (max-width: 720px) {
+    .correcao-resumo { flex-direction: column; align-items: flex-start; }
+    .correcao-resumo-progress { max-width: none; width: 100%; }
+    .correcao-item { flex-direction: column; align-items: flex-start; }
+    .correcao-item-acoes { width: 100%; }
+}
+
+/* ============================================================================
+   LAUDO — Upload PDF + visualização + histórico (Sprint 3)
+   ============================================================================ */
+
+.laudo-page {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+/* Topo */
+.laudo-topo {
+    background: white;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: 18px 22px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 18px;
+}
+
+/* Empty state */
+.laudo-empty {
+    background: white;
+    border: 2px dashed var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: 48px 24px;
+    text-align: center;
+    color: var(--color-text-muted);
+}
+.laudo-empty-icon { font-size: 48px; margin-bottom: 12px; }
+.laudo-empty h4 { margin: 0 0 6px 0; color: var(--color-text); }
+.laudo-empty p { margin: 0; font-size: 13px; }
+
+/* Versão atual (em destaque) */
+.laudo-versao-atual {
+    background: white;
+    border: 2px solid #1a56db;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+}
+.laudo-versao-atual-header {
+    padding: 18px 22px;
+    background: linear-gradient(135deg, #eff6ff, #f0f9ff);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    border-bottom: 1px solid #dbeafe;
+}
+.laudo-badge-atual {
+    display: inline-block;
+    padding: 3px 10px;
+    background: #1a56db;
+    color: white;
+    border-radius: 12px;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: .08em;
+    margin-bottom: 6px;
+}
+.laudo-versao-atual-titulo {
+    margin: 0 0 4px 0;
+    font-size: 18px;
+    font-weight: 800;
+}
+.laudo-versao-atual-meta {
+    font-size: 12px;
+    color: var(--color-text-muted);
+}
+.laudo-versao-atual-acoes {
+    display: flex;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+/* Histórico */
+.laudo-historico {
+    background: white;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: 16px 22px;
+}
+.laudo-historico-titulo {
+    font-size: 14px;
+    font-weight: 700;
+    margin: 0 0 12px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--color-text-muted);
+}
+.laudo-historico-contador {
+    background: #f1f5f9;
+    color: #475569;
+    padding: 2px 10px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.laudo-historico-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.laudo-historico-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    padding: 12px 14px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    background: #fafcff;
+    transition: background .15s;
+}
+.laudo-historico-item:hover { background: white; }
+
+.laudo-historico-info {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    min-width: 0;
+    flex: 1;
+}
+.laudo-historico-versao {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    background: #e2e8f0;
+    color: #475569;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 13px;
+}
+.laudo-historico-detalhes { min-width: 0; }
+.laudo-historico-nome {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-text);
+}
+.laudo-historico-meta {
+    font-size: 11px;
+    color: var(--color-text-muted);
+    margin-top: 2px;
+}
+.laudo-historico-acoes {
+    display: flex;
+    gap: 6px;
+    flex-shrink: 0;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+/* Modal de visualização */
+.laudo-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, .92);
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    backdrop-filter: blur(2px);
+}
+.laudo-modal-header {
+    background: white;
+    border-bottom: 1px solid var(--color-border);
+    padding: 12px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+}
+.laudo-modal-titulo { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.laudo-modal-meta {
+    font-size: 11px;
+    color: var(--color-text-muted);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.laudo-modal-acoes { display: flex; gap: 8px; flex-shrink: 0; }
+.laudo-modal-iframe {
+    flex: 1;
+    width: 100%;
+    border: none;
+    background: #525659;
+}
+
+@media (max-width: 720px) {
+    .laudo-topo { flex-direction: column; align-items: stretch; }
+    .laudo-versao-atual-header { flex-direction: column; }
+    .laudo-versao-atual-acoes { width: 100%; }
+    .laudo-historico-item { flex-direction: column; align-items: stretch; }
+    .laudo-historico-acoes { justify-content: flex-start; }
+}
+
+
+/* ============================================================================
+   MOBILE — Sprint pwa_mobile
+   ============================================================================ */
+
+@media (max-width: 768px) {
+
+    /* ── Lista: filtros empilhados ── */
+    .lista-filtros { gap: 8px; margin-bottom: 14px; }
+    .lista-filtros-busca { min-width: 100%; }
+    .lista-filtros select { flex: 1 1 45%; }
+    .view-toggle { margin-left: auto; }
+
+    /* ── Cards de paciente em coluna única ── */
+    .pacientes-grid { grid-template-columns: 1fr !important; gap: 10px; }
+
+    /* ── Tabela: rolagem horizontal sem quebrar a página ── */
+    .pacientes-table-wrapper {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    .pacientes-table { min-width: 640px; }
+
+    /* ── Pasta do paciente ── */
+    .pasta-cabecalho {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 18px 16px;
+        gap: 14px;
+    }
+
+    .pasta-info { width: 100%; }
+    .pasta-nome { font-size: 20px; justify-content: center; }
+    .pasta-meta { justify-content: center; }
+    .pasta-actions { width: 100%; justify-content: center; }
+    .pasta-actions .btn { flex: 1 1 45%; }
+
+    /* Etapas: mantém rolagem horizontal, sem esticar */
+    .etapa { min-width: 92px; padding: 9px 10px; font-size: 12px; }
+
+    .etapa-content { padding: 16px 14px; }
+}
+
+@media (max-width: 420px) {
+    .pasta-actions .btn { flex: 1 1 100%; }
+}
+
+/* ============================================================================
+   CABEÇALHO DA PASTA — botões agrupados
+   ----------------------------------------------------------------------------
+   Antes eram onze botões na mesma faixa, três deles sobre foto. Agora:
+   os de foto ficam na própria moldura, editar vira um ícone ao lado do nome,
+   e as ações do portal viraram um botão só que abre uma janela.
+   ============================================================================ */
+
+.pasta-foto-wrap { position: relative; flex-shrink: 0; }
+
+.pasta-foto-acoes {
+    position: absolute;
+    left: 50%;
+    bottom: -6px;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 4px;
+    padding: 3px;
+    border-radius: 99px;
+    background: rgba(255, 255, 255, .96);
+    border: 1px solid var(--color-border, #e2e8f0);
+    box-shadow: 0 2px 8px rgba(15, 23, 42, .12);
+    /* Some no hover só no desktop; no celular fica sempre visível,
+       porque lá não existe hover. */
+    opacity: .55;
+    transition: opacity .18s ease;
+}
+
+.pasta-foto-wrap:hover .pasta-foto-acoes { opacity: 1; }
+
+.pasta-foto-btn {
+    width: 26px; height: 26px;
+    display: inline-flex; align-items: center; justify-content: center;
+    border: none; background: transparent; cursor: pointer;
+    border-radius: 50%; font-size: 13px; line-height: 1;
+    transition: background .15s ease, transform .15s ease;
+}
+.pasta-foto-btn:hover { background: var(--slate-100, #f1f5f9); transform: scale(1.12); }
+.pasta-foto-btn:active { transform: scale(.94); }
+
+/* Editar dados: discreto, ao lado do nome */
+.pasta-editar-btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 26px; height: 26px; margin-left: 8px;
+    border-radius: 7px; font-size: 12px; line-height: 1;
+    text-decoration: none; vertical-align: middle;
+    background: var(--slate-100, #f1f5f9);
+    border: 1px solid var(--color-border, #e2e8f0);
+    opacity: .6;
+    transition: opacity .15s ease, border-color .15s ease, background .15s ease;
+}
+.pasta-editar-btn:hover {
+    opacity: 1;
+    background: #fff;
+    border-color: var(--accent-blue, #2F6FED);
+}
+
+@media (hover: none), (pointer: coarse) {
+    .pasta-foto-acoes { opacity: 1; }
+    .pasta-editar-btn { opacity: 1; }
+}

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=1280" />
+<title>CORTEX Gestão</title>
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/tabler-icons.css" />
+<link rel="stylesheet" href="css/estilo.css" />
+<style>
+html,body{overflow:hidden}
+.casca-app{height:100vh;overflow:hidden}
+.conteudo-app{overflow:hidden}
+.sb{scrollbar-width:thin}
+</style>
+<script src="../i18n.js"></script>
+</head>
+<body>
+<div id="raiz">
+<div class="casca-app" style="min-height:100vh;background:var(--fundo);display:flex;gap:14px;padding:14px;align-items:stretch">
+<aside class="sb">
+<div class="logo-area" style="display:flex;align-items:center;gap:9px;padding:2px 8px 10px;min-height:34px">
+<svg class="logo-marca" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M3 12h18M5.6 5.6l12.8 12.8M18.4 5.6L5.6 18.4" stroke="#1068B0" stroke-width="2.6" stroke-linecap="round" fill="none"/></svg>
+<span class="rotulo" style="font-weight:700;font-size:15.5px"><span data-pt="CORTEX" data-en="CORTEX">CORTEX</span> <span style="color:var(--marca-escuro)" data-pt="Gestão" data-en="Gestão">Gestão</span></span></div>
+<div class="controles-sb" style="display:flex;gap:6px;padding:0 6px 10px;flex-wrap:wrap"><button class="btn-fantasma" aria-label="Minimizar menu"><i class="ti ti-layout-sidebar-left-collapse" style="font-size:16px;" aria-hidden="true"></i></button><button class="btn-fantasma" aria-label="Fechar menu"><i class="ti ti-x" style="font-size:16px;" aria-hidden="true"></i></button></div>
+<div class="item-menu" role="button" tabindex="0"><span class="sb-ico" style="background:var(--tint);color:var(--marca-texto)"><i class="ti ti-layout-dashboard" style="font-size:13.5px;" aria-hidden="true"></i></span><span class="rotulo" data-pt="Painel" data-en="Dashboard">Dashboard</span></div>
+<div class="item-menu" role="button" tabindex="0"><span class="sb-ico" style="background:var(--tint);color:var(--marca-texto)"><i class="ti ti-message-circle" style="font-size:13.5px;" aria-hidden="true"></i><b class="sb-badge-ico" data-pt="3" data-en="3">3</b></span><span class="rotulo" data-pt="Mensagens" data-en="Messages">Messages</span><b class="sb-badge" data-pt="3" data-en="3">3</b></div>
+<div class="sb-grupo"><span data-pt="Dia a dia" data-en="Day to day">Day to day</span><s></s></div>
+<div class="item-menu" role="button" tabindex="0"><span class="sb-ico" style="background:var(--tint);color:var(--marca-texto)"><i class="ti ti-folder" style="font-size:13.5px;" aria-hidden="true"></i></span><span class="rotulo" data-pt="Arquivos" data-en="Files">Files</span></div>
+<div class="item-menu" role="button" tabindex="0"><span class="sb-ico" style="background:var(--ambar-bg);color:var(--ambar)"><i class="ti ti-file-text" style="font-size:13.5px;" aria-hidden="true"></i></span><span class="rotulo" data-pt="Modelos" data-en="Templates">Templates</span></div>
+<div class="item-menu" role="button" tabindex="0"><span class="sb-ico" style="background:var(--teal-bg);color:var(--teal)"><i class="ti ti-door" style="font-size:13.5px;" aria-hidden="true"></i></span><span class="rotulo" data-pt="Salas" data-en="Rooms">Rooms</span></div>
+<div class="item-menu" role="button" tabindex="0"><span class="sb-ico" style="background:#F3E8FF;color:#7C3AED"><i class="ti ti-checklist" style="font-size:13.5px;" aria-hidden="true"></i><b class="sb-badge-ico" data-pt="1" data-en="1">1</b></span><span class="rotulo" data-pt="Demandas" data-en="Requests">Requests</span><b class="sb-badge" data-pt="1" data-en="1">1</b></div>
+<div class="sb-grupo"><span data-pt="Pessoas" data-en="People">People</span><s></s></div>
+<div class="item-menu" role="button" tabindex="0"><span class="sb-ico" style="background:var(--roxo-bg);color:var(--roxo)"><i class="ti ti-users" style="font-size:13.5px;" aria-hidden="true"></i></span><span class="rotulo" data-pt="RH e equipe" data-en="HR &amp; team">HR &amp; team</span></div>
+<div class="item-menu on" role="button" tabindex="0"><span class="sb-ico"><i class="ti ti-sitemap" style="font-size:13.5px;" aria-hidden="true"></i></span><span class="rotulo" data-pt="Organograma" data-en="Org chart">Org chart</span></div>
+<div class="sb-grupo"><span data-pt="Gestão" data-en="Management">Management</span><s></s></div>
+<div class="item-menu" role="button" tabindex="0"><span class="sb-ico" style="background:#E0F5F1;color:#0F766E"><i class="ti ti-layout-grid" style="font-size:13.5px;" aria-hidden="true"></i></span><span class="rotulo" data-pt="Projetos" data-en="Projects">Projects</span></div>
+<div class="item-menu" role="button" tabindex="0"><span class="sb-ico" style="background:#FCF0E4;color:#B45309"><i class="ti ti-notebook" style="font-size:13.5px;" aria-hidden="true"></i></span><span class="rotulo" data-pt="Reuniões" data-en="Meetings">Meetings</span></div>
+<div class="item-menu" role="button" tabindex="0"><span class="sb-ico" style="background:#F1EBFD;color:#6D28D9"><i class="ti ti-checklist" style="font-size:13.5px;" aria-hidden="true"></i></span><span class="rotulo" data-pt="Planos 5W2H" data-en="5W2H plans">5W2H plans</span></div>
+<div class="item-menu" role="button" tabindex="0"><span class="sb-ico" style="background:#FCE8EC;color:#E11D48"><i class="ti ti-calendar-event" style="font-size:13.5px;" aria-hidden="true"></i></span><span class="rotulo" data-pt="Calendário" data-en="Calendar">Calendar</span></div>
+<div class="item-menu" role="button" tabindex="0"><span class="sb-ico" style="background:var(--rosa-bg);color:var(--rosa)"><i class="ti ti-book" style="font-size:13.5px;" aria-hidden="true"></i></span><span class="rotulo" data-pt="PEE" data-en="PEE">PEE</span></div>
+<div class="item-menu" role="button" tabindex="0"><span class="sb-ico" style="background:var(--verde-bg);color:var(--verde)"><i class="ti ti-chart-bar" style="font-size:13.5px;" aria-hidden="true"></i></span><span class="rotulo" data-pt="Relatórios" data-en="Reports">Reports</span></div>
+<div class="sb-grupo"><span data-pt="Sistemas" data-en="Systems">Systems</span><s></s></div>
+<div class="item-menu" role="button" tabindex="0"><span class="sb-ico" style="background:var(--azul-bg);color:var(--azul)"><i class="ti ti-external-link" style="font-size:13.5px;" aria-hidden="true"></i></span><span class="rotulo" data-pt="Outros CORTEX" data-en="Other CORTEX apps">Other CORTEX apps</span></div>
+<div class="sb-grupo"><span data-pt="Controle" data-en="Control">Control</span><s></s></div>
+<div class="item-menu" role="button" tabindex="0"><span class="sb-ico" style="background:#E6EBF1;color:var(--sec)"><i class="ti ti-history" style="font-size:13.5px;" aria-hidden="true"></i></span><span class="rotulo" data-pt="Auditoria" data-en="Audit log">Audit log</span></div>
+<div class="item-menu" role="button" tabindex="0"><span class="sb-ico" style="background:#E0F2FE;color:#0369A1"><i class="ti ti-info-circle" style="font-size:13.5px;" aria-hidden="true"></i></span><span class="rotulo" data-pt="Instruções" data-en="Instructions">Instructions</span></div>
+<div style="flex:1;min-height:12px"></div>
+<div class="item-menu" role="button" tabindex="0"><span class="sb-ico" style="background:var(--tint);color:var(--marca-texto)"><i class="ti ti-user-circle" style="font-size:13.5px;" aria-hidden="true"></i></span><span class="rotulo" data-pt="Minha conta" data-en="My account">My account</span></div>
+<div class="item-menu" role="button" tabindex="0"><span class="sb-ico" style="background:#ECF1F6;color:var(--sec)"><i class="ti ti-settings" style="font-size:13.5px;" aria-hidden="true"></i></span><span class="rotulo" data-pt="Configurações" data-en="Settings">Settings</span></div>
+<div class="user-card"><div style="width:32px;height:32px;border-radius:50%;background:var(--grad);color:#fff;font-weight:700;font-size:12px;display:flex;align-items:center;justify-content:center;flex:none;box-shadow:0 2px 8px rgba(16,104,176,.28);overflow:hidden;cursor:pointer"><span data-pt="MA" data-en="MA">MA</span></div><div class="rotulo" style="flex:1;min-width:0"><div style="display:block;font-size:12.5px;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" data-pt="Marina Albuquerque" data-en="Marina Albuquerque">Marina Albuquerque</div><div style="font-size:11px;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap" data-pt="Direção" data-en="Management">Management</div></div><button class="btn-fantasma" aria-label="Ver como outro perfil" style="width:28px;height:28px;flex:none"><i class="ti ti-spy" style="font-size:15px;" aria-hidden="true"></i></button><button class="btn-fantasma" aria-label="Sair" style="width:28px;height:28px;flex:none"><i class="ti ti-logout" style="font-size:15px;" aria-hidden="true"></i></button></div>
+<div class="rotulo" style="text-align:center;font-size:10px;color:var(--muted);opacity:.65;padding:5px 0 1px" data-pt="v82" data-en="v82">v82</div>
+</aside>
+<main class="conteudo-app" style="flex:1;min-width:0;padding:6px 6px 20px">
+<div style="margin-bottom:18px"><div style="font-size:20px;font-weight:700" data-pt="Boa tarde, Marina" data-en="Good afternoon, Marina">Good afternoon, Marina</div><div style="font-size:12.5px;color:var(--muted);margin-top:2px" data-pt="Quarta-feira, 14 de outubro de 2026 · perfil Direção" data-en="Wednesday, October 14, 2026 · Management profile">Wednesday, October 14, 2026 · Management profile</div></div>
+<div style="display:flex;align-items:center;gap:9px;margin:0 0 14px"><div style="width:30px;height:30px;border-radius:9px;background:#E6F4F8;color:#0E7490;display:flex;align-items:center;justify-content:center"><i class="ti ti-sitemap" style="font-size:16px;" aria-hidden="true"></i></div><span style="font-size:16px;font-weight:700" data-pt="Organograma" data-en="Org chart">Org chart</span></div>
+<div>
+<div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;flex-wrap:wrap">
+<span class="chip" style="cursor:pointer;background:var(--tint);color:var(--marca-texto);border:1px solid var(--tint-borda)" data-pt="Hierarquia" data-en="Hierarchy">Hierarchy</span>
+<span class="chip" style="cursor:pointer;background:var(--branco);color:var(--sec);border:1px solid var(--linha)" data-pt="Por setor" data-en="By department">By department</span>
+<span style="flex:1"></span>
+<span style="font-size:12px;color:var(--muted)" data-pt="14 pessoa(s) · 10 no organograma · 4 sem vínculo" data-en="14 people · 10 on the chart · 4 unlinked">14 people · 10 on the chart · 4 unlinked</span>
+<button class="btn-contorno" style="padding:8px 13px;font-size:12.5px"><i class="ti ti-maximize" style="margin-right:5px" aria-hidden="true"></i><span data-pt="Tela cheia" data-en="Full screen">Full screen</span></button>
+<button class="btn-contorno" style="padding:8px 13px;font-size:12.5px"><i class="ti ti-user-plus" style="font-size:14px;" aria-hidden="true"></i><span data-pt="Adicionar pessoa" data-en="Add person">Add person</span></button></div>
+<div><div class="card-fl" style="padding:6px 10px"><div class="org-mapa" style="touch-action:none"><div class="org-mapa-conteudo" style="transform:translate(0px,0px) scale(0.7)"><ul class="org-arvore"><li><div class="org-no" data-pid="hv"><span class="org-acoes"><i class="ti ti-user-plus" aria-hidden="true"></i><i class="ti ti-pencil" aria-hidden="true"></i><i class="ti ti-trash" aria-hidden="true"></i></span><div class="org-foto org-foto-ini" data-pt="HV" data-en="HV">HV</div><div class="org-nome" data-pt="Helena Vasconcelos" data-en="Helena Vasconcelos">Helena Vasconcelos</div><div class="org-cargo" data-pt="Diretora geral" data-en="Managing director">Managing director</div><span class="chip org-chip-setor" style="background:var(--tint);color:var(--marca-texto)" data-pt="Diretoria" data-en="Board">Board</span></div><ul><li><div class="org-no" data-pid="rm"><span class="org-acoes"><i class="ti ti-user-plus" aria-hidden="true"></i><i class="ti ti-pencil" aria-hidden="true"></i><i class="ti ti-trash" aria-hidden="true"></i></span><div class="org-foto org-foto-ini" data-pt="RM" data-en="RM">RM</div><div class="org-nome" data-pt="Rafael Monteiro" data-en="Rafael Monteiro">Rafael Monteiro</div><div class="org-cargo" data-pt="Coordenador clínico" data-en="Clinical coordinator">Clinical coordinator</div><span class="chip org-chip-setor" style="background:var(--roxo-bg);color:var(--roxo)" data-pt="Clínico" data-en="Clinical">Clinical</span></div><ul><li><div class="org-no" data-pid="jp"><span class="org-acoes"><i class="ti ti-user-plus" aria-hidden="true"></i><i class="ti ti-pencil" aria-hidden="true"></i><i class="ti ti-trash" aria-hidden="true"></i></span><div class="org-foto org-foto-ini" data-pt="JP" data-en="JP">JP</div><div class="org-nome" data-pt="Juliana Prado" data-en="Juliana Prado">Juliana Prado</div><div class="org-cargo" data-pt="Neuropsicóloga" data-en="Neuropsychologist">Neuropsychologist</div><span class="chip org-chip-setor" style="background:var(--roxo-bg);color:var(--roxo)" data-pt="Clínico" data-en="Clinical">Clinical</span></div></li><li><div class="org-no" data-pid="cf"><span class="org-acoes"><i class="ti ti-user-plus" aria-hidden="true"></i><i class="ti ti-pencil" aria-hidden="true"></i><i class="ti ti-trash" aria-hidden="true"></i></span><div class="org-foto org-foto-ini" data-pt="CF" data-en="CF">CF</div><div class="org-nome" data-pt="Caio Ferraz" data-en="Caio Ferraz">Caio Ferraz</div><div class="org-cargo" data-pt="Psiquiatra" data-en="Psychiatrist">Psychiatrist</div><span class="chip org-chip-setor" style="background:var(--roxo-bg);color:var(--roxo)" data-pt="Clínico" data-en="Clinical">Clinical</span></div></li></ul></li><li><div class="org-no" data-pid="bl"><span class="org-acoes"><i class="ti ti-user-plus" aria-hidden="true"></i><i class="ti ti-pencil" aria-hidden="true"></i><i class="ti ti-trash" aria-hidden="true"></i></span><div class="org-foto org-foto-ini" data-pt="BL" data-en="BL">BL</div><div class="org-nome" data-pt="Beatriz Lacerda" data-en="Beatriz Lacerda">Beatriz Lacerda</div><div class="org-cargo" data-pt="Coord. terapêutica" data-en="Therapy coordinator">Therapy coordinator</div><span class="chip org-chip-setor" style="background:var(--rosa-bg);color:var(--rosa)" data-pt="Terapêutico" data-en="Therapy">Therapy</span></div><ul><li><div class="org-no" data-pid="la"><span class="org-acoes"><i class="ti ti-user-plus" aria-hidden="true"></i><i class="ti ti-pencil" aria-hidden="true"></i><i class="ti ti-trash" aria-hidden="true"></i></span><div class="org-foto org-foto-ini" data-pt="LA" data-en="LA">LA</div><div class="org-nome" data-pt="Lívia Antunes" data-en="Lívia Antunes">Lívia Antunes</div><div class="org-cargo" data-pt="Fonoaudióloga" data-en="Speech therapist">Speech therapist</div><span class="chip org-chip-setor" style="background:var(--rosa-bg);color:var(--rosa)" data-pt="Terapêutico" data-en="Therapy">Therapy</span></div></li><li><div class="org-no" data-pid="tr"><span class="org-acoes"><i class="ti ti-user-plus" aria-hidden="true"></i><i class="ti ti-pencil" aria-hidden="true"></i><i class="ti ti-trash" aria-hidden="true"></i></span><div class="org-foto org-foto-ini" data-pt="TR" data-en="TR">TR</div><div class="org-nome" data-pt="Tiago Rezende" data-en="Tiago Rezende">Tiago Rezende</div><div class="org-cargo" data-pt="Terapeuta ocupacional" data-en="Occupational therapist">Occupational therapist</div><span class="chip org-chip-setor" style="background:var(--rosa-bg);color:var(--rosa)" data-pt="Terapêutico" data-en="Therapy">Therapy</span></div></li></ul></li><li><div class="org-no" data-pid="ma"><span class="org-acoes"><i class="ti ti-user-plus" aria-hidden="true"></i><i class="ti ti-pencil" aria-hidden="true"></i><i class="ti ti-trash" aria-hidden="true"></i></span><div class="org-foto org-foto-ini" data-pt="MA" data-en="MA">MA</div><div class="org-nome" data-pt="Marina Albuquerque" data-en="Marina Albuquerque">Marina Albuquerque</div><div class="org-cargo" data-pt="Gerente administrativa" data-en="Office manager">Office manager</div><span class="chip org-chip-setor" style="background:var(--tint);color:var(--marca-texto)" data-pt="Diretoria" data-en="Board">Board</span></div><ul><li><div class="org-no" data-pid="ps"><span class="org-acoes"><i class="ti ti-user-plus" aria-hidden="true"></i><i class="ti ti-pencil" aria-hidden="true"></i><i class="ti ti-trash" aria-hidden="true"></i></span><div class="org-foto org-foto-ini" data-pt="PS" data-en="PS">PS</div><div class="org-nome" data-pt="Paulo Siqueira" data-en="Paulo Siqueira">Paulo Siqueira</div><div class="org-cargo" data-pt="Analista financeiro" data-en="Financial analyst">Financial analyst</div><span class="chip org-chip-setor" style="background:var(--verde-bg);color:var(--verde)" data-pt="Financeiro" data-en="Finance">Finance</span></div></li><li><div class="org-no" data-pid="cn"><span class="org-acoes"><i class="ti ti-user-plus" aria-hidden="true"></i><i class="ti ti-pencil" aria-hidden="true"></i><i class="ti ti-trash" aria-hidden="true"></i></span><div class="org-foto org-foto-ini" data-pt="CN" data-en="CN">CN</div><div class="org-nome" data-pt="Carla Nogueira" data-en="Carla Nogueira">Carla Nogueira</div><div class="org-cargo" data-pt="Recepcionista" data-en="Receptionist">Receptionist</div><span class="chip org-chip-setor" style="background:var(--teal-bg);color:var(--teal)" data-pt="Atendimento" data-en="Front desk">Front desk</span></div></li></ul></li></ul></li></ul></div><div class="org-controles"><button class="org-btn" data-org="+" aria-label="Aproximar"><i class="ti ti-plus" aria-hidden="true"></i></button><div class="org-zoom-rotulo" data-pt="70%" data-en="70%">70%</div><button class="org-btn" data-org="-" aria-label="Afastar"><i class="ti ti-minus" aria-hidden="true"></i></button><div class="org-setas"><button class="org-btn" data-org="u" aria-label="Ver o que está acima"><i class="ti ti-arrow-up" aria-hidden="true"></i></button><div style="display:flex;gap:4px"><button class="org-btn" data-org="l" aria-label="Ver o que está à esquerda"><i class="ti ti-arrow-left" aria-hidden="true"></i></button><button class="org-btn" data-org="r" aria-label="Ver o que está à direita"><i class="ti ti-arrow-right" aria-hidden="true"></i></button></div><button class="org-btn" data-org="d" aria-label="Ver o que está abaixo"><i class="ti ti-arrow-down" aria-hidden="true"></i></button></div><button class="org-btn" data-org="c" aria-label="Centralizar"><i class="ti ti-focus-2" aria-hidden="true"></i></button></div></div></div>
+<div style="margin-top:12px"><button class="btn-contorno" style="padding:8px 14px;font-size:12.5px"><i class="ti ti-users" style="font-size:14px;" aria-hidden="true"></i><span data-pt="Mostrar todos os prestadores sem vínculo (4)" data-en="Show all unlinked providers (4)">Show all unlinked providers (4)</span></button></div>
+</div></div>
+</main>
+</div>
+</div>
+
+<script>
+document.addEventListener('demo-lang',function(e){
+  var l=e.detail;
+  document.querySelectorAll('[data-en-val]').forEach(function(el){el.value=el.getAttribute('data-'+l+'-val');});
+});
+</script>
+
+<script>
+(function(){
+  var P = {"hv": {"nome": "Helena Vasconcelos", "ini": "HV", "cpt": "Diretora geral", "cen": "Managing director", "setor": "Diretoria", "setorEn": "Board", "bg": "var(--tint)", "cor": "var(--marca-texto)", "uni": "EQ1", "form": "Psicologia", "adm": "2019-06-03", "aniv": "11/03", "tel": "100", "mail": "helena.vasconcelos@exemplo.com", "formEn": "Psychology"}, "rm": {"nome": "Rafael Monteiro", "ini": "RM", "cpt": "Coordenador clínico", "cen": "Clinical coordinator", "setor": "Clínico", "setorEn": "Clinical", "bg": "var(--roxo-bg)", "cor": "var(--roxo)", "uni": "EQ1", "form": "Neuropsicologia", "adm": "2020-02-10", "aniv": "22/07", "tel": "107", "mail": "rafael.monteiro@exemplo.com", "formEn": "Neuropsychology"}, "bl": {"nome": "Beatriz Lacerda", "ini": "BL", "cpt": "Coord. terapêutica", "cen": "Therapy coordinator", "setor": "Terapêutico", "setorEn": "Therapy", "bg": "var(--rosa-bg)", "cor": "var(--rosa)", "uni": "EQ2", "form": "Terapia ocupacional", "adm": "2020-08-17", "aniv": "05/12", "tel": "114", "mail": "beatriz.lacerda@exemplo.com", "formEn": "Occupational therapy"}, "ma": {"nome": "Marina Albuquerque", "ini": "MA", "cpt": "Gerente administrativa", "cen": "Office manager", "setor": "Diretoria", "setorEn": "Board", "bg": "var(--tint)", "cor": "var(--marca-texto)", "uni": "EQ1", "form": "Administração", "adm": "2021-01-11", "aniv": "19/04", "tel": "121", "mail": "marina.albuquerque@exemplo.com", "formEn": "Business administration"}, "jp": {"nome": "Juliana Prado", "ini": "JP", "cpt": "Neuropsicóloga", "cen": "Neuropsychologist", "setor": "Clínico", "setorEn": "Clinical", "bg": "var(--roxo-bg)", "cor": "var(--roxo)", "uni": "EQ1", "form": "Psicologia", "adm": "2022-03-07", "aniv": "28/09", "tel": "128", "mail": "juliana.prado@exemplo.com", "formEn": "Psychology"}, "cf": {"nome": "Caio Ferraz", "ini": "CF", "cpt": "Psiquiatra", "cen": "Psychiatrist", "setor": "Clínico", "setorEn": "Clinical", "bg": "var(--roxo-bg)", "cor": "var(--roxo)", "uni": "EQ1", "form": "Medicina", "adm": "2023-05-02", "aniv": "14/02", "tel": "135", "mail": "caio.ferraz@exemplo.com", "formEn": "Medicine"}, "la": {"nome": "Lívia Antunes", "ini": "LA", "cpt": "Fonoaudióloga", "cen": "Speech therapist", "setor": "Terapêutico", "setorEn": "Therapy", "bg": "var(--rosa-bg)", "cor": "var(--rosa)", "uni": "EQ2", "form": "Fonoaudiologia", "adm": "2022-09-12", "aniv": "02/06", "tel": "142", "mail": "livia.antunes@exemplo.com", "formEn": "Speech-language pathology"}, "tr": {"nome": "Tiago Rezende", "ini": "TR", "cpt": "Terapeuta ocupacional", "cen": "Occupational therapist", "setor": "Terapêutico", "setorEn": "Therapy", "bg": "var(--rosa-bg)", "cor": "var(--rosa)", "uni": "EQ2", "form": "Terapia ocupacional", "adm": "2023-02-20", "aniv": "30/10", "tel": "149", "mail": "tiago.rezende@exemplo.com", "formEn": "Occupational therapy"}, "ps": {"nome": "Paulo Siqueira", "ini": "PS", "cpt": "Analista financeiro", "cen": "Financial analyst", "setor": "Financeiro", "setorEn": "Finance", "bg": "var(--verde-bg)", "cor": "var(--verde)", "uni": "EQ1", "form": "Ciências contábeis", "adm": "2021-10-04", "aniv": "08/08", "tel": "156", "mail": "paulo.siqueira@exemplo.com", "formEn": "Accounting"}, "cn": {"nome": "Carla Nogueira", "ini": "CN", "cpt": "Recepcionista", "cen": "Receptionist", "setor": "Atendimento", "setorEn": "Front desk", "bg": "var(--teal-bg)", "cor": "var(--teal)", "uni": "EQ2", "form": "Gestão hospitalar", "adm": "2024-01-15", "aniv": "17/01", "tel": "163", "mail": "carla.nogueira@exemplo.com", "formEn": "Healthcare management"}};
+  var mapa = document.querySelector('.org-mapa'), cont = document.querySelector('.org-mapa-conteudo');
+  var rot = document.querySelector('.org-zoom-rotulo');
+  var z = 0.75, px = 0, py = 0;
+  function aplicar(){ cont.style.transform = 'translate(' + px + 'px,' + py + 'px) scale(' + z + ')'; rot.textContent = Math.round(z * 100) + '%'; }
+  function centro(){
+    z = 0.7; px = 0; py = 0; aplicar();
+    var r = cont.getBoundingClientRect();
+    px = Math.max(0, (mapa.clientWidth - 64 - r.width) / 2 - 12);
+    py = Math.max(0, (mapa.clientHeight - r.height) / 2 - 18);
+    aplicar();
+  }
+  centro();
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(centro);
+  document.querySelectorAll('[data-org]').forEach(function(b){
+    b.addEventListener('click', function(){
+      var a = b.getAttribute('data-org');
+      if (a === '+') z = Math.min(1.6, Math.round((z + .15) * 100) / 100);
+      else if (a === '-') z = Math.max(.4, Math.round((z - .15) * 100) / 100);
+      else if (a === 'c') { centro(); return; }
+      else if (a === 'u') py += 140; else if (a === 'd') py -= 140;
+      else if (a === 'l') px += 140; else if (a === 'r') px -= 140;
+      aplicar();
+    });
+  });
+  mapa.addEventListener('pointerdown', function(e){
+    if (e.target.closest('button, .org-controles')) return;
+    var s = {x: e.clientX, y: e.clientY, px: px, py: py};
+    function mv(ev){ px = s.px + ev.clientX - s.x; py = s.py + ev.clientY - s.y; aplicar(); }
+    function up(){ window.removeEventListener('pointermove', mv); window.removeEventListener('pointerup', up); }
+    window.addEventListener('pointermove', mv); window.addEventListener('pointerup', up);
+  });
+  // dossie flutuante
+  var pop = document.createElement('div'); pop.className = 'org-pop anim-pop'; pop.style.display = 'none';
+  document.body.appendChild(pop);
+  var tm = null;
+  function L(pt, en){ return window.DEMO_LANG === 'pt' ? pt : en; }
+  function esc(s){ return String(s).replace(/[&<>"]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
+  function abrir(el){
+    var p = P[el.getAttribute('data-pid')]; if (!p) return;
+    var r = el.getBoundingClientRect();
+    var x = r.right + 12; if (x + 310 > window.innerWidth) x = Math.max(8, r.left - 322);
+    var y = Math.max(8, Math.min(r.top - 8, window.innerHeight - 330));
+    var adm = p.adm.split('-');
+    var linhas = [[L('Unidade','Unit'), p.uni], [L('Formação','Background'), L(p.form, p.formEn)],
+      [L('Admissão','Hired'), L(adm[2] + '/' + adm[1] + '/' + adm[0], adm[1] + '/' + adm[2] + '/' + adm[0])],
+      [L('Aniversário','Birthday'), L(p.aniv, p.aniv.split('/').reverse().join('/'))],
+      [L('Telefone','Phone'), '(34) 9 0000-0' + p.tel], ['E-mail', p.mail]];
+    pop.innerHTML = '<div style="display:flex;gap:12px;align-items:center;margin-bottom:10px">' +
+      '<div class="org-foto org-foto-ini" style="width:68px;height:68px;font-size:19px">' + esc(p.ini) + '</div>' +
+      '<div style="min-width:0"><div class="org-pop-nome">' + esc(p.nome) + '</div>' +
+      '<div style="font-size:12px;color:var(--sec)">' + esc(L(p.cpt, p.cen)) + '</div>' +
+      '<div style="display:flex;gap:5px;margin-top:5px"><span class="chip org-chip-setor" style="background:' + p.bg + ';color:' + p.cor + '">' + esc(L(p.setor, p.setorEn)) + '</span></div></div></div>' +
+      linhas.map(function(l){ return '<div class="org-pop-lin"><b>' + esc(l[0]) + '</b><span style="min-width:0;overflow-wrap:anywhere">' + esc(l[1]) + '</span></div>'; }).join('');
+    pop.style.left = x + 'px'; pop.style.top = y + 'px'; pop.style.display = 'block';
+  }
+  document.querySelectorAll('.org-no').forEach(function(el){
+    el.addEventListener('mouseenter', function(){ clearTimeout(tm); tm = setTimeout(function(){ abrir(el); }, 260); });
+    el.addEventListener('mouseleave', function(){ clearTimeout(tm); tm = setTimeout(function(){ pop.style.display = 'none'; }, 220); });
+  });
+  pop.addEventListener('mouseenter', function(){ clearTimeout(tm); });
+  pop.addEventListener('mouseleave', function(){ pop.style.display = 'none'; });
+})();
+</script>
+</body>
+</html>

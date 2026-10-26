@@ -1,0 +1,9 @@
+/* Demo-only tweaks layered on top of the app's real stylesheets. */
+html,body{ overflow:hidden; }
+body{ background:var(--papel); }
+#raiz{ width:100%; height:100%; }
+/* Static capture: framer-motion is not shipped, so the screen renders in its settled state. */
+/* Avatar initials inside the employee table (".pessoa span" otherwise restyles the avatar). */
+.gestao .pessoa span.avatar{ display:inline-flex; color:#fff; white-space:normal; overflow:visible; }
+.gestao .pessoa span.avatar.ambar{ color:var(--ambar-prof); }
+a[href="#"]{ cursor:pointer; }

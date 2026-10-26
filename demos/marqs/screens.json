@@ -1,0 +1,32 @@
+{
+ "screens": [
+  {
+   "file": "dashboard.html",
+   "en": "Dashboard",
+   "pt": "Início",
+   "w": 1280,
+   "h": 800
+  },
+  {
+   "file": "card.html",
+   "en": "Credit card & bill",
+   "pt": "Cartão e fatura",
+   "w": 1280,
+   "h": 800
+  },
+  {
+   "file": "goals.html",
+   "en": "Savings goals",
+   "pt": "Metas",
+   "w": 1280,
+   "h": 800
+  },
+  {
+   "file": "analysis.html",
+   "en": "Envelopes & couple settlement",
+   "pt": "Envelopes e acerto do casal",
+   "w": 1280,
+   "h": 800
+  }
+ ]
+}

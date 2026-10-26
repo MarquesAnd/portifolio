@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>André Marques · Product builder</title>
+<meta name="description" content="André Marques designs clinical, operations and finance software and builds it with AI coding agents. Five apps running on Supabase.">
+<meta property="og:title" content="André Marques · Product builder"><meta property="og:description" content="Five real apps on Supabase, designed by me and built with AI coding agents.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;500&family=Figtree:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+</head><body>
+<canvas id="net" aria-hidden="true"></canvas>
+<header class="nav" id="nav"><a href="#top" style="text-decoration:none">André Marques</a>
+ <div class="links"><a href="#about" data-en="About" data-pt="Sobre">About</a><a href="#work" data-en="Work" data-pt="Projetos">Work</a><a href="#stack" data-en="Stack" data-pt="Stack">Stack</a><a href="#contact" data-en="Contact" data-pt="Contato">Contact</a>
+ <div class="lang" id="lang" role="group" aria-label="Language"><span class="pill"></span><button data-set="en" aria-pressed="true">EN</button><button data-set="pt" aria-pressed="false">PT</button></div></div>
+</header>
+<main>
+<section class="hero" id="top">
+ <h1 id="h1" data-en="I design software that runs a clinic." data-pt="Eu projeto o software que faz uma clínica funcionar.">I design software that runs a clinic.</h1>
+ <p data-en="I'm André Marques, a product builder from Uberlândia, Brazil. I design each system myself: the data model, the roles, the screens and the rules. Then I build it with AI coding agents. My apps run on Supabase and are used every day at a two-unit neurodevelopment clinic." data-pt="Sou André Marques, construtor de produtos digitais em Uberlândia (MG). Eu projeto cada sistema: o modelo de dados, os perfis, as telas e as regras. Depois construo com agentes de IA programando. Meus apps rodam no Supabase e são usados todos os dias em uma clínica de neurodesenvolvimento com duas unidades.">I'm André Marques, a product builder from Uberlândia, Brazil.</p>
+ <div class="cta"><a class="primary" href="#work" data-en="Explore the demos" data-pt="Ver as demonstrações">Explore the demos</a><a href="https://github.com/MarquesAnd">GitHub</a><a href="https://www.linkedin.com/in/andre-marques-335125246/">LinkedIn</a></div>
+ <span class="hint" data-en="Scroll to see the projects. Move your cursor over the network." data-pt="Role para ver os projetos. Passe o mouse sobre a rede.">Scroll</span>
+</section>
+
+<section class="about" id="about">
+ <div class="photo" id="photo"><span>AM</span><!-- To add your photo: save it as assets/img/andre.jpg and uncomment the next line -->
+  <!-- <img src="assets/img/andre.jpg" alt="André Marques"> --></div>
+ <div>
+  <h3 class="t" data-en="About me" data-pt="Sobre mim">About me</h3>
+  <div class="name">André Ananias Marques de Sousa</div>
+  <p data-en="I build the software my clinic runs on. I sit with psychologists, therapists and the admin team, turn the way they actually work into a data model and screens, and ship it in weekly sprints. AI writes most of the code from my specs; the architecture, the rules and the quality bar are mine." data-pt="Eu construo os sistemas que a clínica usa no dia a dia. Sento com psicólogos, terapeutas e o administrativo, transformo o jeito que eles realmente trabalham em modelo de dados e telas, e entrego em sprints semanais. A IA escreve a maior parte do código a partir das minhas especificações; a arquitetura, as regras e o padrão de qualidade são meus.">.</p>
+  <div class="facts">
+   <div><small data-en="Based in" data-pt="Moro em">Based in</small><b data-en="Uberlândia, MG, Brazil" data-pt="Uberlândia, MG">Uberlândia, MG, Brazil</b></div>
+   <div><small data-en="Born" data-pt="Nascimento">Born</small><b data-en="March 16, 2001" data-pt="16/03/2001">March 16, 2001</b></div>
+   <div><small data-en="Studying" data-pt="Cursando">Studying</small><b data-en="Information Systems (BSc)" data-pt="Sistemas de Informação">Information Systems (BSc)</b></div>
+   <div><small data-en="Languages" data-pt="Idiomas">Languages</small><b data-en="Portuguese (native), English (advanced)" data-pt="Português (nativo), inglês (avançado)">Portuguese, English</b></div>
+  </div>
+ </div>
+</section>
+
+<section class="track-wrap" id="work"><div class="track" id="track"></div></section>
+<div class="progress" id="prog"><i></i></div><div class="counter" id="ctr">1 / 5</div>
+
+<section class="arch" id="stack">
+ <h3 class="t" data-en="One backend, five products." data-pt="Um backend, cinco produtos.">One backend, five products.</h3>
+ <p class="lead" data-en="Every app is a front end on top of Supabase. Access rules live in Postgres Row Level Security, not in the browser, so each role only ever receives the rows it is allowed to see." data-pt="Cada app é um front-end sobre o Supabase. As regras de acesso ficam no Postgres, com Row Level Security, e não no navegador: cada perfil só recebe as linhas que pode ver.">.</p>
+ <div class="diagram" id="apps"></div>
+ <div class="wires"><svg viewBox="0 0 1000 70" preserveAspectRatio="none" aria-hidden="true"><path d="M100 0 C100 40 500 30 500 70"/><path d="M300 0 C300 40 500 30 500 70"/><path d="M500 0 L500 70"/><path d="M700 0 C700 40 500 30 500 70"/><path d="M900 0 C900 40 500 30 500 70"/></svg></div>
+ <div class="supa"><b>Supabase</b><div><span>PostgreSQL</span><span>Row Level Security</span><span data-en="Auth & magic links" data-pt="Auth e link mágico">Auth</span><span>Storage</span><span>Edge Functions</span><span data-en="Versioned SQL migrations" data-pt="Migrações SQL versionadas">SQL</span><span data-en="Audit triggers" data-pt="Triggers de auditoria">Audit</span></div></div>
+</section>
+
+<section class="how" id="process">
+ <h3 class="t" data-en="How I build with AI" data-pt="Como eu construo com IA">How I build with AI</h3>
+ <ol>
+  <li><b data-en="Map the real workflow" data-pt="Mapear o fluxo real">.</b><span data-en="I sit with clinicians and admins and write down every step, form and edge case before any code exists." data-pt="Sento com a equipe clínica e o administrativo e registro cada etapa, formulário e exceção antes de existir qualquer código.">.</span></li>
+  <li><b data-en="Design the system" data-pt="Projetar o sistema">.</b><span data-en="The data model, roles, permissions and screens are mine. AI does not make these decisions." data-pt="Modelo de dados, perfis, permissões e telas são decisões minhas. A IA não decide isso.">.</span></li>
+  <li><b data-en="Direct the agents" data-pt="Dirigir os agentes">.</b><span data-en="AI writes most of the code from my specs. I review every change, test it and reject what doesn't fit." data-pt="A IA escreve a maior parte do código a partir das minhas especificações. Eu reviso cada mudança, testo e descarto o que não serve.">.</span></li>
+  <li><b data-en="Ship in sprints" data-pt="Entregar em sprints">.</b><span data-en="Each sprint ships as a versioned patch and SQL migration, reaches real users the same week, and their feedback becomes the next sprint." data-pt="Cada sprint vira um patch versionado com migração SQL, chega aos usuários na mesma semana, e o retorno deles vira a próxima sprint.">.</span></li>
+ </ol>
+</section>
+
+<section class="contact" id="contact"><h3 data-en="Let's build something useful." data-pt="Vamos construir algo útil.">.</h3><p data-en="Open to remote product engineering roles. Happy to walk you through any of these systems live." data-pt="Aberto a vagas remotas de desenvolvimento de produto. Posso apresentar qualquer um destes sistemas ao vivo.">.</p><div class="cta"><a class="primary" href="https://www.linkedin.com/in/andre-marques-335125246/" data-en="Message me on LinkedIn" data-pt="Fale comigo no LinkedIn">LinkedIn</a><a href="https://github.com/MarquesAnd">GitHub</a></div></section>
+</main>
+<footer data-en="© 2026 André Marques · Demo screens use fictional data" data-pt="© 2026 André Marques · As telas de demonstração usam dados fictícios">© 2026 André Marques</footer>
+
+<script src="assets/content.js"></script>
+<script src="demos/manifest.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="assets/site.js"></script>
+</body></html>

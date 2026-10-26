@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CORTEX aba - Painel do Dia</title>
+  <link rel="icon" type="image/svg+xml" href="icones/favicon.svg">
+  <link rel="shortcut icon" href="icones/favicon.ico">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Caveat:wght@600&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/components.css">
+  <link rel="stylesheet" href="styles/tema-aurora.css">
+  <link rel="stylesheet" href="styles/tv.css">
+</head>
+<body class="tv-corpo">
+
+  <!-- Sobreposicao inicial: habilita o som e a tela cheia com um toque -->
+  
+
+  <!-- Painel (patch 31: quadro de chamadas) -->
+  <div class="tv-painel" id="tv-painel" style="display: flex;">
+    <header class="tv-topo">
+      <div class="marca">
+        <span class="simbolo" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 32 32" fill="currentColor" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+            <line x1="16" y1="16" x2="9" y2="9"></line><line x1="16" y1="16" x2="23" y2="9"></line>
+            <line x1="16" y1="16" x2="9" y2="23"></line><line x1="16" y1="16" x2="23" y2="23"></line>
+            <line x1="16" y1="16" x2="16" y2="7"></line><line x1="16" y1="16" x2="16" y2="25"></line>
+            <circle cx="16" cy="16" r="2.8" stroke="none"></circle>
+            <circle cx="9" cy="9" r="1.6" stroke="none"></circle><circle cx="23" cy="9" r="1.6" stroke="none"></circle>
+            <circle cx="9" cy="23" r="1.6" stroke="none"></circle><circle cx="23" cy="23" r="1.6" stroke="none"></circle>
+            <circle cx="16" cy="7" r="1.6" stroke="none"></circle><circle cx="16" cy="25" r="1.6" stroke="none"></circle>
+          </svg>
+        </span>
+        <span class="nome"><span data-pt="CORTEX " data-en="CORTEX ">CORTEX </span><span class="mao" data-pt="aba" data-en="aba">aba</span></span>
+      </div>
+      <div class="tv-data" id="tv-data" data-pt="Quarta-feira, 21 de outubro" data-en="Wednesday, October 21">Wednesday, October 21</div>
+      <div class="tv-relogio" id="tv-relogio" data-pt="10:42" data-en="10:42">10:42</div>
+    </header>
+
+    <main class="tv-quadro">
+      <section class="tv-chamadas-wrap">
+        <div class="tv-col-titulo chegou"><span data-pt="Chegou · pode buscar " data-en="Arrived · ready for pickup ">Arrived · ready for pickup </span><span class="tv-conta" id="n-checkin" data-pt="5" data-en="5">5</span></div>
+        <div class="tv-chamadas" id="col-checkin"><div class="tv-chamada">  <div class="tv-chamada-av" data-pt="LT" data-en="LT">LT</div>  <div class="tv-chamada-n"><b data-pt="Livia Teixeira G." data-en="Livia Teixeira G.">Livia Teixeira G.</b>    <small data-pt="Luiza F. · sessao 10:50" data-en="Luiza F. · session 10:50">Luiza F. · session 10:50</small></div><div class="tv-chamada-sala" data-pt="Sala Sol" data-en="Sun Room">Sun Room</div></div><div class="tv-chamada">  <div class="tv-chamada-av" data-pt="NF" data-en="NF">NF</div>  <div class="tv-chamada-n"><b data-pt="Noah Freitas L." data-en="Noah Freitas L.">Noah Freitas L.</b>    <small data-pt="Rafaela C. · sessao 10:50" data-en="Rafaela C. · session 10:50">Rafaela C. · session 10:50</small></div><div class="tv-chamada-sala" data-pt="Sala Arco-iris" data-en="Rainbow Room">Rainbow Room</div></div><div class="tv-chamada">  <div class="tv-chamada-av" data-pt="MC" data-en="MC">MC</div>  <div class="tv-chamada-n"><b data-pt="Maite Correia A." data-en="Maite Correia A.">Maite Correia A.</b>    <small data-pt="Juliana P. · sessao 10:50" data-en="Juliana P. · session 10:50">Juliana P. · session 10:50</small></div><div class="tv-chamada-sala" data-pt="Sala Floresta" data-en="Forest Room">Forest Room</div></div><div class="tv-chamada">  <div class="tv-chamada-av" data-pt="AV" data-en="AV">AV</div>  <div class="tv-chamada-n"><b data-pt="Arthur Viana R." data-en="Arthur Viana R.">Arthur Viana R.</b>    <small data-pt="Camila R. · sessao 10:50" data-en="Camila R. · session 10:50">Camila R. · session 10:50</small></div><div class="tv-chamada-sala" data-pt="Sala Lua" data-en="Moon Room">Moon Room</div></div><div class="tv-chamada">  <div class="tv-chamada-av" data-pt="IC" data-en="IC">IC</div>  <div class="tv-chamada-n"><b data-pt="Isis Campos N." data-en="Isis Campos N.">Isis Campos N.</b>    <small data-pt="Vitoria S. · sessao 11:00" data-en="Vitoria S. · session 11:00">Vitoria S. · session 11:00</small></div><div class="tv-chamada-sala" data-pt="Sala Estrela" data-en="Star Room">Star Room</div></div></div>
+      </section>
+      <aside class="tv-lado">
+        <section class="tv-col">
+          <div class="tv-col-titulo aguardando"><span data-pt="Aguardando chegada " data-en="Waiting for arrival ">Waiting for arrival </span><span class="tv-conta" id="n-agendada" data-pt="6" data-en="6">6</span></div>
+          <div class="tv-lista" id="col-agendada"><div class="tv-cartao">  <div class="tv-hora" data-pt="13:00" data-en="13:00">13:00</div>  <div class="tv-quem">    <b data-pt="Benicio A." data-en="Benicio A.">Benicio A.</b>    <small data-pt="Beatriz N. · Sala Mar" data-en="Beatriz N. · Sea Room">Beatriz N. · Sea Room</small>  </div></div><div class="tv-cartao">  <div class="tv-hora" data-pt="13:00" data-en="13:00">13:00</div>  <div class="tv-quem">    <b data-pt="Aurora B." data-en="Aurora B.">Aurora B.</b>    <small data-pt="Rafaela C. · Sala Arco-iris" data-en="Rafaela C. · Rainbow Room">Rafaela C. · Rainbow Room</small>  </div></div><div class="tv-cartao">  <div class="tv-hora" data-pt="13:50" data-en="13:50">13:50</div>  <div class="tv-quem">    <b data-pt="Theo A." data-en="Theo A.">Theo A.</b>    <small data-pt="Juliana P. · Sala Floresta" data-en="Juliana P. · Forest Room">Juliana P. · Forest Room</small>  </div></div><div class="tv-cartao">  <div class="tv-hora" data-pt="14:40" data-en="14:40">14:40</div>  <div class="tv-quem">    <b data-pt="Miguel B." data-en="Miguel B.">Miguel B.</b>    <small data-pt="Luiza F. · Sala Sol" data-en="Luiza F. · Sun Room">Luiza F. · Sun Room</small>  </div></div><div class="tv-cartao">  <div class="tv-hora" data-pt="14:40" data-en="14:40">14:40</div>  <div class="tv-quem">    <b data-pt="Laura P." data-en="Laura P.">Laura P.</b>    <small data-pt="Vitoria S. · Sala Estrela" data-en="Vitoria S. · Star Room">Vitoria S. · Star Room</small>  </div></div><div class="tv-cartao">  <div class="tv-hora" data-pt="15:30" data-en="15:30">15:30</div>  <div class="tv-quem">    <b data-pt="Helena D." data-en="Helena D.">Helena D.</b>    <small data-pt="Camila R. · Sala Lua" data-en="Camila R. · Moon Room">Camila R. · Moon Room</small>  </div></div></div>
+        </section>
+        <section class="tv-col">
+          <div class="tv-col-titulo atendimento"><span data-pt="Em atendimento " data-en="In session ">In session </span><span class="tv-conta" id="n-atendimento" data-pt="3" data-en="3">3</span></div>
+          <div class="tv-lista" id="col-atendimento"><div class="tv-cartao">  <div class="tv-hora" data-pt="10:00" data-en="10:00">10:00</div>  <div class="tv-quem">    <b data-pt="Bento C." data-en="Bento C.">Bento C.</b>    <small data-pt="Camila R. · Sala Lua" data-en="Camila R. · Moon Room">Camila R. · Moon Room</small>  </div></div><div class="tv-cartao">  <div class="tv-hora" data-pt="10:00" data-en="10:00">10:00</div>  <div class="tv-quem">    <b data-pt="Cecilia R." data-en="Cecilia R.">Cecilia R.</b>    <small data-pt="Beatriz N. · Sala Mar" data-en="Beatriz N. · Sea Room">Beatriz N. · Sea Room</small>  </div></div><div class="tv-cartao">  <div class="tv-hora" data-pt="10:00" data-en="10:00">10:00</div>  <div class="tv-quem">    <b data-pt="Gael M." data-en="Gael M.">Gael M.</b>    <small data-pt="Vitoria S. · Sala Estrela" data-en="Vitoria S. · Star Room">Vitoria S. · Star Room</small>  </div></div></div>
+        </section>
+      </aside>
+    </main>
+
+    <footer class="tv-rodape">
+      <span id="tv-rodape" data-pt="Atualizado as 10:42:00" data-en="Updated at 10:42:00">Updated at 10:42:00</span>
+      <div class="tv-prog"><i id="tv-prog-barra" style="width: 30%;"></i></div>
+      <span id="tv-prog-txt" data-pt="6 de 20 sessoes encerradas" data-en="6 of 20 sessions closed">6 of 20 sessions closed</span>
+    </footer>
+  </div>
+
+  
+  
+  
+
+
+<script src="../i18n.js"></script>
+<script>
+// Demo-only interactivity (static snapshot: no network, no login)
+function alternarSidebar() {
+  var s = document.getElementById('shell'); if (!s) return;
+  s.classList.toggle('recolhida');
+  var pil = document.querySelector('.nav-pilula'), at = document.querySelector('.sidebar-nav .nav-item.ativa');
+  if (pil && at) { var mover = function () { pil.style.top = at.offsetTop + 'px'; pil.style.height = at.offsetHeight + 'px'; }; mover(); setTimeout(mover, 350); }
+}
+function demoTxt(el, pt, en) { if (!el) return; el.setAttribute('data-pt', pt); el.setAttribute('data-en', en); el.textContent = (window.DEMO_LANG === 'pt') ? pt : en; }
+function alternarModo() {
+  var r = document.documentElement, esc = r.getAttribute('data-modo') !== 'escuro';
+  if (esc) r.setAttribute('data-modo', 'escuro'); else r.removeAttribute('data-modo');
+  var b = document.getElementById('botao-modo');
+  if (b) { var t = esc ? '☀' : '☾'; b.textContent = t; b.setAttribute('data-pt', t); b.setAttribute('data-en', t); }
+}
+document.addEventListener('demo-lang', function (e) {
+  document.querySelectorAll('[data-en-val]').forEach(function (el) { el.value = el.getAttribute('data-' + e.detail + '-val'); });
+});
+// Trial grid: clicking a prompt level marks it for that trial and updates the footer
+(function () {
+  var linhas = document.querySelectorAll('.ficha-linha');
+  if (!linhas.length) return;
+  function recontar() {
+    var n = linhas.length, c = 0, p = 0;
+    linhas.forEach(function (l) { var a = l.querySelector('.niv-btn.ativo'); if (a) { p++; if (a.classList.contains('correto')) c++; } });
+    var pct = Math.round(c * 100 / n), rod = document.querySelector('.ficha-rodape');
+    if (!rod) return;
+    demoTxt(rod.querySelector('.fr-indep b'), pct + '%', pct + '%');
+    var bar = rod.querySelector('.fr-barra'); if (bar) bar.style.width = pct + '%';
+    var sp = rod.querySelectorAll('.fr-meio > span');
+    demoTxt(sp[0], c + '/' + n + ' corretos', c + '/' + n + ' correct');
+    demoTxt(sp[1], p + ' de ' + n + ' preenchidas', p + ' of ' + n + ' filled in');
+    var passo = document.querySelector('.fp-passo.ativo small'); demoTxt(passo, p + '/' + n, p + '/' + n);
+  }
+  linhas.forEach(function (l) {
+    l.querySelectorAll('.niv-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var on = btn.classList.contains('ativo');
+        l.querySelectorAll('.niv-btn').forEach(function (x) { x.classList.remove('ativo'); });
+        if (!on) btn.classList.add('ativo');
+        recontar();
+      });
+    });
+  });
+})();
+// dark-mode legibility for completed trial rows (the app's light tint has no dark variant)
+(function () { var st = document.createElement('style'); st.textContent = '[data-modo="escuro"] .ficha-linha:has(.niv-btn.correto.ativo){background:rgba(22,163,74,.10);border-color:rgba(22,163,74,.45)}'; document.head.appendChild(st); })();
+
+</script>
+</body></html>

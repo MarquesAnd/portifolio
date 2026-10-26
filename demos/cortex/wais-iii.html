@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>WAIS-III — CORTEX</title>
+    
+    
+    
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/raadsr_resultado.css">
+    <link rel="stylesheet" href="css/waisiii_resultado.css">
+    
+    
+    
+    
+    
+    <meta name="theme-color" content="#141F3C">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="CORTEX">
+    
+<link rel="stylesheet" href="css/cortex-v2.css" data-cortex-v2-css="1"><link rel="stylesheet" href="css/notificacoes.css" data-cortex-notif-css="1"><link rel="stylesheet" href="css/chat_badge.css" data-cortex-chat-css="1"><style id="cortex-copy-styles">
+            .cortex-copyable {
+                position: relative;
+            }
+            .cortex-copy-btn {
+                position: absolute;
+                top: 8px;
+                right: 8px;
+                width: 30px;
+                height: 30px;
+                background: rgba(255, 255, 255, 0.92);
+                border: 1px solid #cbd5e1;
+                border-radius: 6px;
+                padding: 0;
+                font-size: 14px;
+                line-height: 1;
+                cursor: pointer;
+                opacity: 0;
+                transition: opacity 0.15s, background 0.15s, border-color 0.15s;
+                z-index: 10;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-family: inherit;
+                color: #475569;
+                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            }
+            .cortex-copyable:hover > .cortex-copy-btn,
+            .cortex-copy-btn:focus {
+                opacity: 1;
+            }
+            .cortex-copy-btn:hover {
+                background: #fff;
+                border-color: #1e40af;
+                color: #1e40af;
+            }
+            .cortex-copy-btn:active {
+                transform: scale(0.95);
+            }
+            .cortex-copy-btn.copiando {
+                opacity: 1 !important;
+                pointer-events: none;
+                background: #f1f5f9;
+            }
+            .cortex-copy-btn.copiado {
+                opacity: 1 !important;
+                background: #dcfce7;
+                border-color: #16a34a;
+                color: #16a34a;
+            }
+
+            /* Esconder durante geração de PDF */
+            body.exportando .cortex-copy-btn,
+            body.gerando-pdf .cortex-copy-btn {
+                display: none !important;
+            }
+
+            /* Esconder durante a própria captura html2canvas (auto-aplicado) */
+            body.cortex-copiando .cortex-copy-btn {
+                display: none !important;
+            }
+        </style><style>html,body{overflow-x:hidden!important}</style></head>
+<body>
+    <div class="app-shell">
+        <div id="sidebar-container">
+            <aside class="sidebar  " id="cortex-sidebar">
+                <div class="sidebar-brand">
+                    <svg class="sidebar-brand-icon" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+        <g stroke="currentColor" fill="currentColor" stroke-linecap="round">
+            <line x1="16" y1="16" x2="9" y2="9" stroke-width="1"></line>
+            <line x1="16" y1="16" x2="23" y2="9" stroke-width="1"></line>
+            <line x1="16" y1="16" x2="9" y2="23" stroke-width="1"></line>
+            <line x1="16" y1="16" x2="23" y2="23" stroke-width="1"></line>
+            <line x1="16" y1="16" x2="16" y2="7" stroke-width="1"></line>
+            <line x1="16" y1="16" x2="16" y2="25" stroke-width="1"></line>
+            <circle cx="16" cy="16" r="2.8"></circle>
+            <circle cx="9" cy="9" r="1.6"></circle>
+            <circle cx="23" cy="9" r="1.6"></circle>
+            <circle cx="9" cy="23" r="1.6"></circle>
+            <circle cx="23" cy="23" r="1.6"></circle>
+            <circle cx="16" cy="7" r="1.4"></circle>
+            <circle cx="16" cy="25" r="1.4"></circle>
+        </g>
+    </svg>
+                    <span class="sidebar-brand-text sidebar-text" data-pt="CORTEX" data-en="CORTEX">CORTEX</span>
+                    <div class="sidebar-actions">
+                        <button class="sidebar-toggle" id="sidebar-toggle-btn">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                        </button>
+                        <button class="sidebar-close" id="sidebar-close-btn">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                        </button>
+                    </div>
+                </div>
+
+                <nav class="sidebar-nav">
+                    
+                <a href="dashboard.html" class="nav-item " title="Dashboard" data-nav="dashboard" style="--nav-accent: var(--accent-blue)">
+                    <svg class="nav-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"></rect><rect x="14" y="3" width="7" height="7" rx="1.5"></rect><rect x="3" y="14" width="7" height="7" rx="1.5"></rect><rect x="14" y="14" width="7" height="7" rx="1.5"></rect></svg>
+                    <span class="sidebar-text" data-pt="Dashboard" data-en="Dashboard">Dashboard</span>
+                    
+                </a>
+            
+                <a href="pacientes.html" class="nav-item active" title="Patients" data-nav="pacientes" style="--nav-accent: var(--accent-purple)">
+                    <svg class="nav-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                    <span class="sidebar-text" data-pt="Pacientes" data-en="Patients">Patients</span>
+                    
+                </a>
+            
+                <a href="#" class="nav-item " title="Agenda" data-nav="agenda" style="--nav-accent: var(--accent-cyan)">
+                    <svg class="nav-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2.5"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                    <span class="sidebar-text" data-pt="Agenda" data-en="Agenda">Agenda</span>
+                    
+                </a>
+            
+                <a href="#" class="nav-item " title="Messages" data-nav="mensagens" style="--nav-accent: var(--accent-blue-2)">
+                    <svg class="nav-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                    <span class="sidebar-text" data-pt="Mensagens" data-en="Messages">Messages</span>
+                    <span class="sidebar-badge" id="chat-nav-badge" data-pt="2" data-en="2">2</span>
+                </a>
+            
+                <a href="#" class="nav-item " title="Charts" data-nav="graficos" style="--nav-accent: var(--accent-amber)">
+                    <svg class="nav-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+                    <span class="sidebar-text" data-pt="Gráficos" data-en="Charts">Charts</span>
+                    
+                </a>
+            
+                <a href="#" class="nav-item " title="Inventory" data-nav="estoque" style="--nav-accent: var(--accent-green)">
+                    <svg class="nav-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                    <span class="sidebar-text" data-pt="Estoque" data-en="Inventory">Inventory</span>
+                    
+                </a>
+            
+                <a href="#" class="nav-item " title="Screenings" data-nav="triagens" style="--nav-accent: var(--accent-amber)">
+                    <svg class="nav-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><line x1="20" y1="8" x2="20" y2="14"></line><line x1="23" y1="11" x2="17" y2="11"></line></svg>
+                    <span class="sidebar-text" data-pt="Triagens" data-en="Screenings">Screenings</span>
+                    
+                </a>
+            
+                <a href="#" class="nav-item " title="Reports" data-nav="relatorios" style="--nav-accent: var(--accent-pink)">
+                    <svg class="nav-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+                    <span class="sidebar-text" data-pt="Relatórios" data-en="Reports">Reports</span>
+                    
+                </a>
+            
+                <a href="#" class="nav-item " title="Audit" data-nav="auditoria" style="--nav-accent: var(--accent-green)">
+                    <svg class="nav-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="M9 12l2 2 4-4"></path></svg>
+                    <span class="sidebar-text" data-pt="Auditoria" data-en="Audit">Audit</span>
+                    
+                </a>
+            
+                <a href="#" class="nav-item " title="Report Tools" data-nav="ferramentas-laudo" style="--nav-accent: var(--accent-purple-2)">
+                    <svg class="nav-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"></rect><path d="M3 9h18M9 21V9"></path></svg>
+                    <span class="sidebar-text" data-pt="Ferramentas de Laudo" data-en="Report Tools">Report Tools</span>
+                    
+                </a>
+            
+                <a href="#" class="nav-item " title="Instruments" data-nav="instrumentos" style="--nav-accent: var(--accent-cyan)">
+                    <svg class="nav-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0H5a2 2 0 0 1-2-2v-4m6 6h10a2 2 0 0 0 2-2v-4M3 9h18M3 15h18"></path></svg>
+                    <span class="sidebar-text" data-pt="Instrumentos" data-en="Instruments">Instruments</span>
+                    
+                </a>
+            
+                <a href="#" class="nav-item " title="Settings" data-nav="configuracoes" style="--nav-accent: var(--accent-blue-2)">
+                    <svg class="nav-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+                    <span class="sidebar-text" data-pt="Configurações" data-en="Settings">Settings</span>
+                    <span class="sidebar-badge" id="cfg-externos-badge" data-pt="1" data-en="1">1</span>
+                </a>
+            
+                </nav>
+
+                <div class="sidebar-user">
+                    <div class="sidebar-user-avatar" data-pt="LC" data-en="LC">LC</div>
+                    <div class="sidebar-user-info">
+                        <div class="sidebar-user-name" data-pt="Lívia Andrade Costa" data-en="Lívia Andrade Costa">Lívia Andrade Costa</div>
+                        <div class="sidebar-user-perfil" data-pt="Admin Clínico" data-en="Clinical Admin">Clinical Admin</div>
+                    </div>
+                    <button class="sidebar-user-logout" id="sidebar-logout-btn">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+                    </button>
+                </div>
+            </aside>
+        </div>
+
+        <main class="app-main">
+            <a href="#" id="back-link" class="page-back">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg> <span data-pt="Voltar à Bateria" data-en="Back to Battery">Back to Battery</span> </a>
+
+            <!-- Botões aparecem dinamicamente conforme modo (edição vs laudo) -->
+            <div class="resultado-acoes-topo" id="acoes-topo" style="display: flex;">
+            <button class="btn btn-secondary" id="btn-editar-brutos" data-pt=" ✏️ Editar brutos " data-en=" ✏️ Edit raw scores "> ✏️ Edit raw scores </button>
+            <button id="btn-previa-pdf" class="btn btn-secondary" type="button" style="margin-right: 8px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"></path><circle cx="12" cy="12" r="3"></circle></svg> <span data-pt="Ver prévia" data-en="Preview">Preview</span></button><button class="btn btn-primary" id="btn-gerar-pdf" data-pt=" 📄 Gerar PDF do relatório " data-en=" 📄 Generate report PDF "> 📄 Generate report PDF </button>
+        <button class="btn btn-secondary cortex-copy-laudo-btn" type="button" style="margin-left: 8px;" data-pt="📷 Copiar laudo (alta resolução)" data-en="📷 Copy report (high resolution)">📷 Copy report (high resolution)</button></div>
+
+            <div id="laudo-conteudo">
+        <div class="laudo">
+            <div class="laudo-header" style="position: relative;">
+                <div class="laudo-header-esq">
+                    <div class="laudo-header-logo" data-pt="E" data-en="E">E</div>
+                    <div class="laudo-header-textos">
+                        <div class="laudo-header-supratitulo" data-pt="Relatório Neuropsicológico" data-en="Neuropsychological Report">Neuropsychological Report</div>
+                        <h1 class="laudo-header-titulo" data-pt="WAIS-III" data-en="WAIS-III">WAIS-III</h1>
+                        <div class="laudo-header-subtitulo"> <span data-pt="Escala Wechsler de Inteligência para Adultos — 3ª Edição" data-en="Wechsler Adult Intelligence Scale — 3rd Edition">Wechsler Adult Intelligence Scale — 3rd Edition</span><br> <span data-pt="Conversão PB → Ponderado e somatórios por índice" data-en="Raw → scaled score conversion and index sums">Raw → scaled score conversion and index sums</span> </div>
+                    </div>
+                </div>
+                <div class="laudo-header-pontuacao">
+                    <div class="laudo-header-pontuacao-label" data-pt="Faixa Normativa" data-en="Norm Group">Norm Group</div>
+                    <div class="laudo-header-pontuacao-valor" data-pt="30–34 anos" data-en="30–34 years">30–34 years</div>
+                    <div class="laudo-header-pontuacao-max" style="font-size:11px;" data-pt="Idade: 33a 1m" data-en="Age: 33y 1m">Age: 33y 1m</div>
+                </div>
+            <button class="cortex-copy-btn cortex-copy-header-btn" type="button" style="position: absolute; top: 8px; right: 10px; z-index: 20;" data-pt="📷" data-en="📷">📷</button></div>
+
+            <div class="laudo-body">
+
+                <!-- ─── 1. IDENTIFICAÇÃO ─── -->
+                <div class="laudo-secao-titulo">
+                    <span class="laudo-secao-tag" data-pt="1" data-en="1">1</span> <span data-pt="Índices e QI Total" data-en="Indexes and Full Scale IQ">Indexes and Full Scale IQ</span> <span class="laudo-secao-hint" data-pt="Gráfico com intervalos de confiança (95%) e tabela completa." data-en="Chart with 95% confidence intervals and full table.">Chart with 95% confidence intervals and full table.</span>
+                </div><div class="wais-ic-chart cortex-copyable">
+            <div class="wais-ic-scale">
+                <span data-pt="40" data-en="40">40</span><span data-pt="60" data-en="60">60</span><span data-pt="80" data-en="80">80</span>
+                <span style="font-weight:800; color:#475569;" data-pt="100" data-en="100">100</span>
+                <span data-pt="120" data-en="120">120</span><span data-pt="140" data-en="140">140</span><span data-pt="160" data-en="160">160</span>
+            </div>
+            <div class="wais-ic-row">
+                <div class="wais-ic-label" style="color:#1a56db;" data-pt="QIV" data-en="QIV">QIV</div>
+                <div class="wais-ic-track">
+                    <div class="wais-ic-gridline" style="left:15.384615384615385%; width:1px; background:rgba(203,213,225,.3);"></div><div class="wais-ic-gridline" style="left:30.76923076923077%; width:1px; background:rgba(203,213,225,.3);"></div><div class="wais-ic-gridline" style="left:46.15384615384615%; width:2px; background:rgba(100,116,139,.3);"></div><div class="wais-ic-gridline" style="left:61.53846153846154%; width:1px; background:rgba(203,213,225,.3);"></div><div class="wais-ic-gridline" style="left:76.92307692307693%; width:1px; background:rgba(203,213,225,.3);"></div>
+                    <div class="wais-ic-bar" style="left:43.84615384615385%; width:9.23%; background:#1a56db30; border:1px solid #1a56db80;"></div>
+                    <div class="wais-ic-whisker" style="left:43.84615384615385%; background:#1a56db80;"></div>
+                    <div class="wais-ic-whisker" style="left:53.07692307692308%; background:#1a56db80;"></div>
+                    <div class="wais-ic-dot" style="left:48.46153846153846%; background:#1a56db; box-shadow:0 2px 6px #1a56db50;" data-pt="103" data-en="103">103</div>
+                </div>
+                <div class="wais-ic-badge"><span class="cl-badge cl-m" data-pt="Médio" data-en="Average">Average</span></div>
+            </div><div class="wais-ic-row">
+                <div class="wais-ic-label" style="color:#1a56db;" data-pt="QIE" data-en="QIE">QIE</div>
+                <div class="wais-ic-track">
+                    <div class="wais-ic-gridline" style="left:15.384615384615385%; width:1px; background:rgba(203,213,225,.3);"></div><div class="wais-ic-gridline" style="left:30.76923076923077%; width:1px; background:rgba(203,213,225,.3);"></div><div class="wais-ic-gridline" style="left:46.15384615384615%; width:2px; background:rgba(100,116,139,.3);"></div><div class="wais-ic-gridline" style="left:61.53846153846154%; width:1px; background:rgba(203,213,225,.3);"></div><div class="wais-ic-gridline" style="left:76.92307692307693%; width:1px; background:rgba(203,213,225,.3);"></div>
+                    <div class="wais-ic-bar" style="left:34.61538461538461%; width:10.77%; background:#1a56db30; border:1px solid #1a56db80;"></div>
+                    <div class="wais-ic-whisker" style="left:34.61538461538461%; background:#1a56db80;"></div>
+                    <div class="wais-ic-whisker" style="left:45.38461538461539%; background:#1a56db80;"></div>
+                    <div class="wais-ic-dot" style="left:40%; background:#1a56db; box-shadow:0 2px 6px #1a56db50;" data-pt="92" data-en="92">92</div>
+                </div>
+                <div class="wais-ic-badge"><span class="cl-badge cl-m" data-pt="Médio" data-en="Average">Average</span></div>
+            </div><div class="wais-ic-row">
+                <div class="wais-ic-label" style="color:#1a56db;" data-pt="QIT" data-en="QIT">QIT</div>
+                <div class="wais-ic-track">
+                    <div class="wais-ic-gridline" style="left:15.384615384615385%; width:1px; background:rgba(203,213,225,.3);"></div><div class="wais-ic-gridline" style="left:30.76923076923077%; width:1px; background:rgba(203,213,225,.3);"></div><div class="wais-ic-gridline" style="left:46.15384615384615%; width:2px; background:rgba(100,116,139,.3);"></div><div class="wais-ic-gridline" style="left:61.53846153846154%; width:1px; background:rgba(203,213,225,.3);"></div><div class="wais-ic-gridline" style="left:76.92307692307693%; width:1px; background:rgba(203,213,225,.3);"></div>
+                    <div class="wais-ic-bar" style="left:40.76923076923077%; width:7.69%; background:#1a56db30; border:1px solid #1a56db80;"></div>
+                    <div class="wais-ic-whisker" style="left:40.76923076923077%; background:#1a56db80;"></div>
+                    <div class="wais-ic-whisker" style="left:48.46153846153846%; background:#1a56db80;"></div>
+                    <div class="wais-ic-dot" style="left:44.61538461538462%; background:#1a56db; box-shadow:0 2px 6px #1a56db50;" data-pt="98" data-en="98">98</div>
+                </div>
+                <div class="wais-ic-badge"><span class="cl-badge cl-m" data-pt="Médio" data-en="Average">Average</span></div>
+            </div><div class="wais-ic-row">
+                <div class="wais-ic-label" style="color:#059669;" data-pt="ICV" data-en="ICV">ICV</div>
+                <div class="wais-ic-track">
+                    <div class="wais-ic-gridline" style="left:15.384615384615385%; width:1px; background:rgba(203,213,225,.3);"></div><div class="wais-ic-gridline" style="left:30.76923076923077%; width:1px; background:rgba(203,213,225,.3);"></div><div class="wais-ic-gridline" style="left:46.15384615384615%; width:2px; background:rgba(100,116,139,.3);"></div><div class="wais-ic-gridline" style="left:61.53846153846154%; width:1px; background:rgba(203,213,225,.3);"></div><div class="wais-ic-gridline" style="left:76.92307692307693%; width:1px; background:rgba(203,213,225,.3);"></div>
+                    <div class="wais-ic-bar" style="left:49.23076923076923%; width:10.00%; background:#05966930; border:1px solid #05966980;"></div>
+                    <div class="wais-ic-whisker" style="left:49.23076923076923%; background:#05966980;"></div>
+                    <div class="wais-ic-whisker" style="left:59.23076923076923%; background:#05966980;"></div>
+                    <div class="wais-ic-dot" style="left:54.61538461538461%; background:#059669; box-shadow:0 2px 6px #05966950;" data-pt="111" data-en="111">111</div>
+                </div>
+                <div class="wais-ic-badge"><span class="cl-badge cl-ms" data-pt="Médio Superior" data-en="High Average">High Average</span></div>
+            </div><div class="wais-ic-row">
+                <div class="wais-ic-label" style="color:#1a56db;" data-pt="IOP" data-en="IOP">IOP</div>
+                <div class="wais-ic-track">
+                    <div class="wais-ic-gridline" style="left:15.384615384615385%; width:1px; background:rgba(203,213,225,.3);"></div><div class="wais-ic-gridline" style="left:30.76923076923077%; width:1px; background:rgba(203,213,225,.3);"></div><div class="wais-ic-gridline" style="left:46.15384615384615%; width:2px; background:rgba(100,116,139,.3);"></div><div class="wais-ic-gridline" style="left:61.53846153846154%; width:1px; background:rgba(203,213,225,.3);"></div><div class="wais-ic-gridline" style="left:76.92307692307693%; width:1px; background:rgba(203,213,225,.3);"></div>
+                    <div class="wais-ic-bar" style="left:35.38461538461539%; width:11.54%; background:#1a56db30; border:1px solid #1a56db80;"></div>
+                    <div class="wais-ic-whisker" style="left:35.38461538461539%; background:#1a56db80;"></div>
+                    <div class="wais-ic-whisker" style="left:46.92307692307692%; background:#1a56db80;"></div>
+                    <div class="wais-ic-dot" style="left:40.76923076923077%; background:#1a56db; box-shadow:0 2px 6px #1a56db50;" data-pt="93" data-en="93">93</div>
+                </div>
+                <div class="wais-ic-badge"><span class="cl-badge cl-m" data-pt="Médio" data-en="Average">Average</span></div>
+            </div><div class="wais-ic-row">
+                <div class="wais-ic-label" style="color:#f59e0b;" data-pt="IMO" data-en="IMO">IMO</div>
+                <div class="wais-ic-track">
+                    <div class="wais-ic-gridline" style="left:15.384615384615385%; width:1px; background:rgba(203,213,225,.3);"></div><div class="wais-ic-gridline" style="left:30.76923076923077%; width:1px; background:rgba(203,213,225,.3);"></div><div class="wais-ic-gridline" style="left:46.15384615384615%; width:2px; background:rgba(100,116,139,.3);"></div><div class="wais-ic-gridline" style="left:61.53846153846154%; width:1px; background:rgba(203,213,225,.3);"></div><div class="wais-ic-gridline" style="left:76.92307692307693%; width:1px; background:rgba(203,213,225,.3);"></div>
+                    <div class="wais-ic-bar" style="left:31.538461538461537%; width:11.54%; background:#f59e0b30; border:1px solid #f59e0b80;"></div>
+                    <div class="wais-ic-whisker" style="left:31.538461538461537%; background:#f59e0b80;"></div>
+                    <div class="wais-ic-whisker" style="left:43.07692307692308%; background:#f59e0b80;"></div>
+                    <div class="wais-ic-dot" style="left:36.92307692307693%; background:#f59e0b; box-shadow:0 2px 6px #f59e0b50;" data-pt="88" data-en="88">88</div>
+                </div>
+                <div class="wais-ic-badge"><span class="cl-badge cl-mi" data-pt="Médio Inferior" data-en="Low Average">Low Average</span></div>
+            </div><div class="wais-ic-row">
+                <div class="wais-ic-label" style="color:#f59e0b;" data-pt="IVP" data-en="IVP">IVP</div>
+                <div class="wais-ic-track">
+                    <div class="wais-ic-gridline" style="left:15.384615384615385%; width:1px; background:rgba(203,213,225,.3);"></div><div class="wais-ic-gridline" style="left:30.76923076923077%; width:1px; background:rgba(203,213,225,.3);"></div><div class="wais-ic-gridline" style="left:46.15384615384615%; width:2px; background:rgba(100,116,139,.3);"></div><div class="wais-ic-gridline" style="left:61.53846153846154%; width:1px; background:rgba(203,213,225,.3);"></div><div class="wais-ic-gridline" style="left:76.92307692307693%; width:1px; background:rgba(203,213,225,.3);"></div>
+                    <div class="wais-ic-bar" style="left:26.923076923076923%; width:13.08%; background:#f59e0b30; border:1px solid #f59e0b80;"></div>
+                    <div class="wais-ic-whisker" style="left:26.923076923076923%; background:#f59e0b80;"></div>
+                    <div class="wais-ic-whisker" style="left:40%; background:#f59e0b80;"></div>
+                    <div class="wais-ic-dot" style="left:32.30769230769231%; background:#f59e0b; box-shadow:0 2px 6px #f59e0b50;" data-pt="82" data-en="82">82</div>
+                </div>
+                <div class="wais-ic-badge"><span class="cl-badge cl-mi" data-pt="Médio Inferior" data-en="Low Average">Low Average</span></div>
+            </div>
+            <div class="wais-ic-legenda" data-pt="Linha escura = média normativa (100) · Faixa colorida = IC 95% · Círculo = composto obtido" data-en="Dark line = normative mean (100) · Colored band = 95% CI · Circle = obtained composite">Dark line = normative mean (100) · Colored band = 95% CI · Circle = obtained composite</div>
+        <button class="cortex-copy-btn" type="button" data-pt="📋" data-en="📋">📋</button></div><div class="wais-tab-qis cortex-copyable"><table>
+            <thead><tr>
+                <th data-pt="ESCALA" data-en="SCALE">SCALE</th>
+                <th class="ctr" data-pt="SOMA POND." data-en="SCALED SUM">SCALED SUM</th>
+                <th class="ctr" data-pt="QI / ÍNDICE" data-en="IQ / INDEX">IQ / INDEX</th>
+                <th class="ctr" data-pt="RANK PERCENTIL" data-en="PERCENTILE RANK">PERCENTILE RANK</th>
+                <th class="ctr" data-pt="IC 90%" data-en="90% CI">90% CI</th>
+                <th class="ctr" data-pt="IC 95%" data-en="95% CI">95% CI</th>
+                <th data-pt="CLASSIFICAÇÃO" data-en="CLASSIFICATION">CLASSIFICATION</th>
+            </tr></thead>
+            <tbody><tr>
+                <td class="wais-ind-sigla" data-pt="QIV" data-en="QIV">QIV</td>
+                <td class="ctr" data-pt="61" data-en="61">61</td>
+                <td class="ctr" style="font-weight:800; font-size:14px; color:#1a56db;" data-pt="103" data-en="103">103</td>
+                <td class="ctr" data-pt="58" data-en="58">58</td>
+                <td class="ctr"><span class="wais-ic" data-pt="98–108" data-en="98–108">98–108</span></td>
+                <td class="ctr"><span class="wais-ic" data-pt="97–109" data-en="97–109">97–109</span></td>
+                <td><span class="cl-badge cl-m" data-pt="Médio" data-en="Average">Average</span></td>
+            </tr><tr>
+                <td class="wais-ind-sigla" data-pt="QIE" data-en="QIE">QIE</td>
+                <td class="ctr" data-pt="42" data-en="42">42</td>
+                <td class="ctr" style="font-weight:800; font-size:14px; color:#1a56db;" data-pt="92" data-en="92">92</td>
+                <td class="ctr" data-pt="30" data-en="30">30</td>
+                <td class="ctr"><span class="wais-ic" data-pt="86–98" data-en="86–98">86–98</span></td>
+                <td class="ctr"><span class="wais-ic" data-pt="85–99" data-en="85–99">85–99</span></td>
+                <td><span class="cl-badge cl-m" data-pt="Médio" data-en="Average">Average</span></td>
+            </tr><tr>
+                <td class="wais-ind-sigla" data-pt="QIT" data-en="QIT">QIT</td>
+                <td class="ctr" data-pt="103" data-en="103">103</td>
+                <td class="ctr" style="font-weight:800; font-size:14px; color:#1a56db;" data-pt="98" data-en="98">98</td>
+                <td class="ctr" data-pt="45" data-en="45">45</td>
+                <td class="ctr"><span class="wais-ic" data-pt="94–102" data-en="94–102">94–102</span></td>
+                <td class="ctr"><span class="wais-ic" data-pt="93–103" data-en="93–103">93–103</span></td>
+                <td><span class="cl-badge cl-m" data-pt="Médio" data-en="Average">Average</span></td>
+            </tr><tr>
+                <td class="wais-ind-sigla" data-pt="ICV" data-en="ICV">ICV</td>
+                <td class="ctr" data-pt="36" data-en="36">36</td>
+                <td class="ctr" style="font-weight:800; font-size:14px; color:#059669;" data-pt="111" data-en="111">111</td>
+                <td class="ctr" data-pt="77" data-en="77">77</td>
+                <td class="ctr"><span class="wais-ic" data-pt="105–116" data-en="105–116">105–116</span></td>
+                <td class="ctr"><span class="wais-ic" data-pt="104–117" data-en="104–117">104–117</span></td>
+                <td><span class="cl-badge cl-ms" data-pt="Médio Superior" data-en="High Average">High Average</span></td>
+            </tr><tr>
+                <td class="wais-ind-sigla" data-pt="IOP" data-en="IOP">IOP</td>
+                <td class="ctr" data-pt="27" data-en="27">27</td>
+                <td class="ctr" style="font-weight:800; font-size:14px; color:#1a56db;" data-pt="93" data-en="93">93</td>
+                <td class="ctr" data-pt="32" data-en="32">32</td>
+                <td class="ctr"><span class="wais-ic" data-pt="87–100" data-en="87–100">87–100</span></td>
+                <td class="ctr"><span class="wais-ic" data-pt="86–101" data-en="86–101">86–101</span></td>
+                <td><span class="cl-badge cl-m" data-pt="Médio" data-en="Average">Average</span></td>
+            </tr><tr>
+                <td class="wais-ind-sigla" data-pt="IMO" data-en="IMO">IMO</td>
+                <td class="ctr" data-pt="23" data-en="23">23</td>
+                <td class="ctr" style="font-weight:800; font-size:14px; color:#f59e0b;" data-pt="88" data-en="88">88</td>
+                <td class="ctr" data-pt="21" data-en="21">21</td>
+                <td class="ctr"><span class="wais-ic" data-pt="82–95" data-en="82–95">82–95</span></td>
+                <td class="ctr"><span class="wais-ic" data-pt="81–96" data-en="81–96">81–96</span></td>
+                <td><span class="cl-badge cl-mi" data-pt="Médio Inferior" data-en="Low Average">Low Average</span></td>
+            </tr><tr>
+                <td class="wais-ind-sigla" data-pt="IVP" data-en="IVP">IVP</td>
+                <td class="ctr" data-pt="13" data-en="13">13</td>
+                <td class="ctr" style="font-weight:800; font-size:14px; color:#f59e0b;" data-pt="82" data-en="82">82</td>
+                <td class="ctr" data-pt="12" data-en="12">12</td>
+                <td class="ctr"><span class="wais-ic" data-pt="76–91" data-en="76–91">76–91</span></td>
+                <td class="ctr"><span class="wais-ic" data-pt="75–92" data-en="75–92">75–92</span></td>
+                <td><span class="cl-badge cl-mi" data-pt="Médio Inferior" data-en="Low Average">Low Average</span></td>
+            </tr></tbody>
+        </table><button class="cortex-copy-btn" type="button" data-pt="📋" data-en="📋">📋</button></div><div class="laudo-secao-titulo">
+                    <span class="laudo-secao-tag" data-pt="2" data-en="2">2</span> <span data-pt="Identificação" data-en="Identification">Identification</span> </div>
+                <div class="laudo-identificacao">
+                    <div class="laudo-identif-item">
+                        <span class="laudo-identif-label" data-pt="Nome:" data-en="Name:">Name:</span>
+                        <span class="laudo-identif-valor" data-pt="Fernanda Oliveira Cunha" data-en="Fernanda Oliveira Cunha">Fernanda Oliveira Cunha</span>
+                    </div>
+                    <div class="laudo-identif-item">
+                        <span class="laudo-identif-label" data-pt="CPF:" data-en="ID no.:">ID no.:</span>
+                        <span class="laudo-identif-valor" data-pt="—" data-en="—">—</span>
+                    </div>
+                    <div class="laudo-identif-item">
+                        <span class="laudo-identif-label" data-pt="Sexo:" data-en="Sex:">Sex:</span>
+                        <span class="laudo-identif-valor" data-pt="Feminino" data-en="Female">Female</span>
+                    </div>
+                    <div class="laudo-identif-item">
+                        <span class="laudo-identif-label" data-pt="Escolaridade:" data-en="Education:">Education:</span>
+                        <span class="laudo-identif-valor" data-pt="Ensino superior completo" data-en="Bachelor's degree">Bachelor's degree</span>
+                    </div>
+                    <div class="laudo-identif-item">
+                        <span class="laudo-identif-label" data-pt="Nascimento:" data-en="Date of birth:">Date of birth:</span>
+                        <span class="laudo-identif-valor" data-pt="14/09/1993 (33a 1m)" data-en="09/14/1993 (33y 1m)">09/14/1993 (33y 1m)</span>
+                    </div>
+                    <div class="laudo-identif-item">
+                        <span class="laudo-identif-label" data-pt="Aplicação:" data-en="Administered:">Administered:</span>
+                        <span class="laudo-identif-valor" data-pt="19/10/2026" data-en="19/10/2026">19/10/2026</span>
+                    </div>
+                    <div class="laudo-identif-item">
+                        <span class="laudo-identif-label" data-pt="Profissional:" data-en="Clinician:">Clinician:</span>
+                        <span class="laudo-identif-valor" data-pt="Lívia Andrade Costa — CRP 00/00000" data-en="Lívia Andrade Costa — CRP 00/00000">Lívia Andrade Costa — CRP 00/00000</span>
+                    </div>
+                    <div class="laudo-identif-item">
+                        <span class="laudo-identif-label" data-pt="Especialidade:" data-en="Specialty:">Specialty:</span>
+                        <span class="laudo-identif-valor" data-pt="Neuropsicologia" data-en="Neuropsychology">Neuropsychology</span>
+                    </div>
+                </div>
+
+                <!-- ─── 2. MOTIVO ─── -->
+                
+                    <div class="laudo-secao-titulo">
+                        <span class="laudo-secao-tag" data-pt="3" data-en="3">3</span> <span data-pt="Motivo do Encaminhamento" data-en="Reason for Referral">Reason for Referral</span> </div>
+                    <div class="wais-texto-bloco" data-pt="Queixas de lentidão para concluir tarefas no trabalho e esquecimentos frequentes. Encaminhada pelo médico assistente para investigação do funcionamento cognitivo." data-en="Complaints of slowness completing tasks at work and frequent forgetfulness. Referred by her physician to investigate cognitive functioning.">Complaints of slowness completing tasks at work and frequent forgetfulness. Referred by her physician to investigate cognitive functioning.</div>
+                
+
+                <!-- ─── 3. MATRIZ DE CONVERSÃO ─── -->
+                <div class="laudo-secao-titulo">
+                    <span class="laudo-secao-tag" data-pt="4" data-en="4">4</span> <span data-pt="Conversão PB → Ponderado e Contribuição nos Índices" data-en="Raw → Scaled Conversion and Index Contributions">Raw → Scaled Conversion and Index Contributions</span> <span class="laudo-secao-hint" data-pt="Células azuis = subtestes usados. Parênteses = suplementares." data-en="Blue cells = subtests used. Parentheses = supplemental.">Blue cells = subtests used. Parentheses = supplemental.</span>
+                </div>
+                <div class="wais-matriz cortex-copyable"><table>
+            <thead>
+                <tr>
+                    <th class="col-sub" rowspan="2" data-pt="SUBTESTES" data-en="SUBTESTS">SUBTESTS</th>
+                    <th class="col-pb" rowspan="2" data-pt="PB" data-en="PB">PB</th>
+                    <th class="col-pp" rowspan="2" data-pt="POND." data-en="SCALED">SCALED</th>
+                    <th colspan="6" data-pt="CONTRIBUIÇÃO (PONTOS PONDERADOS)" data-en="CONTRIBUTION (SCALED SCORES)">CONTRIBUTION (SCALED SCORES)</th>
+                </tr>
+                <tr>
+                    <th data-pt="VERBAL" data-en="VERBAL">VERBAL</th><th data-pt="EXEC." data-en="PERF.">PERF.</th>
+                    <th data-pt="ICV" data-en="ICV">ICV</th><th data-pt="IOP" data-en="IOP">IOP</th><th data-pt="IMO" data-en="IMO">IMO</th><th data-pt="IVP" data-en="IVP">IVP</th>
+                </tr>
+            </thead>
+            <tbody><tr>
+                <td class="col-sub"><span data-pt="Completar Figuras" data-en="Picture Completion">Picture Completion</span> <span class="wais-escala-sigla" data-pt="(CF)" data-en="(CF)">(CF)</span></td>
+                <td class="col-pb" data-pt="19" data-en="19">19</td>
+                <td class="col-pp" data-pt="9" data-en="9">9</td>
+                <td></td>
+                <td><span class="wais-pill" data-pt="9" data-en="9">9</span></td>
+                <td></td>
+                <td><span class="wais-pill" data-pt="9" data-en="9">9</span></td>
+                <td></td>
+                <td></td>
+            </tr><tr>
+                <td class="col-sub"><span data-pt="Vocabulário" data-en="Vocabulary">Vocabulary</span> <span class="wais-escala-sigla" data-pt="(VC)" data-en="(VC)">(VC)</span></td>
+                <td class="col-pb" data-pt="44" data-en="44">44</td>
+                <td class="col-pp" data-pt="12" data-en="12">12</td>
+                <td><span class="wais-pill" data-pt="12" data-en="12">12</span></td>
+                <td></td>
+                <td><span class="wais-pill" data-pt="12" data-en="12">12</span></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr><tr>
+                <td class="col-sub"><span data-pt="Códigos" data-en="Digit Symbol-Coding">Digit Symbol-Coding</span> <span class="wais-escala-sigla" data-pt="(CD)" data-en="(CD)">(CD)</span></td>
+                <td class="col-pb" data-pt="58" data-en="58">58</td>
+                <td class="col-pp" data-pt="6" data-en="6">6</td>
+                <td></td>
+                <td><span class="wais-pill" data-pt="6" data-en="6">6</span></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><span class="wais-pill" data-pt="6" data-en="6">6</span></td>
+            </tr><tr>
+                <td class="col-sub"><span data-pt="Semelhanças" data-en="Similarities">Similarities</span> <span class="wais-escala-sigla" data-pt="(SM)" data-en="(SM)">(SM)</span></td>
+                <td class="col-pb" data-pt="23" data-en="23">23</td>
+                <td class="col-pp" data-pt="11" data-en="11">11</td>
+                <td><span class="wais-pill" data-pt="11" data-en="11">11</span></td>
+                <td></td>
+                <td><span class="wais-pill" data-pt="11" data-en="11">11</span></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr><tr>
+                <td class="col-sub"><span data-pt="Cubos" data-en="Block Design">Block Design</span> <span class="wais-escala-sigla" data-pt="(CB)" data-en="(CB)">(CB)</span></td>
+                <td class="col-pb" data-pt="34" data-en="34">34</td>
+                <td class="col-pp" data-pt="8" data-en="8">8</td>
+                <td></td>
+                <td><span class="wais-pill" data-pt="8" data-en="8">8</span></td>
+                <td></td>
+                <td><span class="wais-pill" data-pt="8" data-en="8">8</span></td>
+                <td></td>
+                <td></td>
+            </tr><tr>
+                <td class="col-sub"><span data-pt="Aritmética" data-en="Arithmetic">Arithmetic</span> <span class="wais-escala-sigla" data-pt="(AR)" data-en="(AR)">(AR)</span></td>
+                <td class="col-pb" data-pt="13" data-en="13">13</td>
+                <td class="col-pp" data-pt="8" data-en="8">8</td>
+                <td><span class="wais-pill" data-pt="8" data-en="8">8</span></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><span class="wais-pill" data-pt="8" data-en="8">8</span></td>
+                <td></td>
+            </tr><tr>
+                <td class="col-sub"><span data-pt="Raciocínio Matricial" data-en="Matrix Reasoning">Matrix Reasoning</span> <span class="wais-escala-sigla" data-pt="(RM)" data-en="(RM)">(RM)</span></td>
+                <td class="col-pb" data-pt="17" data-en="17">17</td>
+                <td class="col-pp" data-pt="10" data-en="10">10</td>
+                <td></td>
+                <td><span class="wais-pill" data-pt="10" data-en="10">10</span></td>
+                <td></td>
+                <td><span class="wais-pill" data-pt="10" data-en="10">10</span></td>
+                <td></td>
+                <td></td>
+            </tr><tr>
+                <td class="col-sub"><span data-pt="Dígitos" data-en="Digit Span">Digit Span</span> <span class="wais-escala-sigla" data-pt="(DG)" data-en="(DG)">(DG)</span></td>
+                <td class="col-pb" data-pt="14" data-en="14">14</td>
+                <td class="col-pp" data-pt="7" data-en="7">7</td>
+                <td><span class="wais-pill" data-pt="7" data-en="7">7</span></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><span class="wais-pill" data-pt="7" data-en="7">7</span></td>
+                <td></td>
+            </tr><tr>
+                <td class="col-sub"><span data-pt="Informação" data-en="Information">Information</span> <span class="wais-escala-sigla" data-pt="(IN)" data-en="(IN)">(IN)</span></td>
+                <td class="col-pb" data-pt="19" data-en="19">19</td>
+                <td class="col-pp" data-pt="13" data-en="13">13</td>
+                <td><span class="wais-pill" data-pt="13" data-en="13">13</span></td>
+                <td></td>
+                <td><span class="wais-pill" data-pt="13" data-en="13">13</span></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr><tr>
+                <td class="col-sub"><span data-pt="Arranjo de Figuras" data-en="Picture Arrangement">Picture Arrangement</span> <span class="wais-escala-sigla" data-pt="(AF)" data-en="(AF)">(AF)</span></td>
+                <td class="col-pb" data-pt="12" data-en="12">12</td>
+                <td class="col-pp" data-pt="9" data-en="9">9</td>
+                <td></td>
+                <td><span class="wais-pill" data-pt="9" data-en="9">9</span></td>
+                <td></td>
+                <td><span class="wais-pill sup" data-pt="(9)" data-en="(9)">(9)</span></td>
+                <td></td>
+                <td></td>
+            </tr><tr>
+                <td class="col-sub"><span data-pt="Compreensão" data-en="Comprehension">Comprehension</span> <span class="wais-escala-sigla" data-pt="(CO)" data-en="(CO)">(CO)</span></td>
+                <td class="col-pb" data-pt="21" data-en="21">21</td>
+                <td class="col-pp" data-pt="10" data-en="10">10</td>
+                <td><span class="wais-pill" data-pt="10" data-en="10">10</span></td>
+                <td></td>
+                <td><span class="wais-pill sup" data-pt="(10)" data-en="(10)">(10)</span></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr><tr>
+                <td class="col-sub"><span data-pt="Procurar Símbolos" data-en="Symbol Search">Symbol Search</span> <span class="wais-escala-sigla" data-pt="(PS)" data-en="(PS)">(PS)</span></td>
+                <td class="col-pb" data-pt="27" data-en="27">27</td>
+                <td class="col-pp" data-pt="7" data-en="7">7</td>
+                <td></td>
+                <td><span class="wais-pill sup" data-pt="(7)" data-en="(7)">(7)</span></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><span class="wais-pill" data-pt="7" data-en="7">7</span></td>
+            </tr><tr>
+                <td class="col-sub"><span data-pt="Sequência de Números e Letras" data-en="Letter-Number Sequencing">Letter-Number Sequencing</span> <span class="wais-escala-sigla" data-pt="(SNL)" data-en="(SNL)">(SNL)</span></td>
+                <td class="col-pb" data-pt="9" data-en="9">9</td>
+                <td class="col-pp" data-pt="8" data-en="8">8</td>
+                <td><span class="wais-pill sup" data-pt="(8)" data-en="(8)">(8)</span></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><span class="wais-pill" data-pt="8" data-en="8">8</span></td>
+                <td></td>
+            </tr><tr>
+                <td class="col-sub"><span data-pt="Armar Objetos" data-en="Object Assembly">Object Assembly</span> <span class="wais-escala-sigla" data-pt="(AO)" data-en="(AO)">(AO)</span></td>
+                <td class="col-pb" data-pt="33" data-en="33">33</td>
+                <td class="col-pp" data-pt="8" data-en="8">8</td>
+                <td></td>
+                <td><span class="wais-pill sup" data-pt="(8)" data-en="(8)">(8)</span></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr></tbody>
+            <tfoot>
+                <tr>
+                    <td class="sum-label" colspan="3" data-pt="SOMA DOS PONTOS PONDERADOS" data-en="SUM OF SCALED SCORES">SUM OF SCALED SCORES</td>
+                    <td data-pt="61" data-en="61">61</td>
+                    <td data-pt="42" data-en="42">42</td>
+                    <td data-pt="36" data-en="36">36</td>
+                    <td data-pt="27" data-en="27">27</td>
+                    <td data-pt="23" data-en="23">23</td>
+                    <td data-pt="13" data-en="13">13</td>
+                </tr>
+            </tfoot>
+        </table><button class="cortex-copy-btn" type="button" data-pt="📋" data-en="📋">📋</button></div>
+
+                <!-- ─── 4. PERFIL DE SUBTESTES (4 grupos) ─── -->
+                <div class="laudo-secao-titulo">
+                    <span class="laudo-secao-tag" data-pt="5" data-en="5">5</span> <span data-pt="Perfil dos Pontos Ponderados dos Subtestes" data-en="Subtest Scaled Score Profile">Subtest Scaled Score Profile</span> <span class="laudo-secao-hint" data-pt="Barras por domínio cognitivo. Faixa azul = média (9–11)." data-en="Bars by cognitive domain. Blue band = average (9–11).">Bars by cognitive domain. Blue band = average (9–11).</span>
+                </div>
+                <div class="wais-perfil-bloco cortex-copyable"><div class="wais-bar-group">
+                <div class="wais-bar-group-titulo" data-pt="COMPREENSÃO VERBAL" data-en="VERBAL COMPREHENSION">VERBAL COMPREHENSION</div>
+                <div class="wais-bar-row">
+                    <div class="wais-bar-code" data-pt="SM" data-en="SM">SM</div>
+                    <div class="wais-bar-track">
+                        <div class="wais-bar-avg-zone" style="left:47.4%; width:10.5%;"></div>
+                        <div class="wais-bar-fill" style="width:57.9%; background:#3b82f6;"></div>
+                    </div>
+                    <div class="wais-bar-val" data-pt="11" data-en="11">11</div>
+                    <div class="wais-bar-badge"><span class="cl-badge cl-m" data-pt="Médio" data-en="Average">Average</span></div>
+                </div><div class="wais-bar-row">
+                    <div class="wais-bar-code" data-pt="VC" data-en="VC">VC</div>
+                    <div class="wais-bar-track">
+                        <div class="wais-bar-avg-zone" style="left:47.4%; width:10.5%;"></div>
+                        <div class="wais-bar-fill" style="width:63.2%; background:#1a56db;"></div>
+                    </div>
+                    <div class="wais-bar-val" data-pt="12" data-en="12">12</div>
+                    <div class="wais-bar-badge"><span class="cl-badge cl-ms" data-pt="Médio Superior" data-en="High Average">High Average</span></div>
+                </div><div class="wais-bar-row">
+                    <div class="wais-bar-code" data-pt="IN" data-en="IN">IN</div>
+                    <div class="wais-bar-track">
+                        <div class="wais-bar-avg-zone" style="left:47.4%; width:10.5%;"></div>
+                        <div class="wais-bar-fill" style="width:68.4%; background:#1a56db;"></div>
+                    </div>
+                    <div class="wais-bar-val" data-pt="13" data-en="13">13</div>
+                    <div class="wais-bar-badge"><span class="cl-badge cl-ms" data-pt="Médio Superior" data-en="High Average">High Average</span></div>
+                </div><div class="wais-bar-row">
+                    <div class="wais-bar-code" data-pt="CO" data-en="CO">CO</div>
+                    <div class="wais-bar-track">
+                        <div class="wais-bar-avg-zone" style="left:47.4%; width:10.5%;"></div>
+                        <div class="wais-bar-fill" style="width:52.6%; background:#3b82f6;"></div>
+                    </div>
+                    <div class="wais-bar-val" data-pt="10" data-en="10">10</div>
+                    <div class="wais-bar-badge"><span class="cl-badge cl-m" data-pt="Médio" data-en="Average">Average</span></div>
+                </div>
+            </div><div class="wais-bar-group">
+                <div class="wais-bar-group-titulo" data-pt="ORGANIZAÇÃO PERCEPTUAL" data-en="PERCEPTUAL ORGANIZATION">PERCEPTUAL ORGANIZATION</div>
+                <div class="wais-bar-row">
+                    <div class="wais-bar-code" data-pt="CB" data-en="CB">CB</div>
+                    <div class="wais-bar-track">
+                        <div class="wais-bar-avg-zone" style="left:47.4%; width:10.5%;"></div>
+                        <div class="wais-bar-fill" style="width:42.1%; background:#f59e0b;"></div>
+                    </div>
+                    <div class="wais-bar-val" data-pt="8" data-en="8">8</div>
+                    <div class="wais-bar-badge"><span class="cl-badge cl-mi" data-pt="Médio Inferior" data-en="Low Average">Low Average</span></div>
+                </div><div class="wais-bar-row">
+                    <div class="wais-bar-code" data-pt="CF" data-en="CF">CF</div>
+                    <div class="wais-bar-track">
+                        <div class="wais-bar-avg-zone" style="left:47.4%; width:10.5%;"></div>
+                        <div class="wais-bar-fill" style="width:47.4%; background:#3b82f6;"></div>
+                    </div>
+                    <div class="wais-bar-val" data-pt="9" data-en="9">9</div>
+                    <div class="wais-bar-badge"><span class="cl-badge cl-m" data-pt="Médio" data-en="Average">Average</span></div>
+                </div><div class="wais-bar-row">
+                    <div class="wais-bar-code" data-pt="RM" data-en="RM">RM</div>
+                    <div class="wais-bar-track">
+                        <div class="wais-bar-avg-zone" style="left:47.4%; width:10.5%;"></div>
+                        <div class="wais-bar-fill" style="width:52.6%; background:#3b82f6;"></div>
+                    </div>
+                    <div class="wais-bar-val" data-pt="10" data-en="10">10</div>
+                    <div class="wais-bar-badge"><span class="cl-badge cl-m" data-pt="Médio" data-en="Average">Average</span></div>
+                </div><div class="wais-bar-row">
+                    <div class="wais-bar-code" data-pt="AF" data-en="AF">AF</div>
+                    <div class="wais-bar-track">
+                        <div class="wais-bar-avg-zone" style="left:47.4%; width:10.5%;"></div>
+                        <div class="wais-bar-fill" style="width:47.4%; background:#3b82f6;"></div>
+                    </div>
+                    <div class="wais-bar-val" data-pt="9" data-en="9">9</div>
+                    <div class="wais-bar-badge"><span class="cl-badge cl-m" data-pt="Médio" data-en="Average">Average</span></div>
+                </div>
+            </div><div class="wais-bar-group">
+                <div class="wais-bar-group-titulo" data-pt="MEMÓRIA OPERACIONAL" data-en="WORKING MEMORY">WORKING MEMORY</div>
+                <div class="wais-bar-row">
+                    <div class="wais-bar-code" data-pt="AR" data-en="AR">AR</div>
+                    <div class="wais-bar-track">
+                        <div class="wais-bar-avg-zone" style="left:47.4%; width:10.5%;"></div>
+                        <div class="wais-bar-fill" style="width:42.1%; background:#f59e0b;"></div>
+                    </div>
+                    <div class="wais-bar-val" data-pt="8" data-en="8">8</div>
+                    <div class="wais-bar-badge"><span class="cl-badge cl-mi" data-pt="Médio Inferior" data-en="Low Average">Low Average</span></div>
+                </div><div class="wais-bar-row">
+                    <div class="wais-bar-code" data-pt="DG" data-en="DG">DG</div>
+                    <div class="wais-bar-track">
+                        <div class="wais-bar-avg-zone" style="left:47.4%; width:10.5%;"></div>
+                        <div class="wais-bar-fill" style="width:36.8%; background:#f59e0b;"></div>
+                    </div>
+                    <div class="wais-bar-val" data-pt="7" data-en="7">7</div>
+                    <div class="wais-bar-badge"><span class="cl-badge cl-mi" data-pt="Médio Inferior" data-en="Low Average">Low Average</span></div>
+                </div><div class="wais-bar-row">
+                    <div class="wais-bar-code" data-pt="SNL" data-en="SNL">SNL</div>
+                    <div class="wais-bar-track">
+                        <div class="wais-bar-avg-zone" style="left:47.4%; width:10.5%;"></div>
+                        <div class="wais-bar-fill" style="width:42.1%; background:#f59e0b;"></div>
+                    </div>
+                    <div class="wais-bar-val" data-pt="8" data-en="8">8</div>
+                    <div class="wais-bar-badge"><span class="cl-badge cl-mi" data-pt="Médio Inferior" data-en="Low Average">Low Average</span></div>
+                </div>
+            </div><div class="wais-bar-group">
+                <div class="wais-bar-group-titulo" data-pt="VELOCIDADE DE PROCESSAMENTO" data-en="PROCESSING SPEED">PROCESSING SPEED</div>
+                <div class="wais-bar-row">
+                    <div class="wais-bar-code" data-pt="CD" data-en="CD">CD</div>
+                    <div class="wais-bar-track">
+                        <div class="wais-bar-avg-zone" style="left:47.4%; width:10.5%;"></div>
+                        <div class="wais-bar-fill" style="width:31.6%; background:#dc2626;"></div>
+                    </div>
+                    <div class="wais-bar-val" data-pt="6" data-en="6">6</div>
+                    <div class="wais-bar-badge"><span class="cl-badge cl-l" data-pt="Limítrofe" data-en="Borderline">Borderline</span></div>
+                </div><div class="wais-bar-row">
+                    <div class="wais-bar-code" data-pt="PS" data-en="PS">PS</div>
+                    <div class="wais-bar-track">
+                        <div class="wais-bar-avg-zone" style="left:47.4%; width:10.5%;"></div>
+                        <div class="wais-bar-fill" style="width:36.8%; background:#f59e0b;"></div>
+                    </div>
+                    <div class="wais-bar-val" data-pt="7" data-en="7">7</div>
+                    <div class="wais-bar-badge"><span class="cl-badge cl-mi" data-pt="Médio Inferior" data-en="Low Average">Low Average</span></div>
+                </div>
+            </div><button class="cortex-copy-btn" type="button" data-pt="📋" data-en="📋">📋</button></div>
+
+                <!-- ─── 5. ÍNDICES E QI TOTAL (gráfico IC95 + tabela) ─── -->
+                
+                
+                
+
+                
+            <div class="wais-icg-nota-uso" data-pt=" A amplitude entre os índices é de 29 pontos (limiar 23), então o QIT não é interpretável como escore global — ancore a leitura no ICG. " data-en=" The spread between indexes is 29 points (threshold 23), so the QIT is not interpretable as a global score — anchor the reading on the ICG. "> The spread between indexes is 29 points (threshold 23), so the QIT is not interpretable as a global score — anchor the reading on the ICG. </div>
+            <div class="wais-tab-icg cortex-copyable">
+                <table>
+                    <thead><tr>
+                        <th data-pt="Índice de Capacidade Geral" data-en="General Ability Index">General Ability Index</th>
+                        <th class="ctr" data-pt="SOMA EP" data-en="SCALED SUM">SCALED SUM</th>
+                        <th class="ctr" data-pt="ICG" data-en="ICG">ICG</th>
+                        <th class="ctr" data-pt="PERCENTIL" data-en="PERCENTILE">PERCENTILE</th>
+                        <th class="ctr" data-pt="IC 95%" data-en="95% CI">95% CI</th>
+                        <th data-pt="CLASSIFICAÇÃO" data-en="CLASSIFICATION">CLASSIFICATION</th>
+                    </tr></thead>
+                    <tbody><tr>
+                        <td class="wais-icg-sigla" data-pt="ICG" data-en="ICG">ICG</td>
+                        <td class="ctr" data-pt="63" data-en="63">63</td>
+                        <td class="ctr" style="color:#1a56db;font-weight:700;" data-pt="101" data-en="101">101</td>
+                        <td class="ctr" data-pt="P53" data-en="P53">P53</td>
+                        <td class="ctr" data-pt="96–106" data-en="96–106">96–106</td>
+                        <td class="wais-icg-cl cl-m" data-pt="Médio" data-en="Average">Average</td>
+                    </tr></tbody>
+                </table>
+            <button class="cortex-copy-btn" type="button" data-pt="📋" data-en="📋">📋</button></div>
+            <div class="wais-icg-comp">
+                <span><b data-pt="ICV" data-en="ICV">ICV</b> <span data-pt="36" data-en="36">36</span> <i data-pt="(VC + SM + IN)" data-en="(VC + SM + IN)">(VC + SM + IN)</i></span>
+                <span><b data-pt="IOP" data-en="IOP">IOP</b> <span data-pt="27" data-en="27">27</span> <i data-pt="(CB + RM + CF)" data-en="(CB + RM + CF)">(CB + RM + CF)</i></span>
+                <span><b data-pt="Soma EP" data-en="Scaled sum">Scaled sum</b> <span data-pt="63" data-en="63">63</span></span>
+            </div>
+            <div class="wais-icg-fonte" data-pt="ICG convertido pela tabela oficial (Raiford et al., 2005 para WISC-IV; Tulsky et al., 2001 para WAIS-III); ponderados pela norma brasileira. Não existe tabela ICG normatizada para a população brasileira." data-en="ICG converted with the official table (Raiford et al., 2005 for WISC-IV; Tulsky et al., 2001 for WAIS-III); scaled scores from Brazilian norms. No ICG table normed for the Brazilian population exists.">ICG converted with the official table (Raiford et al., 2005 for WISC-IV; Tulsky et al., 2001 for WAIS-III); scaled scores from Brazilian norms. No ICG table normed for the Brazilian population exists.</div>
+            
+
+                
+            <div class="wais-indices-nota" data-pt=" Uma tabela por índice, no formato que vai para o laudo escrito. Passe o mouse sobre a tabela e use o botão para copiar como imagem. " data-en=" One table per index, in the format used in the written report. Hover over a table and use the button to copy it as an image. "> One table per index, in the format used in the written report. Hover over a table and use the button to copy it as an image. </div>
+            <div class="wais-indices-lista">
+            <div class="wais-indice-bloco">
+                <div class="wais-tab-indice cortex-copyable">
+                    <table>
+                        <thead><tr>
+                            <th data-pt="QI Verbal" data-en="Verbal IQ">Verbal IQ</th>
+                            <th class="ctr" data-pt="Q.I" data-en="Q.I">Q.I</th>
+                            <th class="ctr" data-pt="PERCENTIL" data-en="PERCENTILE">PERCENTILE</th>
+                            <th data-pt="CLASSIFICAÇÃO" data-en="CLASSIFICATION">CLASSIFICATION</th>
+                        </tr></thead>
+                        <tbody><tr>
+                            <td class="wais-ind-sigla" data-pt="QIV" data-en="QIV">QIV</td>
+                            <td class="ctr" style="color:#1a56db;" data-pt="103" data-en="103">103</td>
+                            <td class="ctr" data-pt="P58" data-en="P58">P58</td>
+                            <td class="wais-ind-cl cl-m" data-pt="Médio" data-en="Average">Average</td>
+                        </tr></tbody>
+                    </table>
+                <button class="cortex-copy-btn" type="button" data-pt="📋" data-en="📋">📋</button></div>
+            </div>
+            <div class="wais-indice-bloco">
+                <div class="wais-tab-indice cortex-copyable">
+                    <table>
+                        <thead><tr>
+                            <th data-pt="QI de Execução" data-en="Performance IQ">Performance IQ</th>
+                            <th class="ctr" data-pt="Q.I" data-en="Q.I">Q.I</th>
+                            <th class="ctr" data-pt="PERCENTIL" data-en="PERCENTILE">PERCENTILE</th>
+                            <th data-pt="CLASSIFICAÇÃO" data-en="CLASSIFICATION">CLASSIFICATION</th>
+                        </tr></thead>
+                        <tbody><tr>
+                            <td class="wais-ind-sigla" data-pt="QIE" data-en="QIE">QIE</td>
+                            <td class="ctr" style="color:#1a56db;" data-pt="92" data-en="92">92</td>
+                            <td class="ctr" data-pt="P30" data-en="P30">P30</td>
+                            <td class="wais-ind-cl cl-m" data-pt="Médio" data-en="Average">Average</td>
+                        </tr></tbody>
+                    </table>
+                <button class="cortex-copy-btn" type="button" data-pt="📋" data-en="📋">📋</button></div>
+            </div>
+            <div class="wais-indice-bloco">
+                <div class="wais-tab-indice cortex-copyable">
+                    <table>
+                        <thead><tr>
+                            <th data-pt="QI Total" data-en="Full Scale IQ">Full Scale IQ</th>
+                            <th class="ctr" data-pt="Q.I" data-en="Q.I">Q.I</th>
+                            <th class="ctr" data-pt="PERCENTIL" data-en="PERCENTILE">PERCENTILE</th>
+                            <th data-pt="CLASSIFICAÇÃO" data-en="CLASSIFICATION">CLASSIFICATION</th>
+                        </tr></thead>
+                        <tbody><tr>
+                            <td class="wais-ind-sigla" data-pt="QIT" data-en="QIT">QIT</td>
+                            <td class="ctr" style="color:#1a56db;" data-pt="98" data-en="98">98</td>
+                            <td class="ctr" data-pt="P45" data-en="P45">P45</td>
+                            <td class="wais-ind-cl cl-m" data-pt="Médio" data-en="Average">Average</td>
+                        </tr></tbody>
+                    </table>
+                <button class="cortex-copy-btn" type="button" data-pt="📋" data-en="📋">📋</button></div>
+            </div>
+            <div class="wais-indice-bloco">
+                <div class="wais-tab-indice cortex-copyable">
+                    <table>
+                        <thead><tr>
+                            <th data-pt="Índice de Compreensão Verbal" data-en="Verbal Comprehension Index">Verbal Comprehension Index</th>
+                            <th class="ctr" data-pt="Q.I" data-en="Q.I">Q.I</th>
+                            <th class="ctr" data-pt="PERCENTIL" data-en="PERCENTILE">PERCENTILE</th>
+                            <th data-pt="CLASSIFICAÇÃO" data-en="CLASSIFICATION">CLASSIFICATION</th>
+                        </tr></thead>
+                        <tbody><tr>
+                            <td class="wais-ind-sigla" data-pt="ICV" data-en="ICV">ICV</td>
+                            <td class="ctr" style="color:#059669;" data-pt="111" data-en="111">111</td>
+                            <td class="ctr" data-pt="P77" data-en="P77">P77</td>
+                            <td class="wais-ind-cl cl-ms" data-pt="Médio Superior" data-en="High Average">High Average</td>
+                        </tr></tbody>
+                    </table>
+                <button class="cortex-copy-btn" type="button" data-pt="📋" data-en="📋">📋</button></div>
+            </div>
+            <div class="wais-indice-bloco">
+                <div class="wais-tab-indice cortex-copyable">
+                    <table>
+                        <thead><tr>
+                            <th data-pt="Índice de Organização Perceptual" data-en="Perceptual Organization Index">Perceptual Organization Index</th>
+                            <th class="ctr" data-pt="Q.I" data-en="Q.I">Q.I</th>
+                            <th class="ctr" data-pt="PERCENTIL" data-en="PERCENTILE">PERCENTILE</th>
+                            <th data-pt="CLASSIFICAÇÃO" data-en="CLASSIFICATION">CLASSIFICATION</th>
+                        </tr></thead>
+                        <tbody><tr>
+                            <td class="wais-ind-sigla" data-pt="IOP" data-en="IOP">IOP</td>
+                            <td class="ctr" style="color:#1a56db;" data-pt="93" data-en="93">93</td>
+                            <td class="ctr" data-pt="P32" data-en="P32">P32</td>
+                            <td class="wais-ind-cl cl-m" data-pt="Médio" data-en="Average">Average</td>
+                        </tr></tbody>
+                    </table>
+                <button class="cortex-copy-btn" type="button" data-pt="📋" data-en="📋">📋</button></div>
+            </div>
+            <div class="wais-indice-bloco">
+                <div class="wais-tab-indice cortex-copyable">
+                    <table>
+                        <thead><tr>
+                            <th data-pt="Índice de Memória Operacional" data-en="Working Memory Index">Working Memory Index</th>
+                            <th class="ctr" data-pt="Q.I" data-en="Q.I">Q.I</th>
+                            <th class="ctr" data-pt="PERCENTIL" data-en="PERCENTILE">PERCENTILE</th>
+                            <th data-pt="CLASSIFICAÇÃO" data-en="CLASSIFICATION">CLASSIFICATION</th>
+                        </tr></thead>
+                        <tbody><tr>
+                            <td class="wais-ind-sigla" data-pt="IMO" data-en="IMO">IMO</td>
+                            <td class="ctr" style="color:#f59e0b;" data-pt="88" data-en="88">88</td>
+                            <td class="ctr" data-pt="P21" data-en="P21">P21</td>
+                            <td class="wais-ind-cl cl-mi" data-pt="Médio Inferior" data-en="Low Average">Low Average</td>
+                        </tr></tbody>
+                    </table>
+                <button class="cortex-copy-btn" type="button" data-pt="📋" data-en="📋">📋</button></div>
+            </div>
+            <div class="wais-indice-bloco">
+                <div class="wais-tab-indice cortex-copyable">
+                    <table>
+                        <thead><tr>
+                            <th data-pt="Índice de Velocidade de Processamento" data-en="Processing Speed Index">Processing Speed Index</th>
+                            <th class="ctr" data-pt="Q.I" data-en="Q.I">Q.I</th>
+                            <th class="ctr" data-pt="PERCENTIL" data-en="PERCENTILE">PERCENTILE</th>
+                            <th data-pt="CLASSIFICAÇÃO" data-en="CLASSIFICATION">CLASSIFICATION</th>
+                        </tr></thead>
+                        <tbody><tr>
+                            <td class="wais-ind-sigla" data-pt="IVP" data-en="IVP">IVP</td>
+                            <td class="ctr" style="color:#f59e0b;" data-pt="82" data-en="82">82</td>
+                            <td class="ctr" data-pt="P12" data-en="P12">P12</td>
+                            <td class="wais-ind-cl cl-mi" data-pt="Médio Inferior" data-en="Low Average">Low Average</td>
+                        </tr></tbody>
+                    </table>
+                <button class="cortex-copy-btn" type="button" data-pt="📋" data-en="📋">📋</button></div>
+            </div></div>
+                
+
+                <!-- ─── 6. SUBTESTES — DETALHAMENTO ─── -->
+                <div class="laudo-secao-titulo">
+                    <span class="laudo-secao-tag" data-pt="6" data-en="6">6</span> <span data-pt="Subtestes — Detalhamento" data-en="Subtests — Detail">Subtests — Detail</span> </div>
+                <div class="wais-tab-detalhe cortex-copyable"><table>
+            <thead><tr>
+                <th data-pt="SUBTESTE" data-en="SUBTEST">SUBTEST</th>
+                <th class="ctr" data-pt="PB" data-en="PB">PB</th>
+                <th class="ctr" data-pt="PONDERADO" data-en="SCALED">SCALED</th>
+                <th data-pt="CLASSIFICAÇÃO" data-en="CLASSIFICATION">CLASSIFICATION</th>
+                <th class="ctr" data-pt="DESVIO MP" data-en="DEV. FROM MEAN">DEV. FROM MEAN</th>
+            </tr></thead>
+            <tbody><tr>
+                <td class="wais-detalhe-sub"><span data-pt="Completar Figuras" data-en="Picture Completion">Picture Completion</span> <span class="wais-escala-sigla" data-pt="(CF)" data-en="(CF)">(CF)</span></td>
+                <td class="ctr" data-pt="19" data-en="19">19</td>
+                <td class="ctr" style="font-weight:700; font-size:14px;" data-pt="9" data-en="9">9</td>
+                <td><span class="cl-badge cl-m" data-pt="Médio" data-en="Average">Average</span></td>
+                <td class="ctr" style="font-weight:700; color:#94a3b8;" data-pt="+0.0" data-en="+0.0">+0.0</td>
+            </tr><tr>
+                <td class="wais-detalhe-sub"><span data-pt="Vocabulário" data-en="Vocabulary">Vocabulary</span> <span class="wais-escala-sigla" data-pt="(VC)" data-en="(VC)">(VC)</span></td>
+                <td class="ctr" data-pt="44" data-en="44">44</td>
+                <td class="ctr" style="font-weight:700; font-size:14px;" data-pt="12" data-en="12">12</td>
+                <td><span class="cl-badge cl-ms" data-pt="Médio Superior" data-en="High Average">High Average</span></td>
+                <td class="ctr" style="font-weight:700; color:#059669;" data-pt="+3.0" data-en="+3.0">+3.0</td>
+            </tr><tr>
+                <td class="wais-detalhe-sub"><span data-pt="Códigos" data-en="Digit Symbol-Coding">Digit Symbol-Coding</span> <span class="wais-escala-sigla" data-pt="(CD)" data-en="(CD)">(CD)</span></td>
+                <td class="ctr" data-pt="58" data-en="58">58</td>
+                <td class="ctr" style="font-weight:700; font-size:14px;" data-pt="6" data-en="6">6</td>
+                <td><span class="cl-badge cl-l" data-pt="Limítrofe" data-en="Borderline">Borderline</span></td>
+                <td class="ctr" style="font-weight:700; color:#dc2626;" data-pt="-3.0" data-en="-3.0">-3.0</td>
+            </tr><tr>
+                <td class="wais-detalhe-sub"><span data-pt="Semelhanças" data-en="Similarities">Similarities</span> <span class="wais-escala-sigla" data-pt="(SM)" data-en="(SM)">(SM)</span></td>
+                <td class="ctr" data-pt="23" data-en="23">23</td>
+                <td class="ctr" style="font-weight:700; font-size:14px;" data-pt="11" data-en="11">11</td>
+                <td><span class="cl-badge cl-m" data-pt="Médio" data-en="Average">Average</span></td>
+                <td class="ctr" style="font-weight:700; color:#94a3b8;" data-pt="+2.0" data-en="+2.0">+2.0</td>
+            </tr><tr>
+                <td class="wais-detalhe-sub"><span data-pt="Cubos" data-en="Block Design">Block Design</span> <span class="wais-escala-sigla" data-pt="(CB)" data-en="(CB)">(CB)</span></td>
+                <td class="ctr" data-pt="34" data-en="34">34</td>
+                <td class="ctr" style="font-weight:700; font-size:14px;" data-pt="8" data-en="8">8</td>
+                <td><span class="cl-badge cl-mi" data-pt="Médio Inferior" data-en="Low Average">Low Average</span></td>
+                <td class="ctr" style="font-weight:700; color:#94a3b8;" data-pt="-1.0" data-en="-1.0">-1.0</td>
+            </tr><tr>
+                <td class="wais-detalhe-sub"><span data-pt="Aritmética" data-en="Arithmetic">Arithmetic</span> <span class="wais-escala-sigla" data-pt="(AR)" data-en="(AR)">(AR)</span></td>
+                <td class="ctr" data-pt="13" data-en="13">13</td>
+                <td class="ctr" style="font-weight:700; font-size:14px;" data-pt="8" data-en="8">8</td>
+                <td><span class="cl-badge cl-mi" data-pt="Médio Inferior" data-en="Low Average">Low Average</span></td>
+                <td class="ctr" style="font-weight:700; color:#94a3b8;" data-pt="-1.0" data-en="-1.0">-1.0</td>
+            </tr><tr>
+                <td class="wais-detalhe-sub"><span data-pt="Raciocínio Matricial" data-en="Matrix Reasoning">Matrix Reasoning</span> <span class="wais-escala-sigla" data-pt="(RM)" data-en="(RM)">(RM)</span></td>
+                <td class="ctr" data-pt="17" data-en="17">17</td>
+                <td class="ctr" style="font-weight:700; font-size:14px;" data-pt="10" data-en="10">10</td>
+                <td><span class="cl-badge cl-m" data-pt="Médio" data-en="Average">Average</span></td>
+                <td class="ctr" style="font-weight:700; color:#94a3b8;" data-pt="+1.0" data-en="+1.0">+1.0</td>
+            </tr><tr>
+                <td class="wais-detalhe-sub"><span data-pt="Dígitos" data-en="Digit Span">Digit Span</span> <span class="wais-escala-sigla" data-pt="(DG)" data-en="(DG)">(DG)</span></td>
+                <td class="ctr" data-pt="14" data-en="14">14</td>
+                <td class="ctr" style="font-weight:700; font-size:14px;" data-pt="7" data-en="7">7</td>
+                <td><span class="cl-badge cl-mi" data-pt="Médio Inferior" data-en="Low Average">Low Average</span></td>
+                <td class="ctr" style="font-weight:700; color:#94a3b8;" data-pt="-2.0" data-en="-2.0">-2.0</td>
+            </tr><tr>
+                <td class="wais-detalhe-sub"><span data-pt="Informação" data-en="Information">Information</span> <span class="wais-escala-sigla" data-pt="(IN)" data-en="(IN)">(IN)</span></td>
+                <td class="ctr" data-pt="19" data-en="19">19</td>
+                <td class="ctr" style="font-weight:700; font-size:14px;" data-pt="13" data-en="13">13</td>
+                <td><span class="cl-badge cl-ms" data-pt="Médio Superior" data-en="High Average">High Average</span></td>
+                <td class="ctr" style="font-weight:700; color:#059669;" data-pt="+4.0" data-en="+4.0">+4.0</td>
+            </tr><tr>
+                <td class="wais-detalhe-sub"><span data-pt="Arranjo de Figuras" data-en="Picture Arrangement">Picture Arrangement</span> <span class="wais-escala-sigla" data-pt="(AF)" data-en="(AF)">(AF)</span></td>
+                <td class="ctr" data-pt="12" data-en="12">12</td>
+                <td class="ctr" style="font-weight:700; font-size:14px;" data-pt="9" data-en="9">9</td>
+                <td><span class="cl-badge cl-m" data-pt="Médio" data-en="Average">Average</span></td>
+                <td class="ctr" style="font-weight:700; color:#94a3b8;" data-pt="+0.0" data-en="+0.0">+0.0</td>
+            </tr><tr>
+                <td class="wais-detalhe-sub"><span data-pt="Compreensão" data-en="Comprehension">Comprehension</span> <span class="wais-escala-sigla" data-pt="(CO)" data-en="(CO)">(CO)</span></td>
+                <td class="ctr" data-pt="21" data-en="21">21</td>
+                <td class="ctr" style="font-weight:700; font-size:14px;" data-pt="10" data-en="10">10</td>
+                <td><span class="cl-badge cl-m" data-pt="Médio" data-en="Average">Average</span></td>
+                <td class="ctr" style="font-weight:700; color:#94a3b8;" data-pt="+1.0" data-en="+1.0">+1.0</td>
+            </tr><tr>
+                <td class="wais-detalhe-sub"><span data-pt="Procurar Símbolos" data-en="Symbol Search">Symbol Search</span> <span class="wais-escala-sigla" data-pt="(PS)" data-en="(PS)">(PS)</span></td>
+                <td class="ctr" data-pt="27" data-en="27">27</td>
+                <td class="ctr" style="font-weight:700; font-size:14px;" data-pt="7" data-en="7">7</td>
+                <td><span class="cl-badge cl-mi" data-pt="Médio Inferior" data-en="Low Average">Low Average</span></td>
+                <td class="ctr" style="font-weight:700; color:#94a3b8;" data-pt="-2.0" data-en="-2.0">-2.0</td>
+            </tr><tr>
+                <td class="wais-detalhe-sub"><span data-pt="Sequência de Números e Letras" data-en="Letter-Number Sequencing">Letter-Number Sequencing</span> <span class="wais-escala-sigla" data-pt="(SNL)" data-en="(SNL)">(SNL)</span></td>
+                <td class="ctr" data-pt="9" data-en="9">9</td>
+                <td class="ctr" style="font-weight:700; font-size:14px;" data-pt="8" data-en="8">8</td>
+                <td><span class="cl-badge cl-mi" data-pt="Médio Inferior" data-en="Low Average">Low Average</span></td>
+                <td class="ctr" style="font-weight:700; color:#94a3b8;" data-pt="-1.0" data-en="-1.0">-1.0</td>
+            </tr><tr>
+                <td class="wais-detalhe-sub"><span data-pt="Armar Objetos" data-en="Object Assembly">Object Assembly</span> <span class="wais-escala-sigla" data-pt="(AO)" data-en="(AO)">(AO)</span></td>
+                <td class="ctr" data-pt="33" data-en="33">33</td>
+                <td class="ctr" style="font-weight:700; font-size:14px;" data-pt="8" data-en="8">8</td>
+                <td><span class="cl-badge cl-mi" data-pt="Médio Inferior" data-en="Low Average">Low Average</span></td>
+                <td class="ctr" style="font-weight:700; color:#94a3b8;" data-pt="-1.0" data-en="-1.0">-1.0</td>
+            </tr></tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="4" class="wais-detalhe-mp-label" data-pt="MÉDIA PESSOAL DOS PONDERADOS" data-en="PERSONAL MEAN OF SCALED SCORES">PERSONAL MEAN OF SCALED SCORES</td>
+                    <td class="ctr" style="font-weight:800;" data-pt="9" data-en="9">9</td>
+                </tr>
+            </tfoot>
+        </table><button class="cortex-copy-btn" type="button" data-pt="📋" data-en="📋">📋</button></div>
+
+                <!-- ─── 7. ANÁLISE DE DISCREPÂNCIAS ─── -->
+                
+                    <div class="laudo-secao-titulo">
+                        <span class="laudo-secao-tag" data-pt="7" data-en="7">7</span> <span data-pt="Análise de Discrepâncias entre Índices" data-en="Index Discrepancy Analysis">Index Discrepancy Analysis</span> <span class="laudo-secao-hint" data-pt="Comparações pareadas com valores críticos (p &lt; .05)." data-en="Pairwise comparisons with critical values (p &lt; .05).">Pairwise comparisons with critical values (p &lt; .05).</span>
+                    </div>
+                    <div class="wais-tab-discrep cortex-copyable"><table>
+            <thead><tr>
+                <th data-pt="COMPARAÇÃO" data-en="COMPARISON">COMPARISON</th>
+                <th class="ctr" data-pt="ÍNDICE 1" data-en="INDEX 1">INDEX 1</th>
+                <th class="ctr" data-pt="ÍNDICE 2" data-en="INDEX 2">INDEX 2</th>
+                <th class="ctr" data-pt="DIFERENÇA" data-en="DIFFERENCE">DIFFERENCE</th>
+                <th class="ctr" data-pt="VAL. CRÍTICO (.05)" data-en="CRITICAL VAL. (.05)">CRITICAL VAL. (.05)</th>
+                <th class="ctr" data-pt="SIGNIFICATIVO?" data-en="SIGNIFICANT?">SIGNIFICANT?</th>
+            </tr></thead>
+            <tbody><tr>
+                <td class="wais-disc-par" data-pt="ICV × IOP" data-en="ICV × IOP">ICV × IOP</td>
+                <td class="ctr" data-pt="111" data-en="111">111</td>
+                <td class="ctr" data-pt="93" data-en="93">93</td>
+                <td class="ctr" style="font-weight:700; color:#dc2626;" data-pt="+18" data-en="+18">+18</td>
+                <td class="ctr" data-pt="9.8" data-en="9.8">9.8</td>
+                <td class="ctr"><span class="wais-disc-badge sig" data-pt="SIM" data-en="YES">YES</span></td>
+            </tr><tr>
+                <td class="wais-disc-par" data-pt="ICV × IMO" data-en="ICV × IMO">ICV × IMO</td>
+                <td class="ctr" data-pt="111" data-en="111">111</td>
+                <td class="ctr" data-pt="88" data-en="88">88</td>
+                <td class="ctr" style="font-weight:700; color:#dc2626;" data-pt="+23" data-en="+23">+23</td>
+                <td class="ctr" data-pt="10.4" data-en="10.4">10.4</td>
+                <td class="ctr"><span class="wais-disc-badge sig" data-pt="SIM" data-en="YES">YES</span></td>
+            </tr><tr>
+                <td class="wais-disc-par" data-pt="IOP × IVP" data-en="IOP × IVP">IOP × IVP</td>
+                <td class="ctr" data-pt="93" data-en="93">93</td>
+                <td class="ctr" data-pt="82" data-en="82">82</td>
+                <td class="ctr" style="font-weight:700; color:#f59e0b;" data-pt="+11 ⚠" data-en="+11 ⚠">+11 ⚠</td>
+                <td class="ctr" data-pt="12.1" data-en="12.1">12.1</td>
+                <td class="ctr"><span class="wais-disc-badge notavel" data-pt="NÃO" data-en="NO">NO</span></td>
+            </tr><tr>
+                <td class="wais-disc-par" data-pt="IMO × IVP" data-en="IMO × IVP">IMO × IVP</td>
+                <td class="ctr" data-pt="88" data-en="88">88</td>
+                <td class="ctr" data-pt="82" data-en="82">82</td>
+                <td class="ctr" style="font-weight:700; color:#94a3b8;" data-pt="+6" data-en="+6">+6</td>
+                <td class="ctr" data-pt="12.6" data-en="12.6">12.6</td>
+                <td class="ctr"><span class="wais-disc-badge nao" data-pt="NÃO" data-en="NO">NO</span></td>
+            </tr><tr>
+                <td class="wais-disc-par" data-pt="QIV × QIE" data-en="QIV × QIE">QIV × QIE</td>
+                <td class="ctr" data-pt="103" data-en="103">103</td>
+                <td class="ctr" data-pt="92" data-en="92">92</td>
+                <td class="ctr" style="font-weight:700; color:#dc2626;" data-pt="+11" data-en="+11">+11</td>
+                <td class="ctr" data-pt="8.9" data-en="8.9">8.9</td>
+                <td class="ctr"><span class="wais-disc-badge sig" data-pt="SIM" data-en="YES">YES</span></td>
+            </tr></tbody>
+        </table>
+        <div class="wais-disc-legenda">
+            <span><span class="wais-disc-dot nao"></span> <span data-pt="Não significativo" data-en="Not significant">Not significant</span></span>
+            <span><span class="wais-disc-dot notavel"></span> <span data-pt="Notável (≥8)" data-en="Notable (≥8)">Notable (≥8)</span></span>
+            <span><span class="wais-disc-dot sig"></span> <span data-pt="Significativo (p &lt; .05)" data-en="Significant (p &lt; .05)">Significant (p &lt; .05)</span></span>
+        </div>
+        <button class="cortex-copy-btn" type="button" data-pt="📋" data-en="📋">📋</button></div>
+                
+
+                <!-- ─── 8. PONTOS FORTES E FRACOS ─── -->
+                <div class="laudo-secao-titulo">
+                    <span class="laudo-secao-tag" data-pt="8" data-en="8">8</span> <span data-pt="Pontos Fortes e Fracos Pessoais" data-en="Personal Strengths and Weaknesses">Personal Strengths and Weaknesses</span> <span class="laudo-secao-hint" data-pt="Média pessoal: 9 · Desvio ≥ 3 pontos = significativo" data-en="Personal mean: 9 · Deviation ≥ 3 points = significant">Personal mean: 9 · Deviation ≥ 3 points = significant</span>
+                </div>
+                <div class="wais-ff-grid cortex-copyable" style="position: relative;">
+            <div class="wais-ff-card wais-ff-card-fortes">
+                <div class="wais-ff-titulo" data-pt="▲ Pontos Fortes" data-en="▲ Strengths">▲ Strengths</div>
+                
+                <div class="wais-ff-item">
+                    <div class="wais-ff-item-titulo"><span data-pt="Informação" data-en="Information">Information</span> <span class="wais-escala-sigla" data-pt="(IN)" data-en="(IN)">(IN)</span></div>
+                    <div class="wais-ff-item-detalhe"><span data-pt="Ponderado:" data-en="Scaled:">Scaled:</span> <strong data-pt="13" data-en="13">13</strong> <span data-pt="· Desvio:" data-en="· Deviation:">· Deviation:</span> <strong data-pt="+4.0" data-en="+4.0">+4.0</strong> <span data-pt="acima da média pessoal" data-en="above personal mean">above personal mean</span></div>
+                </div>
+            
+                <div class="wais-ff-item">
+                    <div class="wais-ff-item-titulo"><span data-pt="Vocabulário" data-en="Vocabulary">Vocabulary</span> <span class="wais-escala-sigla" data-pt="(VC)" data-en="(VC)">(VC)</span></div>
+                    <div class="wais-ff-item-detalhe"><span data-pt="Ponderado:" data-en="Scaled:">Scaled:</span> <strong data-pt="12" data-en="12">12</strong> <span data-pt="· Desvio:" data-en="· Deviation:">· Deviation:</span> <strong data-pt="+3.0" data-en="+3.0">+3.0</strong> <span data-pt="acima da média pessoal" data-en="above personal mean">above personal mean</span></div>
+                </div>
+            
+            </div>
+            <div class="wais-ff-card wais-ff-card-fracos">
+                <div class="wais-ff-titulo" data-pt="▼ Pontos Fracos" data-en="▼ Weaknesses">▼ Weaknesses</div>
+                
+                <div class="wais-ff-item">
+                    <div class="wais-ff-item-titulo"><span data-pt="Códigos" data-en="Digit Symbol-Coding">Digit Symbol-Coding</span> <span class="wais-escala-sigla" data-pt="(CD)" data-en="(CD)">(CD)</span></div>
+                    <div class="wais-ff-item-detalhe"><span data-pt="Ponderado:" data-en="Scaled:">Scaled:</span> <strong data-pt="6" data-en="6">6</strong> <span data-pt="· Desvio:" data-en="· Deviation:">· Deviation:</span> <strong data-pt="-3.0" data-en="-3.0">-3.0</strong> <span data-pt="abaixo da média pessoal" data-en="below personal mean">below personal mean</span></div>
+                </div>
+            
+            </div>
+        <button class="cortex-copy-btn" type="button" data-pt="📋" data-en="📋">📋</button></div>
+
+                <!-- ─── 9. INTERPRETAÇÃO CLÍNICA ─── -->
+                <div class="laudo-secao-titulo">
+                    <span class="laudo-secao-tag" data-pt="9" data-en="9">9</span> <span data-pt="Interpretação Clínica" data-en="Clinical Interpretation">Clinical Interpretation</span> </div>
+                <div class="wais-interp-bloco cortex-copyable"><p class="wais-interp-par"><span data-pt="Em relação ao" data-en="Regarding the">Regarding the</span> <strong data-pt="QI Total (QIT)" data-en="Full Scale IQ (QIT)">Full Scale IQ (QIT)</strong><span data-pt=", as habilidades relacionadas a funcionamento intelectual global situa-se na faixa média em comparação a pessoas de mesma faixa etária (pontuação composta = 98; percentil ≈ 45; IC 95% = 93–103; classificação: Médio)." data-en=", abilities related to global intellectual functioning fall in the average range compared with same-age peers (composite = 98; percentile ≈ 45; 95% CI = 93–103; classification: Average).">, abilities related to global intellectual functioning fall in the average range compared with same-age peers (composite = 98; percentile ≈ 45; 95% CI = 93–103; classification: Average).</span></p><p class="wais-interp-par"><span data-pt="Quanto ao" data-en="As for the">As for the</span> <strong data-pt="QI Verbal (QIV)" data-en="Verbal IQ (QIV)">Verbal IQ (QIV)</strong><span data-pt=", as habilidades relacionadas a conhecimento adquirido, raciocínio verbal e atenção a materiais verbais situa-se na faixa média em comparação a pessoas de mesma faixa etária (pontuação composta = 103; percentil ≈ 58; IC 95% = 97–109; classificação: Médio)." data-en=", abilities related to acquired knowledge, verbal reasoning and attention to verbal material fall in the average range compared with same-age peers (composite = 103; percentile ≈ 58; 95% CI = 97–109; classification: Average).">, abilities related to acquired knowledge, verbal reasoning and attention to verbal material fall in the average range compared with same-age peers (composite = 103; percentile ≈ 58; 95% CI = 97–109; classification: Average).</span></p><p class="wais-interp-par"><span data-pt="Em relação ao" data-en="Regarding the">Regarding the</span> <strong data-pt="QI de Execução (QIE)" data-en="Performance IQ (QIE)">Performance IQ (QIE)</strong><span data-pt=", as habilidades relacionadas a raciocínio fluido, processamento espacial, atenção a detalhes e integração visomotora situa-se na faixa média em comparação a pessoas de mesma faixa etária (pontuação composta = 92; percentil ≈ 30; IC 95% = 85–99; classificação: Médio)." data-en=", abilities related to fluid reasoning, spatial processing, attention to detail and visuomotor integration fall in the average range compared with same-age peers (composite = 92; percentile ≈ 30; 95% CI = 85–99; classification: Average).">, abilities related to fluid reasoning, spatial processing, attention to detail and visuomotor integration fall in the average range compared with same-age peers (composite = 92; percentile ≈ 30; 95% CI = 85–99; classification: Average).</span></p><p class="wais-interp-par"><span data-pt="Quanto ao" data-en="As for the">As for the</span> <strong data-pt="Índice de Compreensão Verbal (ICV)" data-en="Verbal Comprehension Index (ICV)">Verbal Comprehension Index (ICV)</strong><span data-pt=", as habilidades relacionadas a raciocínio verbal e formação de conceitos situa-se acima da média em comparação a pessoas de mesma faixa etária (pontuação composta = 111; percentil ≈ 77; IC 95% = 104–117; classificação: Médio Superior)." data-en=", abilities related to verbal reasoning and concept formation fall above average compared with same-age peers (composite = 111; percentile ≈ 77; 95% CI = 104–117; classification: High Average).">, abilities related to verbal reasoning and concept formation fall above average compared with same-age peers (composite = 111; percentile ≈ 77; 95% CI = 104–117; classification: High Average).</span></p><p class="wais-interp-par"><span data-pt="Em relação ao" data-en="Regarding the">Regarding the</span> <strong data-pt="Índice de Organização Perceptual (IOP)" data-en="Perceptual Organization Index (IOP)">Perceptual Organization Index (IOP)</strong><span data-pt=", as habilidades relacionadas a raciocínio não verbal, atenção a detalhes e integração visomotora situa-se na faixa média em comparação a pessoas de mesma faixa etária (pontuação composta = 93; percentil ≈ 32; IC 95% = 86–101; classificação: Médio)." data-en=", abilities related to nonverbal reasoning, attention to detail and visuomotor integration fall in the average range compared with same-age peers (composite = 93; percentile ≈ 32; 95% CI = 86–101; classification: Average).">, abilities related to nonverbal reasoning, attention to detail and visuomotor integration fall in the average range compared with same-age peers (composite = 93; percentile ≈ 32; 95% CI = 86–101; classification: Average).</span></p><p class="wais-interp-par"><span data-pt="Quanto ao" data-en="As for the">As for the</span> <strong data-pt="Índice de Memória Operacional (IMO)" data-en="Working Memory Index (IMO)">Working Memory Index (IMO)</strong><span data-pt=", as habilidades relacionadas a atenção, concentração e controle mental para manipular informações situa-se ligeiramente abaixo da média em comparação a pessoas de mesma faixa etária (pontuação composta = 88; percentil ≈ 21; IC 95% = 81–96; classificação: Médio Inferior)." data-en=", abilities related to attention, concentration and mental control to manipulate information fall slightly below average compared with same-age peers (composite = 88; percentile ≈ 21; 95% CI = 81–96; classification: Low Average).">, abilities related to attention, concentration and mental control to manipulate information fall slightly below average compared with same-age peers (composite = 88; percentile ≈ 21; 95% CI = 81–96; classification: Low Average).</span></p><p class="wais-interp-par"><span data-pt="Em relação ao" data-en="Regarding the">Regarding the</span> <strong data-pt="Índice de Velocidade de Processamento (IVP)" data-en="Processing Speed Index (IVP)">Processing Speed Index (IVP)</strong><span data-pt=", as habilidades relacionadas a rapidez e eficiência para processar informações visuais simples situa-se ligeiramente abaixo da média em comparação a pessoas de mesma faixa etária (pontuação composta = 82; percentil ≈ 12; IC 95% = 75–92; classificação: Médio Inferior)." data-en=", abilities related to speed and efficiency in processing simple visual information fall slightly below average compared with same-age peers (composite = 82; percentile ≈ 12; 95% CI = 75–92; classification: Low Average).">, abilities related to speed and efficiency in processing simple visual information fall slightly below average compared with same-age peers (composite = 82; percentile ≈ 12; 95% CI = 75–92; classification: Low Average).</span></p><button class="cortex-copy-btn" type="button" data-pt="📋" data-en="📋">📋</button></div>
+
+                <!-- ─── 10. OBSERVAÇÕES ─── -->
+                
+                    <div class="laudo-secao-titulo">
+                        <span class="laudo-secao-tag" data-pt="10" data-en="10">10</span> <span data-pt="Observações Comportamentais" data-en="Behavioral Observations">Behavioral Observations</span> </div>
+                    <div class="wais-texto-bloco" data-pt="Colaborativa e engajada durante toda a sessão. Boa compreensão das instruções; sinais de fadiga a partir do 5º subteste." data-en="Cooperative and engaged throughout the session. Good understanding of instructions; signs of fatigue from the 5th subtest on.">Cooperative and engaged throughout the session. Good understanding of instructions; signs of fatigue from the 5th subtest on.</div>
+                
+
+                <!-- ─── 11. RECOMENDAÇÕES ─── -->
+                
+                    <div class="laudo-secao-titulo">
+                        <span class="laudo-secao-tag" data-pt="11" data-en="11">11</span> <span data-pt="Conclusão e Recomendações" data-en="Conclusion and Recommendations">Conclusion and Recommendations</span> </div>
+                    <div class="wais-texto-bloco" data-pt="Integrar os achados aos demais instrumentos da bateria e ao exame clínico. Sugere-se acompanhamento com estratégias de organização e manejo do tempo." data-en="Integrate the findings with the other instruments in the battery and the clinical exam. Follow-up with organization and time-management strategies is suggested.">Integrate the findings with the other instruments in the battery and the clinical exam. Follow-up with organization and time-management strategies is suggested.</div>
+                
+
+            </div>
+
+            <!-- ─── RODAPÉ COM ASSINATURA ─── -->
+            <div class="laudo-rodape">
+                <div class="laudo-rodape-esq">
+                    <div class="laudo-rodape-org" data-pt="Lívia Andrade Costa" data-en="Lívia Andrade Costa">Lívia Andrade Costa</div>
+                    <div class="laudo-rodape-tipo" data-pt="CRP 00/00000 · Neuropsicologia" data-en="CRP 00/00000 · Neuropsychology">CRP 00/00000 · Neuropsychology</div>
+                    <div class="wais-assinatura-linha" data-pt="Assinatura do profissional" data-en="Clinician's signature">Clinician's signature</div>
+                </div>
+                <div class="laudo-rodape-dir">
+                    <div class="laudo-rodape-data" data-pt="Documento gerado em 26/10/2026" data-en="Document generated on 10/26/2026">Document generated on 10/26/2026</div>
+                    <div class="laudo-rodape-confidencial"> <span data-pt="Este documento é confidencial e destinado" data-en="This document is confidential and intended">This document is confidential and intended</span><br> <span data-pt="exclusivamente ao profissional solicitante. Válido" data-en="solely for the requesting professional. Valid">solely for the requesting professional. Valid</span><br> <span data-pt="apenas com assinatura." data-en="only when signed.">only when signed.</span> </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        </main>
+    </div>
+
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+<script src="../i18n.js"></script><script>(function(){
+  document.addEventListener('click',function(e){var a=e.target.closest('a[href="#"]');if(a)e.preventDefault();});
+  var t=document.getElementById('sidebar-toggle-btn'),s=document.getElementById('cortex-sidebar');
+  if(t&&s)t.addEventListener('click',function(e){e.preventDefault();s.classList.toggle('collapsed');document.body.classList.toggle('sidebar-rail',s.classList.contains('collapsed'));});
+})();
+</script></body></html>

@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Pacientes — CORTEX</title>
+    
+    
+    
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/pacientes.css">
+    
+    
+    
+    
+    
+    <meta name="theme-color" content="#141F3C">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="CORTEX">
+    
+<link rel="stylesheet" href="css/cortex-v2.css" data-cortex-v2-css="1"><style id="cmk-estilo">
+.cmk-lista{display:inline-flex;flex-wrap:wrap;gap:5px;align-items:center;vertical-align:middle;}
+.cmk-chip{display:inline-flex;align-items:center;gap:5px;max-width:100%;border-radius:999px;font-family:Inter,system-ui,sans-serif;font-weight:700;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--cmk-cor);background:var(--cmk-bg);border:1px solid color-mix(in srgb,var(--cmk-cor) 32%,transparent);-webkit-text-fill-color:var(--cmk-cor);letter-spacing:0;transition:transform .15s,box-shadow .15s;}
+.cmk-chip i{flex:0 0 auto;width:7px;height:7px;border-radius:50%;background:var(--cmk-cor);box-shadow:0 0 0 3px color-mix(in srgb,var(--cmk-cor) 18%,transparent);}
+.cmk-sm{font-size:10.5px;padding:3px 9px 3px 7px;max-width:170px;}
+.cmk-md{font-size:12px;padding:5px 12px 5px 9px;max-width:260px;}
+.cmk-chip:hover{transform:translateY(-1px);box-shadow:0 3px 10px color-mix(in srgb,var(--cmk-cor) 25%,transparent);}
+.cmk-faixa{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:-2px 0 12px;}
+.cmk-faixa .cmk-chip{cursor:pointer;}
+.cmk-add{display:inline-flex;align-items:center;gap:5px;border:1.5px dashed #a5b4fc;background:#f5f3ff;color:#5b21b6;border-radius:999px;font:700 11.5px/1.2 Inter,system-ui,sans-serif;padding:5px 12px;cursor:pointer;transition:all .15s;}
+.cmk-add:hover{background:linear-gradient(135deg,#2F6FED,#7C4DFF);color:#fff;border-color:transparent;box-shadow:0 4px 12px rgba(124,77,255,.3);}
+.paciente-card-marcadores{margin-top:6px;display:flex;}
+.cmk-ov{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;padding:16px;background:rgba(15,23,42,.45);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);animation:cmkFade .18s ease;}
+@keyframes cmkFade{from{opacity:0}to{opacity:1}}
+@keyframes cmkSobe{from{opacity:0;transform:translateY(12px) scale(.98)}to{opacity:1;transform:none}}
+.cmk-box{width:100%;max-width:480px;max-height:calc(100vh - 32px);overflow:auto;background:#fff;border-radius:18px;box-shadow:0 24px 60px rgba(15,23,42,.3);animation:cmkSobe .22s ease;font-family:Inter,system-ui,sans-serif;}
+.cmk-topo{padding:18px 20px 14px;background:linear-gradient(135deg,#141F3C 0%,#2F6FED 60%,#7C4DFF 100%);color:#fff;border-radius:18px 18px 0 0;display:flex;align-items:flex-start;gap:12px;}
+.cmk-topo h2{margin:0;font-size:17px;font-weight:800;letter-spacing:-.01em;}
+.cmk-topo p{margin:3px 0 0;font-size:12.5px;opacity:.85;}
+.cmk-fechar{margin-left:auto;background:rgba(255,255,255,.16);border:0;color:#fff;width:30px;height:30px;border-radius:10px;font-size:18px;cursor:pointer;flex:0 0 auto;}
+.cmk-fechar:hover{background:rgba(255,255,255,.28);}
+.cmk-corpo{padding:16px 20px 20px;}
+.cmk-atuais{display:flex;flex-direction:column;gap:8px;margin-bottom:16px;}
+.cmk-vazio{font-size:13px;color:#64748b;background:#f8fafc;border:1px dashed #cbd5e1;border-radius:12px;padding:12px 14px;text-align:center;}
+.cmk-item{display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:12px;background:#f8fafc;border:1px solid #e2e8f0;}
+.cmk-item .cmk-chip{flex:1;min-width:0;max-width:none;}
+.cmk-ico{border:0;background:transparent;width:30px;height:30px;border-radius:9px;cursor:pointer;font-size:14px;flex:0 0 auto;}
+.cmk-ico:hover{background:#e2e8f0;}
+.cmk-ico.del:hover{background:#fee2e2;}
+.cmk-form{border-radius:14px;padding:14px;background:linear-gradient(135deg,#f5f3ff 0%,#eef4ff 100%);border:1.5px solid #c7d2fe;}
+.cmk-form label{display:block;font-size:11.5px;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:#4c1d95;margin:0 0 6px;}
+.cmk-form input[type=text]{width:100%;box-sizing:border-box;padding:11px 13px;border-radius:11px;border:1.5px solid #c4b5fd;font:600 15px Inter,system-ui,sans-serif;color:#141F3C;outline:none;background:#fff;}
+.cmk-form input[type=text]:focus{border-color:#7C4DFF;box-shadow:0 0 0 3px rgba(124,77,255,.18);}
+.cmk-cont{font-size:11px;color:#94a3b8;text-align:right;margin-top:4px;}
+.cmk-sugest{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 2px;}
+.cmk-sugest button{border:1px solid #c7d2fe;background:#fff;color:#3730a3;border-radius:999px;font:600 11.5px Inter,system-ui,sans-serif;padding:4px 10px;cursor:pointer;}
+.cmk-sugest button:hover{background:#eef2ff;}
+.cmk-cores{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px;}
+.cmk-cor{width:32px;height:32px;border-radius:50%;border:3px solid #fff;cursor:pointer;box-shadow:0 0 0 1.5px #cbd5e1;transition:transform .12s,box-shadow .12s;}
+.cmk-cor:hover{transform:scale(1.1);}
+.cmk-cor.ativo{box-shadow:0 0 0 2.5px #141F3C;transform:scale(1.12);}
+.cmk-previa{margin-top:12px;display:flex;align-items:center;gap:8px;font-size:12px;color:#64748b;}
+.cmk-acoes{display:flex;gap:8px;justify-content:flex-end;margin-top:14px;}
+.cmk-btn{border:0;border-radius:11px;padding:10px 16px;font:700 13.5px Inter,system-ui,sans-serif;cursor:pointer;}
+.cmk-btn.sec{background:#eef2f6;color:#334155;}
+.cmk-btn.sec:hover{background:#e2e8f0;}
+.cmk-btn.pri{background:linear-gradient(135deg,#2F6FED,#7C4DFF);color:#fff;box-shadow:0 6px 16px rgba(47,111,237,.3);}
+.cmk-btn.pri:disabled{opacity:.45;cursor:not-allowed;box-shadow:none;}
+.cmk-limite{font-size:12.5px;color:#92400e;background:#fef3c7;border:1px solid #fcd34d;border-radius:10px;padding:10px 12px;}
+body.exportando .cmk-add{display:none!important;}
+</style><style id="cst-estilo">
+.cst{display:inline-flex;align-items:center;gap:1px;line-height:1;vertical-align:middle;-webkit-text-fill-color:initial;}
+.cst span{color:#d7dde6;-webkit-text-fill-color:#d7dde6;transition:transform .12s,color .12s,filter .12s;}
+.cst span.on{color:#F59E0B;-webkit-text-fill-color:#F59E0B;filter:drop-shadow(0 1px 2px rgba(245,158,11,.35));}
+.cst-sm span{font-size:13px;}
+.cst-md span{font-size:20px;}
+.cst-edit{display:inline-flex;align-items:center;gap:8px;padding:3px 10px 3px 6px;border-radius:999px;background:#fffbeb;border:1px solid #fde68a;}
+.cst-edit button{all:unset;cursor:pointer;font-size:21px;line-height:1;color:#d7dde6;-webkit-text-fill-color:#d7dde6;transition:transform .12s,color .12s;}
+.cst-edit button.on{color:#F59E0B;-webkit-text-fill-color:#F59E0B;filter:drop-shadow(0 1px 2px rgba(245,158,11,.4));}
+.cst-edit button.hover{color:#FBBF24;-webkit-text-fill-color:#FBBF24;}
+.cst-edit button:hover{transform:scale(1.22);}
+.cst-edit button:focus-visible{outline:2px solid #7C4DFF;outline-offset:2px;border-radius:4px;}
+.cst-edit .cst-lbl{font:700 11px/1 Inter,system-ui,sans-serif;color:#92400e;-webkit-text-fill-color:#92400e;letter-spacing:.03em;text-transform:uppercase;min-width:52px;}
+.paciente-card-estrelas{margin-top:3px;}
+.pasta-estrelas{display:inline-flex;align-items:center;margin-left:10px;vertical-align:middle;font-size:initial;font-weight:400;letter-spacing:0;}
+.col-nome .cst{margin-left:6px;}
+</style><link rel="stylesheet" href="css/notificacoes.css" data-cortex-notif-css="1"><link rel="stylesheet" href="css/chat_badge.css" data-cortex-chat-css="1"><style>html,body{overflow-x:hidden!important}</style></head>
+<body>
+    <div class="app-shell">
+        <div id="sidebar-container">
+            <aside class="sidebar  " id="cortex-sidebar">
+                <div class="sidebar-brand">
+                    <svg class="sidebar-brand-icon" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+        <g stroke="currentColor" fill="currentColor" stroke-linecap="round">
+            <line x1="16" y1="16" x2="9" y2="9" stroke-width="1"></line>
+            <line x1="16" y1="16" x2="23" y2="9" stroke-width="1"></line>
+            <line x1="16" y1="16" x2="9" y2="23" stroke-width="1"></line>
+            <line x1="16" y1="16" x2="23" y2="23" stroke-width="1"></line>
+            <line x1="16" y1="16" x2="16" y2="7" stroke-width="1"></line>
+            <line x1="16" y1="16" x2="16" y2="25" stroke-width="1"></line>
+            <circle cx="16" cy="16" r="2.8"></circle>
+            <circle cx="9" cy="9" r="1.6"></circle>
+            <circle cx="23" cy="9" r="1.6"></circle>
+            <circle cx="9" cy="23" r="1.6"></circle>
+            <circle cx="23" cy="23" r="1.6"></circle>
+            <circle cx="16" cy="7" r="1.4"></circle>
+            <circle cx="16" cy="25" r="1.4"></circle>
+        </g>
+    </svg>
+                    <span class="sidebar-brand-text sidebar-text" data-pt="CORTEX" data-en="CORTEX">CORTEX</span>
+                    <div class="sidebar-actions">
+                        <button class="sidebar-toggle" id="sidebar-toggle-btn">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                        </button>
+                        <button class="sidebar-close" id="sidebar-close-btn">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                        </button>
+                    </div>
+                </div>
+
+                <nav class="sidebar-nav">
+                    
+                <a href="dashboard.html" class="nav-item " title="Dashboard" data-nav="dashboard" style="--nav-accent: var(--accent-blue)">
+                    <svg class="nav-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"></rect><rect x="14" y="3" width="7" height="7" rx="1.5"></rect><rect x="3" y="14" width="7" height="7" rx="1.5"></rect><rect x="14" y="14" width="7" height="7" rx="1.5"></rect></svg>
+                    <span class="sidebar-text" data-pt="Dashboard" data-en="Dashboard">Dashboard</span>
+                    
+                </a>
+            
+                <a href="pacientes.html" class="nav-item active" title="Patients" data-nav="pacientes" style="--nav-accent: var(--accent-purple)">
+                    <svg class="nav-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                    <span class="sidebar-text" data-pt="Pacientes" data-en="Patients">Patients</span>
+                    
+                </a>
+            
+                <a href="#" class="nav-item " title="Agenda" data-nav="agenda" style="--nav-accent: var(--accent-cyan)">
+                    <svg class="nav-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2.5"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                    <span class="sidebar-text" data-pt="Agenda" data-en="Agenda">Agenda</span>
+                    
+                </a>
+            
+                <a href="#" class="nav-item " title="Messages" data-nav="mensagens" style="--nav-accent: var(--accent-blue-2)">
+                    <svg class="nav-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                    <span class="sidebar-text" data-pt="Mensagens" data-en="Messages">Messages</span>
+                    <span class="sidebar-badge" id="chat-nav-badge" data-pt="2" data-en="2">2</span>
+                </a>
+            
+                <a href="#" class="nav-item " title="Charts" data-nav="graficos" style="--nav-accent: var(--accent-amber)">
+                    <svg class="nav-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+                    <span class="sidebar-text" data-pt="Gráficos" data-en="Charts">Charts</span>
+                    
+                </a>
+            
+                <a href="#" class="nav-item " title="Inventory" data-nav="estoque" style="--nav-accent: var(--accent-green)">
+                    <svg class="nav-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                    <span class="sidebar-text" data-pt="Estoque" data-en="Inventory">Inventory</span>
+                    
+                </a>
+            
+                <a href="#" class="nav-item " title="Screenings" data-nav="triagens" style="--nav-accent: var(--accent-amber)">
+                    <svg class="nav-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><line x1="20" y1="8" x2="20" y2="14"></line><line x1="23" y1="11" x2="17" y2="11"></line></svg>
+                    <span class="sidebar-text" data-pt="Triagens" data-en="Screenings">Screenings</span>
+                    
+                </a>
+            
+                <a href="#" class="nav-item " title="Reports" data-nav="relatorios" style="--nav-accent: var(--accent-pink)">
+                    <svg class="nav-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+                    <span class="sidebar-text" data-pt="Relatórios" data-en="Reports">Reports</span>
+                    
+                </a>
+            
+                <a href="#" class="nav-item " title="Audit" data-nav="auditoria" style="--nav-accent: var(--accent-green)">
+                    <svg class="nav-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="M9 12l2 2 4-4"></path></svg>
+                    <span class="sidebar-text" data-pt="Auditoria" data-en="Audit">Audit</span>
+                    
+                </a>
+            
+                <a href="#" class="nav-item " title="Report Tools" data-nav="ferramentas-laudo" style="--nav-accent: var(--accent-purple-2)">
+                    <svg class="nav-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"></rect><path d="M3 9h18M9 21V9"></path></svg>
+                    <span class="sidebar-text" data-pt="Ferramentas de Laudo" data-en="Report Tools">Report Tools</span>
+                    
+                </a>
+            
+                <a href="#" class="nav-item " title="Instruments" data-nav="instrumentos" style="--nav-accent: var(--accent-cyan)">
+                    <svg class="nav-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0H5a2 2 0 0 1-2-2v-4m6 6h10a2 2 0 0 0 2-2v-4M3 9h18M3 15h18"></path></svg>
+                    <span class="sidebar-text" data-pt="Instrumentos" data-en="Instruments">Instruments</span>
+                    
+                </a>
+            
+                <a href="#" class="nav-item " title="Settings" data-nav="configuracoes" style="--nav-accent: var(--accent-blue-2)">
+                    <svg class="nav-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+                    <span class="sidebar-text" data-pt="Configurações" data-en="Settings">Settings</span>
+                    <span class="sidebar-badge" id="cfg-externos-badge" data-pt="1" data-en="1">1</span>
+                </a>
+            
+                </nav>
+
+                <div class="sidebar-user">
+                    <div class="sidebar-user-avatar" data-pt="LC" data-en="LC">LC</div>
+                    <div class="sidebar-user-info">
+                        <div class="sidebar-user-name" data-pt="Lívia Andrade Costa" data-en="Lívia Andrade Costa">Lívia Andrade Costa</div>
+                        <div class="sidebar-user-perfil" data-pt="Admin Clínico" data-en="Clinical Admin">Clinical Admin</div>
+                    </div>
+                    <button class="sidebar-user-logout" id="sidebar-logout-btn">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+                    </button>
+                </div>
+            </aside>
+        </div>
+
+        <main class="app-main">
+            <div class="page-header">
+                <div class="page-title">
+                    <h1 data-pt="Pacientes" data-en="Patients">Patients</h1>
+                    <p id="contagem-pacientes" data-pt="12 pacientes" data-en="12 patients">12 patients</p>
+                </div>
+                <div class="page-actions">
+                    <button type="button" id="btn-pre-cadastro" class="btn btn-secondary">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;">
+                            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <line x1="19" y1="8" x2="19" y2="14"></line>
+                            <line x1="22" y1="11" x2="16" y2="11"></line>
+                        </svg> <span data-pt="Pré-cadastrar paciente" data-en="Pre-register patient">Pre-register patient</span> </button>
+                    <button type="button" id="btn-novo-paciente" class="btn btn-primary">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+                            <line x1="12" y1="5" x2="12" y2="19"></line>
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                        </svg> <span data-pt="Novo paciente" data-en="New patient">New patient</span> </button>
+                </div>
+            </div>
+
+            <div class="lista-filtros">
+                <div class="lista-filtros-busca">
+                    <input type="text" id="busca" placeholder="Search by name or tag..." autocomplete="off" style="" data-pt-ph="Buscar por nome ou marcador..." data-en-ph="Search by name or tag...">
+                </div>
+                <select id="filtro-status">
+                    <option value="" selected="" data-pt="Todos os status" data-en="All statuses">All statuses</option>
+                    <option value="cadastrado" data-pt="Cadastrado" data-en="Registered">Registered</option>
+                    <option value="em_avaliacao" data-pt="Em avaliação" data-en="In assessment">In assessment</option>
+                    <option value="pronto_para_laudo" data-pt="Pronto para laudo" data-en="Ready for report">Ready for report</option>
+                    <option value="laudo_pronto" data-pt="Laudo pronto" data-en="Report ready">Report ready</option>
+                    <option value="entregue" data-pt="Entregue" data-en="Delivered">Delivered</option>
+                    <option value="pendente" data-pt="Pendente" data-en="Pending">Pending</option>
+                </select>
+                <select id="filtro-estrelas">
+                    <option value="" selected="" data-pt="Todos os níveis" data-en="All levels">All levels</option>
+                    <option value="3" data-pt="★★★ Nível 3" data-en="★★★ Level 3">★★★ Level 3</option>
+                    <option value="2" data-pt="★★ Nível 2" data-en="★★ Level 2">★★ Level 2</option>
+                    <option value="1" data-pt="★ Nível 1" data-en="★ Level 1">★ Level 1</option>
+                    <option value="sem" data-pt="Sem nível" data-en="No level">No level</option>
+                </select>
+                <select id="filtro-convenio">
+                    <option value="" selected="" data-pt="Todos os convênios" data-en="All insurers">All insurers</option>
+                <option value="c1" data-pt="Particular" data-en="Private pay">Private pay</option><option value="c3" data-pt="Unisaúde" data-en="Unisaúde">Unisaúde</option><option value="c2" data-pt="Vida Plena Saúde" data-en="Vida Plena Saúde">Vida Plena Saúde</option></select>
+                <div class="view-toggle">
+                    <button id="view-cards" class="active">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="7" height="7"></rect>
+                            <rect x="14" y="3" width="7" height="7"></rect>
+                            <rect x="3" y="14" width="7" height="7"></rect>
+                            <rect x="14" y="14" width="7" height="7"></rect>
+                        </svg> <span data-pt="Cards" data-en="Cards">Cards</span> </button>
+                    <button id="view-tabela">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="3" y1="6" x2="21" y2="6"></line>
+                            <line x1="3" y1="12" x2="21" y2="12"></line>
+                            <line x1="3" y1="18" x2="21" y2="18"></line>
+                        </svg> <span data-pt="Lista" data-en="List">List</span> </button>
+                </div>
+            </div>
+
+            <div id="lista-conteudo"><div class="pacientes-grid">
+                <div class="paciente-card" data-paciente-id="p01">
+                    <div class="paciente-card-header">
+                        
+            <div class="avatar avatar-md avatar-iniciais avatar-iniciais-fem" title="Ana Beatriz Moreira">
+                <span data-pt="AM" data-en="AM">AM</span>
+            </div>
+        
+                        <div class="paciente-card-info">
+                            <div class="paciente-card-nome" data-pt="Ana Beatriz Moreira" data-en="Ana Beatriz Moreira">Ana Beatriz Moreira</div>
+                            <div class="paciente-card-idade" data-pt="9 anos e 4 meses" data-en="9 years 4 months">9 years 4 months</div>
+                            <div class="paciente-card-estrelas"><span class="cst cst-sm"><span class="on" data-pt="★" data-en="★">★</span><span class="on" data-pt="★" data-en="★">★</span><span class="on" data-pt="★" data-en="★">★</span></span></div>
+                            <div class="paciente-card-marcadores"><span class="cmk-lista"><span class="cmk-chip cmk-sm" style="--cmk-cor:#2F6FED;--cmk-bg:#E8F0FE;" title="ASD"><i></i><span data-pt="TEA" data-en="ASD">ASD</span></span><span class="cmk-chip cmk-sm" style="--cmk-cor:#0891B2;--cmk-bg:#E0F7FA;" title="School"><i></i><span data-pt="Escola" data-en="School">School</span></span></span></div>
+                        </div>
+                    </div>
+                    <div class="paciente-card-meta">
+                        
+                            <div class="paciente-card-meta-item">
+                                <span class="paciente-card-meta-label" data-pt="Convênio:" data-en="Insurer:">Insurer:</span>
+                                <span data-pt="Vida Plena Saúde" data-en="Vida Plena Saúde">Vida Plena Saúde</span>
+                            </div>
+                        
+                        
+                            <div class="paciente-card-meta-item">
+                                <span class="paciente-card-meta-label" data-pt="Aplicador:" data-en="Examiner:">Examiner:</span>
+                                <span data-pt="Camila Rocha" data-en="Camila Rocha">Camila Rocha</span>
+                            </div>
+                        
+                    </div>
+                    <div class="paciente-card-footer">
+                        <span class="badge status-warning" data-pt="Em avaliação" data-en="In assessment">In assessment</span>
+                    </div>
+                </div>
+            
+                <div class="paciente-card" data-paciente-id="p02">
+                    <div class="paciente-card-header">
+                        
+            <div class="avatar avatar-md avatar-iniciais " title="Bruno Henrique Tavares">
+                <span data-pt="BT" data-en="BT">BT</span>
+            </div>
+        
+                        <div class="paciente-card-info">
+                            <div class="paciente-card-nome" data-pt="Bruno Henrique Tavares" data-en="Bruno Henrique Tavares">Bruno Henrique Tavares</div>
+                            <div class="paciente-card-idade" data-pt="27 anos" data-en="27 years">27 years</div>
+                            <div class="paciente-card-estrelas"><span class="cst cst-sm"><span class="on" data-pt="★" data-en="★">★</span><span class="on" data-pt="★" data-en="★">★</span><span class="" data-pt="★" data-en="★">★</span></span></div>
+                            <div class="paciente-card-marcadores"><span class="cmk-lista"><span class="cmk-chip cmk-sm" style="--cmk-cor:#7C4DFF;--cmk-bg:#F1EBFF;" title="ADHD"><i></i><span data-pt="TDAH" data-en="ADHD">ADHD</span></span></span></div>
+                        </div>
+                    </div>
+                    <div class="paciente-card-meta">
+                        
+                            <div class="paciente-card-meta-item">
+                                <span class="paciente-card-meta-label" data-pt="Convênio:" data-en="Insurer:">Insurer:</span>
+                                <span data-pt="Particular" data-en="Private pay">Private pay</span>
+                            </div>
+                        
+                        
+                            <div class="paciente-card-meta-item">
+                                <span class="paciente-card-meta-label" data-pt="Aplicador:" data-en="Examiner:">Examiner:</span>
+                                <span data-pt="Rafael Lima" data-en="Rafael Lima">Rafael Lima</span>
+                            </div>
+                        
+                    </div>
+                    <div class="paciente-card-footer">
+                        <span class="badge status-info" data-pt="Pronto para laudo" data-en="Ready for report">Ready for report</span>
+                    </div>
+                </div>
+            
+                <div class="paciente-card" data-paciente-id="p03">
+                    <div class="paciente-card-header">
+                        
+            <div class="avatar avatar-md avatar-iniciais " title="Caio Fernandes Lopes">
+                <span data-pt="CL" data-en="CL">CL</span>
+            </div>
+        
+                        <div class="paciente-card-info">
+                            <div class="paciente-card-nome" data-pt="Caio Fernandes Lopes" data-en="Caio Fernandes Lopes">Caio Fernandes Lopes</div>
+                            <div class="paciente-card-idade" data-pt="7 anos e 2 meses" data-en="7 years 2 months">7 years 2 months</div>
+                            
+                            
+                        </div>
+                    </div>
+                    <div class="paciente-card-meta">
+                        
+                            <div class="paciente-card-meta-item">
+                                <span class="paciente-card-meta-label" data-pt="Convênio:" data-en="Insurer:">Insurer:</span>
+                                <span data-pt="Unisaúde" data-en="Unisaúde">Unisaúde</span>
+                            </div>
+                        
+                        
+                            <div class="paciente-card-meta-item" style="color: var(--color-text-soft);" data-pt=" Sem aplicador atribuído " data-en=" No examiner assigned "> No examiner assigned </div>
+                        
+                    </div>
+                    <div class="paciente-card-footer">
+                        <span class="badge status-info" data-pt="Cadastrado" data-en="Registered">Registered</span>
+                    </div>
+                </div>
+            
+                <div class="paciente-card" data-paciente-id="p04">
+                    <div class="paciente-card-header">
+                        
+            <div class="avatar avatar-md avatar-iniciais avatar-iniciais-fem" title="Daniela Castro Mendes">
+                <span data-pt="DM" data-en="DM">DM</span>
+            </div>
+        
+                        <div class="paciente-card-info">
+                            <div class="paciente-card-nome" data-pt="Daniela Castro Mendes" data-en="Daniela Castro Mendes">Daniela Castro Mendes</div>
+                            <div class="paciente-card-idade" data-pt="41 anos" data-en="41 years">41 years</div>
+                            
+                            
+                        </div>
+                    </div>
+                    <div class="paciente-card-meta">
+                        
+                            <div class="paciente-card-meta-item">
+                                <span class="paciente-card-meta-label" data-pt="Convênio:" data-en="Insurer:">Insurer:</span>
+                                <span data-pt="Particular" data-en="Private pay">Private pay</span>
+                            </div>
+                        
+                        
+                            <div class="paciente-card-meta-item">
+                                <span class="paciente-card-meta-label" data-pt="Aplicador:" data-en="Examiner:">Examiner:</span>
+                                <span data-pt="Camila Rocha" data-en="Camila Rocha">Camila Rocha</span>
+                            </div>
+                        
+                    </div>
+                    <div class="paciente-card-footer">
+                        <span class="badge status-success" data-pt="Laudo pronto" data-en="Report ready">Report ready</span>
+                    </div>
+                </div>
+            
+                <div class="paciente-card" data-paciente-id="p05">
+                    <div class="paciente-card-header">
+                        
+            <div class="avatar avatar-md avatar-iniciais " title="Eduardo Martins Reis">
+                <span data-pt="ER" data-en="ER">ER</span>
+            </div>
+        
+                        <div class="paciente-card-info">
+                            <div class="paciente-card-nome" data-pt="Eduardo Martins Reis" data-en="Eduardo Martins Reis">Eduardo Martins Reis</div>
+                            <div class="paciente-card-idade" data-pt="15 anos e 8 meses" data-en="15 years 8 months">15 years 8 months</div>
+                            <div class="paciente-card-estrelas"><span class="cst cst-sm"><span class="on" data-pt="★" data-en="★">★</span><span class="on" data-pt="★" data-en="★">★</span><span class="on" data-pt="★" data-en="★">★</span></span></div>
+                            <div class="paciente-card-marcadores"><span class="cmk-lista"><span class="cmk-chip cmk-sm" style="--cmk-cor:#DC2626;--cmk-bg:#FDE8E8;" title="Priority"><i></i><span data-pt="Prioridade" data-en="Priority">Priority</span></span></span></div>
+                        </div>
+                    </div>
+                    <div class="paciente-card-meta">
+                        
+                            <div class="paciente-card-meta-item">
+                                <span class="paciente-card-meta-label" data-pt="Convênio:" data-en="Insurer:">Insurer:</span>
+                                <span data-pt="Vida Plena Saúde" data-en="Vida Plena Saúde">Vida Plena Saúde</span>
+                            </div>
+                        
+                        
+                            <div class="paciente-card-meta-item">
+                                <span class="paciente-card-meta-label" data-pt="Aplicador:" data-en="Examiner:">Examiner:</span>
+                                <span data-pt="Rafael Lima" data-en="Rafael Lima">Rafael Lima</span>
+                            </div>
+                        
+                    </div>
+                    <div class="paciente-card-footer">
+                        <span class="badge status-warning" data-pt="Devolutiva agendada" data-en="Feedback scheduled">Feedback scheduled</span>
+                    </div>
+                </div>
+            
+                <div class="paciente-card" data-paciente-id="p06">
+                    <div class="paciente-card-header">
+                        
+            <div class="avatar avatar-md avatar-iniciais avatar-iniciais-fem" title="Fernanda Oliveira Cunha">
+                <span data-pt="FC" data-en="FC">FC</span>
+            </div>
+        
+                        <div class="paciente-card-info">
+                            <div class="paciente-card-nome" data-pt="Fernanda Oliveira Cunha" data-en="Fernanda Oliveira Cunha">Fernanda Oliveira Cunha</div>
+                            <div class="paciente-card-idade" data-pt="33 anos e 1 mês" data-en="33 years 1 month">33 years 1 month</div>
+                            <div class="paciente-card-estrelas"><span class="cst cst-sm"><span class="on" data-pt="★" data-en="★">★</span><span class="" data-pt="★" data-en="★">★</span><span class="" data-pt="★" data-en="★">★</span></span></div>
+                            <div class="paciente-card-marcadores"><span class="cmk-lista"><span class="cmk-chip cmk-sm" style="--cmk-cor:#D97706;--cmk-bg:#FEF3C7;" title="Reassessment"><i></i><span data-pt="Reavaliação" data-en="Reassessment">Reassessment</span></span></span></div>
+                        </div>
+                    </div>
+                    <div class="paciente-card-meta">
+                        
+                            <div class="paciente-card-meta-item">
+                                <span class="paciente-card-meta-label" data-pt="Convênio:" data-en="Insurer:">Insurer:</span>
+                                <span data-pt="Particular" data-en="Private pay">Private pay</span>
+                            </div>
+                        
+                        
+                            <div class="paciente-card-meta-item">
+                                <span class="paciente-card-meta-label" data-pt="Aplicador:" data-en="Examiner:">Examiner:</span>
+                                <span data-pt="Camila Rocha" data-en="Camila Rocha">Camila Rocha</span>
+                            </div>
+                        
+                    </div>
+                    <div class="paciente-card-footer">
+                        <span class="badge status-warning" data-pt="Em avaliação" data-en="In assessment">In assessment</span>
+                    </div>
+                </div>
+            
+                <div class="paciente-card" data-paciente-id="p07">
+                    <div class="paciente-card-header">
+                        
+            <div class="avatar avatar-md avatar-iniciais " title="Gabriel Antunes Vieira">
+                <span data-pt="GV" data-en="GV">GV</span>
+            </div>
+        
+                        <div class="paciente-card-info">
+                            <div class="paciente-card-nome" data-pt="Gabriel Antunes Vieira" data-en="Gabriel Antunes Vieira">Gabriel Antunes Vieira</div>
+                            <div class="paciente-card-idade" data-pt="11 anos e 6 meses" data-en="11 years 6 months">11 years 6 months</div>
+                            <div class="paciente-card-estrelas"><span class="cst cst-sm"><span class="on" data-pt="★" data-en="★">★</span><span class="on" data-pt="★" data-en="★">★</span><span class="" data-pt="★" data-en="★">★</span></span></div>
+                            <div class="paciente-card-marcadores"><span class="cmk-lista"><span class="cmk-chip cmk-sm" style="--cmk-cor:#7C4DFF;--cmk-bg:#F1EBFF;" title="ADHD"><i></i><span data-pt="TDAH" data-en="ADHD">ADHD</span></span></span></div>
+                        </div>
+                    </div>
+                    <div class="paciente-card-meta">
+                        
+                            <div class="paciente-card-meta-item">
+                                <span class="paciente-card-meta-label" data-pt="Convênio:" data-en="Insurer:">Insurer:</span>
+                                <span data-pt="Unisaúde" data-en="Unisaúde">Unisaúde</span>
+                            </div>
+                        
+                        
+                            <div class="paciente-card-meta-item">
+                                <span class="paciente-card-meta-label" data-pt="Aplicador:" data-en="Examiner:">Examiner:</span>
+                                <span data-pt="Rafael Lima" data-en="Rafael Lima">Rafael Lima</span>
+                            </div>
+                        
+                    </div>
+                    <div class="paciente-card-footer">
+                        <span class="badge status-warning" data-pt="Em avaliação" data-en="In assessment">In assessment</span>
+                    </div>
+                </div>
+            
+                <div class="paciente-card" data-paciente-id="p08">
+                    <div class="paciente-card-header">
+                        
+            <div class="avatar avatar-md avatar-iniciais avatar-iniciais-fem" title="Isabela Nogueira Freitas">
+                <span data-pt="IF" data-en="IF">IF</span>
+            </div>
+        
+                        <div class="paciente-card-info">
+                            <div class="paciente-card-nome" data-pt="Isabela Nogueira Freitas" data-en="Isabela Nogueira Freitas">Isabela Nogueira Freitas</div>
+                            <div class="paciente-card-idade" data-pt="6 anos e 10 meses" data-en="6 years 10 months">6 years 10 months</div>
+                            
+                            
+                        </div>
+                    </div>
+                    <div class="paciente-card-meta">
+                        
+                            <div class="paciente-card-meta-item">
+                                <span class="paciente-card-meta-label" data-pt="Convênio:" data-en="Insurer:">Insurer:</span>
+                                <span data-pt="Vida Plena Saúde" data-en="Vida Plena Saúde">Vida Plena Saúde</span>
+                            </div>
+                        
+                        
+                            <div class="paciente-card-meta-item" style="color: var(--color-text-soft);" data-pt=" Sem aplicador atribuído " data-en=" No examiner assigned "> No examiner assigned </div>
+                        
+                    </div>
+                    <div class="paciente-card-footer">
+                        <span class="badge status-danger" data-pt="Pendente" data-en="Pending">Pending</span>
+                    </div>
+                </div>
+            
+                <div class="paciente-card" data-paciente-id="p09">
+                    <div class="paciente-card-header">
+                        
+            <div class="avatar avatar-md avatar-iniciais " title="João Pedro Albuquerque">
+                <span data-pt="JA" data-en="JA">JA</span>
+            </div>
+        
+                        <div class="paciente-card-info">
+                            <div class="paciente-card-nome" data-pt="João Pedro Albuquerque" data-en="João Pedro Albuquerque">João Pedro Albuquerque</div>
+                            <div class="paciente-card-idade" data-pt="19 anos" data-en="19 years">19 years</div>
+                            
+                            
+                        </div>
+                    </div>
+                    <div class="paciente-card-meta">
+                        
+                            <div class="paciente-card-meta-item">
+                                <span class="paciente-card-meta-label" data-pt="Convênio:" data-en="Insurer:">Insurer:</span>
+                                <span data-pt="Particular" data-en="Private pay">Private pay</span>
+                            </div>
+                        
+                        
+                            <div class="paciente-card-meta-item">
+                                <span class="paciente-card-meta-label" data-pt="Aplicador:" data-en="Examiner:">Examiner:</span>
+                                <span data-pt="Camila Rocha" data-en="Camila Rocha">Camila Rocha</span>
+                            </div>
+                        
+                    </div>
+                    <div class="paciente-card-footer">
+                        <span class="badge status-success" data-pt="Entregue" data-en="Delivered">Delivered</span>
+                    </div>
+                </div>
+            
+                <div class="paciente-card" data-paciente-id="p10">
+                    <div class="paciente-card-header">
+                        
+            <div class="avatar avatar-md avatar-iniciais avatar-iniciais-fem" title="Larissa Teixeira Campos">
+                <span data-pt="LC" data-en="LC">LC</span>
+            </div>
+        
+                        <div class="paciente-card-info">
+                            <div class="paciente-card-nome" data-pt="Larissa Teixeira Campos" data-en="Larissa Teixeira Campos">Larissa Teixeira Campos</div>
+                            <div class="paciente-card-idade" data-pt="52 anos" data-en="52 years">52 years</div>
+                            <div class="paciente-card-estrelas"><span class="cst cst-sm"><span class="on" data-pt="★" data-en="★">★</span><span class="" data-pt="★" data-en="★">★</span><span class="" data-pt="★" data-en="★">★</span></span></div>
+                            <div class="paciente-card-marcadores"><span class="cmk-lista"><span class="cmk-chip cmk-sm" style="--cmk-cor:#16A34A;--cmk-bg:#E7F7EC;" title="Memory"><i></i><span data-pt="Memória" data-en="Memory">Memory</span></span></span></div>
+                        </div>
+                    </div>
+                    <div class="paciente-card-meta">
+                        
+                            <div class="paciente-card-meta-item">
+                                <span class="paciente-card-meta-label" data-pt="Convênio:" data-en="Insurer:">Insurer:</span>
+                                <span data-pt="Unisaúde" data-en="Unisaúde">Unisaúde</span>
+                            </div>
+                        
+                        
+                            <div class="paciente-card-meta-item">
+                                <span class="paciente-card-meta-label" data-pt="Aplicador:" data-en="Examiner:">Examiner:</span>
+                                <span data-pt="Rafael Lima" data-en="Rafael Lima">Rafael Lima</span>
+                            </div>
+                        
+                    </div>
+                    <div class="paciente-card-footer">
+                        <span class="badge status-info" data-pt="Pronto para laudo" data-en="Ready for report">Ready for report</span>
+                    </div>
+                </div>
+            
+                <div class="paciente-card" data-paciente-id="p11">
+                    <div class="paciente-card-header">
+                        
+            <div class="avatar avatar-md avatar-iniciais " title="Mateus Ribeiro Gomes">
+                <span data-pt="MG" data-en="MG">MG</span>
+            </div>
+        
+                        <div class="paciente-card-info">
+                            <div class="paciente-card-nome" data-pt="Mateus Ribeiro Gomes" data-en="Mateus Ribeiro Gomes">Mateus Ribeiro Gomes</div>
+                            <div class="paciente-card-idade" data-pt="8 anos e 3 meses" data-en="8 years 3 months">8 years 3 months</div>
+                            
+                            
+                        </div>
+                    </div>
+                    <div class="paciente-card-meta">
+                        
+                            <div class="paciente-card-meta-item">
+                                <span class="paciente-card-meta-label" data-pt="Convênio:" data-en="Insurer:">Insurer:</span>
+                                <span data-pt="Vida Plena Saúde" data-en="Vida Plena Saúde">Vida Plena Saúde</span>
+                            </div>
+                        
+                        
+                            <div class="paciente-card-meta-item">
+                                <span class="paciente-card-meta-label" data-pt="Aplicador:" data-en="Examiner:">Examiner:</span>
+                                <span data-pt="Camila Rocha" data-en="Camila Rocha">Camila Rocha</span>
+                            </div>
+                        
+                    </div>
+                    <div class="paciente-card-footer">
+                        <span class="badge status-info" data-pt="Cadastrado" data-en="Registered">Registered</span>
+                    </div>
+                </div>
+            
+                <div class="paciente-card" data-paciente-id="p12">
+                    <div class="paciente-card-header">
+                        
+            <div class="avatar avatar-md avatar-iniciais avatar-iniciais-fem" title="Olívia Barros Pinheiro">
+                <span data-pt="OP" data-en="OP">OP</span>
+            </div>
+        
+                        <div class="paciente-card-info">
+                            <div class="paciente-card-nome" data-pt="Olívia Barros Pinheiro" data-en="Olívia Barros Pinheiro">Olívia Barros Pinheiro</div>
+                            <div class="paciente-card-idade" data-pt="24 anos e 5 meses" data-en="24 years 5 months">24 years 5 months</div>
+                            
+                            <div class="paciente-card-marcadores"><span class="cmk-lista"><span class="cmk-chip cmk-sm" style="--cmk-cor:#DB2777;--cmk-bg:#FCE7F3;" title="AH/SD"><i></i><span data-pt="AH/SD" data-en="AH/SD">AH/SD</span></span></span></div>
+                        </div>
+                    </div>
+                    <div class="paciente-card-meta">
+                        
+                            <div class="paciente-card-meta-item">
+                                <span class="paciente-card-meta-label" data-pt="Convênio:" data-en="Insurer:">Insurer:</span>
+                                <span data-pt="Particular" data-en="Private pay">Private pay</span>
+                            </div>
+                        
+                        
+                            <div class="paciente-card-meta-item">
+                                <span class="paciente-card-meta-label" data-pt="Aplicador:" data-en="Examiner:">Examiner:</span>
+                                <span data-pt="Rafael Lima" data-en="Rafael Lima">Rafael Lima</span>
+                            </div>
+                        
+                    </div>
+                    <div class="paciente-card-footer">
+                        <span class="badge status-success" data-pt="Laudo pronto" data-en="Report ready">Report ready</span>
+                    </div>
+                </div>
+            </div></div>
+        </main>
+    </div>
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+
+
+<script src="../i18n.js"></script><script>(function(){
+  document.addEventListener('click',function(e){var a=e.target.closest('a[href="#"]');if(a)e.preventDefault();});
+  var t=document.getElementById('sidebar-toggle-btn'),s=document.getElementById('cortex-sidebar');
+  if(t&&s)t.addEventListener('click',function(e){e.preventDefault();s.classList.toggle('collapsed');document.body.classList.toggle('sidebar-rail',s.classList.contains('collapsed'));});
+})();
+</script></body></html>
