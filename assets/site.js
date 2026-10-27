@@ -274,8 +274,8 @@ if (!reduce) {
     .from('#h1 .w>span', { yPercent: 115, rotate: 4, duration: 1.2, stagger: .06 }, .2)
     .from('.rot', { opacity: 0, y: 20, duration: .8 }, .7)
     .from('.hero p', { opacity: 0, y: 24, duration: .9 }, .8)
-    .from('.hero .btn', { opacity: 0, y: 20, stagger: .08, duration: .8 }, .95)
-    .from('.nav', { yPercent: -100, duration: 1 }, .2);
+    .from('.hero .btn', { opacity: 0, y: 20, stagger: .08, duration: .8 }, .95);
+  gsap.fromTo('.nav .logo,.nav .links,.nav .lang', { opacity: 0, y: -16 }, { opacity: 1, y: 0, duration: .9, stagger: .08, ease: 'expo.out', delay: .2, clearProps: 'transform' });
   // hero leaves with depth
   gsap.to('#heroIn', { yPercent: -18, opacity: .15, scale: .94, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } });
   // generic reveals
